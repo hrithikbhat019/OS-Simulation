@@ -1,0 +1,111 @@
+body{
+  background-color: #2c3e50;
+
+}
+
+h1{
+  background: white;
+  color:red;
+  width:70%;
+
+}
+
+#one{
+  height:80px;
+  width:165px;
+  position:absolute;
+  top:70%;
+  left:18%;
+  background-color:white"
+}
+
+#two{
+  height:80px;
+  width:165px;
+  position:absolute;
+  top:70%;
+  left:44%;
+  background-color:white
+}
+
+#three{
+  height:80px;
+  width:165px;
+  position:absolute;
+  top:70%;
+  left:70%;
+  background-color:white;
+}
+
+#lock{
+   height:80px;
+   width:150px;
+   position:absolute;
+   top:90%;
+   left:45%;
+   font-size:20px;
+}
+
+#doc{
+  height:200px;
+  width:350px;
+  position:absolute;
+  top:21%;
+  left:66%;
+  font-size:20px;
+}
+
+#legend1{
+  height:25px;
+  width:25px;
+  position:absolute;
+  top:65%;
+  left:28%;
+  background-color:#FFFFFF;
+}
+
+
+ #legendText1{
+    position:absolute;
+    top:65%;
+    left:16%;
+    font-size:20px;
+    color:red;
+ }
+
+ #legend2{
+   height:25px;
+   width:25px;
+   position:absolute;
+   top:65%;
+   left:55%;
+   background-color:#8e44ad;
+ }
+
+
+  #legendText2{
+     position:absolute;
+     top:65%;
+     left:46%;
+     font-size:20px;
+     color:red;
+  }
+
+
+  #legend3{
+    height:25px;
+    width:25px;
+    position:absolute;
+    top:65%;
+    left:80%;
+    background-color:#f1c40f;
+  }
+
+
+   #legendText3{
+      position:absolute;
+      top:65%;
+      left:72%;
+      font-size:20px;
+      color:red;
+   }
