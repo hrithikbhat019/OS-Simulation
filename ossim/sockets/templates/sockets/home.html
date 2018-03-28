@@ -1,0 +1,20 @@
+
+{% block title %} <title>Socket Programming</title> {% endblock %}
+
+{% block links %}
+{% load static %}
+<link href="{%static 'filesystem/styles.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+
+{% block content %}
+
+<h1>Socket Programming</h1>
+<div id="choice">
+    <ul id="ulchoice">
+        <a href="/sockets/tcp"><li id="lichoice">TCP</li></a>
+        <a href="/sockets/udp"><li id="lichoice">UDP</li></a>
+    </ul>
+</div>
+
+{% endblock %}

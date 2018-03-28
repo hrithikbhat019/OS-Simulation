@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+{% load static %}
+<style>
+button {
+  background-color: #ff9999;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 12px;
+  border: 2px solid #ff9999;
+
+}
+
+}
+
+</style>
+
+<head>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<title>UDP</title>
+<body>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <div class="container-fluid">
+    <center><h1>TCP socket programming</h1></center>
+    <button id = "socket" class="btn btn-primary" type ="button", onclick ="socket()", style ="height:25px;width:125px;line-height:1; background-color:#f44336;border:#f44336;">Socket()</button> This  function shall create an unbound socket in a communications domain, and return a file descriptor that can operate on sockets.
+    <br/><br/>
+    <button id  = "bind" class="btn btn-primary" type ="button", onclick ="bind()", style ="height:25px;width:125px;line-height:1" disabled>Bind()</button> This function shall assign a local socket address address to a socket identified by descriptor socket that has no local socket address assigned.
+    <br/><br/>
+
+    <button id ="close" class="btn btn-primary" type ="button", onclick ="closee()", style ="height:25px;width:125px;line-height:1"disabled >Close()</button> This function closes the connection.
+
+
+
+
+<br/><br/><br/><br/>
+    <div class = "TERM">
+    <center>
+
+    <textarea rows="10" cols="50" disabled = "True" id = "servertext">
+      Waiting for Socket call
+    </textarea>
+    <textarea rows="10" cols="50" disabled = "True" id = "clienttext">
+      Waiting for Socket call
+    </textarea>
+
+    <br/><br/>
+    <br/><br/>
+
+    <button id ="move" class="btn btn-primary" type ="button", onclick ="myMove()", style ="height:25px;width:125px;line-height:1" disabled>SendtoClient()</button>
+    <button id ="move2" class="btn btn-primary" type ="button", onclick ="myMove2()", style ="height:25px;width:125px;line-height:1" disabled>SendtoServer()</button>
+  </div>
+  </center>
+
+
+    <script type ="text/javascript">
+
+    function socket()
+    {
+      document.getElementById("bind").style.backgroundColor = "#f44336";
+      document.getElementById("bind").style.border = "#f44336";
+      document.getElementById("close").style.backgroundColor = "#f44336";
+      document.getElementById("close").style.border = "#f44336";
+document.getElementById("socket").disabled = true;
+document.getElementById("socket").style.backgroundColor = "#ff9999";
+document.getElementById("socket").style.border = "#ff9999";
+      document.getElementById("servertext").value="      Waiting to Bind";
+      document.getElementById("clienttext").value="      Waiting for Bind";
+      document.getElementById("bind").disabled = false;
+      document.getElementById("close").disabled = false;
+    }
+
+    function closee()
+    {
+      document.getElementById("socket").style.backgroundColor = "#f44336";
+      document.getElementById("socket").style.border = "#f44336";
+      document.getElementById("socket").disabled  = false;
+      document.getElementById("close").disabled  = true;
+      document.getElementById("bind").disabled = true;
+        document.getElementById("move").disabled = true;
+        document.getElementById("move2").disabled = true;
+      document.getElementById("servertext").value="      Waiting for Socket Call";
+      document.getElementById("servertext").disabled = true;
+      document.getElementById("clienttext").disabled = true;
+      document.getElementById("clienttext").value="      Waiting for Socket Call";
+      document.getElementById("servertext").style.backgroundColor = '';
+      document.getElementById("clienttext").style.backgroundColor = '';
+      document.getElementById("servertext").style.color = '';
+      document.getElementById("clienttext").style.color = '';
+      document.getElementById("bind").style.backgroundColor = "";
+      document.getElementById("bind").style.border = "";
+      document.getElementById("move").style.backgroundColor = "";
+      document.getElementById("move").style.border = "";
+      document.getElementById("move2").style.backgroundColor = "";
+      document.getElementById("move2").style.border = "";
+      document.getElementById("close").style.backgroundColor = "";
+      document.getElementById("close").style.border = "";
+
+    }
+    function bind()
+    {
+      document.getElementById("bind").style.backgroundColor = "";
+      document.getElementById("bind").style.border = "";
+      document.getElementById("bind").disabled = true;
+      document.getElementById("servertext").value="Send message to Client";
+      document.getElementById("clienttext").value="Send message to Server";
+      document.getElementById("clienttext").disabled = false;
+      document.getElementById("servertext").style.backgroundColor = 'black';
+      document.getElementById("clienttext").style.backgroundColor = 'black';
+      document.getElementById("servertext").style.color = 'green';
+      document.getElementById("clienttext").style.color = 'green';
+      document.getElementById("clienttext").value="";
+      document.getElementById("servertext").value="";
+      document.getElementById("clienttext").placeholder = "Send message to Server";
+      document.getElementById("servertext").placeholder = "Send message to Client";
+      document.getElementById("servertext").disabled = false;
+      document.getElementById("move").disabled = false;
+      document.getElementById("move2").disabled = false;
+      document.getElementById("move").style.backgroundColor = "#f44336";
+      document.getElementById("move").style.border = "#f44336";
+      document.getElementById("move2").style.backgroundColor = "#f44336";
+      document.getElementById("move2").style.border = "#f44336";
+
+    }
+
+    function myMove() {
+      document.getElementById("clienttext").value = document.getElementById("servertext").value;
+      document.getElementById("servertext").value = "";
+
+    }
+
+    function myMove2() {
+      document.getElementById("servertext").value = document.getElementById("clienttext").value;
+      document.getElementById("clienttext").value = "";
+
+    }
+
+
+
+    </script>
+  </div>
+</body>
