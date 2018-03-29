@@ -5,5 +5,6 @@ from django.conf.urls import include,url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^sockets/',include('sockets.urls'))
+    url(r'^sockets/',include('sockets.urls')),
+    url(r'^synchro/',include('synchro.urls'))
 ]
