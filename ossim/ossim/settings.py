@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'sockets',
     'synchro',
     'home',
+    'file_alloc',
 ]
 
 MIDDLEWARE = [

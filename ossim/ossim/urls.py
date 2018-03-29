@@ -7,5 +7,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^',include('home.urls')),
     url(r'^sockets/',include('sockets.urls')),
-    url(r'^synchro/',include('synchro.urls'))
+    url(r'^synchro/',include('synchro.urls')),
+    url(r'^file_allocation/',include('file_alloc.urls')),
 ]
