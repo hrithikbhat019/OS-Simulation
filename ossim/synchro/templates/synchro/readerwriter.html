@@ -14,23 +14,23 @@
   <div class="container-fluid">
     <center><h1>Reader-Writer Problem (Writer Preference)</u> </h1></center>
     <form onsubmit="return false">
-      <p><br /></p>
-      <h4>First user:  </h4>
+      <p><br /><br><br></p>
+      <span> User 1:  </span>
       Read: <input type = "checkbox", name = "first">
-      Write: <input type = "checkbox" name = "first"><br>
-      <p style="font-size:10px"><br /><br /></p>
-      <h4>Second user: </h4>
-      Read: <input type = "checkbox", name = "second">
-      Write: <input type = "checkbox" name = "second">
-      <p style="font-size:10px"><br /><br /></p>
-      <h4>Third user: </h4>
+      Write: <input type = "checkbox" name = "first"><br><br><br>
+
+      <span>User 2: </span>
+       Read: <input type = "checkbox" name = "second">
+      Write: <input type = "checkbox" name = "second"><br><br><br>
+
+      <span>User 3: </span>
       Read: <input type = "checkbox", name = "third">
-      Write: <input type = "checkbox" name = "third">
+      Write: <input type = "checkbox" name = "third"><br><br><br>
 
 
 
       <br /><br />
-      <input type = "submit", name ="Go!", onclick="update()", class="btn btn-primary">
+      <input type = "submit", name ="Go!", onclick="update()", class="btn btn-primary" value='Click'>
     </form>
 
     <button type = "button", id ="one", name = "one"> </button>
@@ -88,7 +88,7 @@
 
             if(document.forms[0].elements[0].checked == true)
             {
-              document.getElementById("one").style.backgroundColor = '##8e44ad';
+              document.getElementById("one").style.backgroundColor = '#8e44ad';
               mutex =-1;
             }
             if(document.forms[0].elements[2].checked == true)
@@ -128,11 +128,13 @@
             console.log(mutex);
             if(mutex==-1)
             {
-               document.getElementById("doc").disabled = true;
+               document.getElementById("doc").style.display = 'none'
+
             }
             else
             {
-                document.getElementById("doc").disabled = false;
+                document.getElementById("doc").style.display = 'block'
+                document.getElementById("doc").disabled= false
             }
       }
     </script>
