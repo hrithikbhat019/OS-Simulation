@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+    <title>RAG</title>
+
+    <script type="text/javascript" src="http://visjs.org/dist/vis.js"></script>
+    <link href="http://visjs.org/dist/vis-network.min.css" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        #mynetwork {
+            width: 600px;
+            height: 400px;
+            border: 1px solid lightgray;
+        }
+
+        p {
+            max-width:600px;
+        }
+
+        h4 {
+            margin-bottom:3px;
+        }
+    </style>
+</head>
+{% if initial %}
+
+            <form>
+              Enter no of Resources:
+              <input type="number" name="resource_no">
+              Enter no of processes:
+              <input type="number" name="process_no">
+            </form>
+
+
+
+
+<div id="mynetwork"></div>
+
+<script type="text/javascript">
+    var nodeIds, shadowState, nodesArray, nodes, edgesArray, edges, network;
+
+    function startNetwork() {
+        // this list is kept to remove a random node.. we do not add node 1 here because it's used for changes
+        nodeIds = [2, 3, 4, 5];
+        shadowState = false;
+
+
+        // create an array with nodes
+        nodesArray = [
+        ];
+
+         var i = 0;
+            var len = 5;
+            for (; i < len; ) {
+                a = {id:i, label:"I'm new!"};
+                nodesArray.push(a);
+                i++;
+            }
+
+        nodes = new vis.DataSet(nodesArray);
+
+        // create an array with edges
+        edgesArray = [
+
+        ];
+        edges = new vis.DataSet(edgesArray);
+
+        // create a network
+        var container = document.getElementById('mynetwork');
+        var data = {
+            nodes: nodes,
+            edges: edges
+        };
+        var options = {};
+        network = new vis.Network(container, data, options);
+    }
+
+    function addNode() {
+        var newId = (Math.random() * 1e7).toString(32);
+        nodes.add({id:newId, label:"I'm new!"});
+        nodeIds.push(newId);
+    }
+
+    function changeNode1() {
+        var newColor = '#' + Math.floor((Math.random() * 255 * 255 * 255)).toString(16);
+        nodes.update([{id:1, color:{background:newColor}}]);
+    }
+
+    function removeRandomNode() {
+        var randomNodeId = nodeIds[Math.floor(Math.random() * nodeIds.length)];
+        nodes.remove({id:randomNodeId});
+
+        var index = nodeIds.indexOf(randomNodeId);
+        nodeIds.splice(index,1);
+    }
+
+    function changeOptions() {
+        shadowState = !shadowState;
+        network.setOptions({nodes:{shadow:shadowState},edges:{shadow:shadowState}});
+    }
+
+    function resetAllNodes() {
+        nodes.clear();
+        edges.clear();
+        nodes.add(nodesArray);
+        edges.add(edgesArray);
+    }
+
+    function resetAllNodesStabilize() {
+        resetAllNodes();
+        network.stabilize();
+    }
+
+    function setTheData() {
+        nodes = new vis.DataSet(nodesArray);
+        edges = new vis.DataSet(edgesArray);
+        network.setData({nodes:nodes, edges:edges})
+    }
+
+    function resetAll() {
+        if (network !== null) {
+            network.destroy();
+            network = null;
+        }
+        startNetwork();
+    }
+
+    startNetwork();
+</script>
+
+{% endif %}
+</body>
+</html>

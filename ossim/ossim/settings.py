@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'synchro',
     'home',
     'file_alloc',
+    'deadlock',
 ]
 
 MIDDLEWARE = [

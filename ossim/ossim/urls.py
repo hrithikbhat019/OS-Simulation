@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^sockets/',include('sockets.urls')),
     url(r'^synchro/',include('synchro.urls')),
     url(r'^file_allocation/',include('file_alloc.urls')),
+    url(r'^deadlock/',include('deadlock.urls')),
 ]
