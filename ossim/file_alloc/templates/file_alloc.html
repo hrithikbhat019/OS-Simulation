@@ -49,11 +49,13 @@
         var no_files;
         var memory;
         var resource;
+        var check = Number(0);
 
 			function BuildFormFields($amount) // For Resorce allocation
 			{
                 // form1 = document.resource;
                 //console.log(form1);
+                check = Number(1);
                 res = $amount;
 				var
 					$container = document.getElementById('FormFields1'),
@@ -91,6 +93,7 @@
 
 			function BuildFormFields3($amount) //For Allocation
 			{
+				check = Number(1);
 				no_files = $amount;
                 console.log(res);
 				var
@@ -129,7 +132,7 @@
 
             	console.log(res)
             	var
-					$container = document.getElementById('FormFields2'),
+					$container = document.getElementById('FormFields4'),
 					$number, $field, $i;
 				no_files = $amount;
 				$container.innerHTML = '';
@@ -163,6 +166,11 @@
 
 			function createFile()
 			{
+						if(check==Number(0))
+						{
+							alert("Insufficient input");
+							return;
+						}
 						var res_form = document.Need;
 						var colors = ["yellow", "red", "green", "blue"]
 						var j =0;
@@ -180,7 +188,7 @@
                         cell.innerHTML = "<b>Colour Assigned </b>"
                         var tmp = document.getElementsByClassName('form-control');
                         console.log(tmp);
-                        $container = document.getElementById('FormFields3')
+                        $container = document.getElementById('FormFields4')
 	                  for(i=2;i<=no_files+1;i++)
 	                  {
 	                      cell = row.insertCell(i-1);
@@ -200,11 +208,18 @@
 	               
 	                  var count = 0;
 	                  var label_count = 0;
+	                  var flag= 0;
 	                  for(i=1;i<=no_files;i++)
 	                  {
-	                  	
+	                  	flag = Number(0); 	
 	                  	for (j = 0; j < tmp[no_files+1 + i].value; j++) {
                     	console.log(j);
+                    	if (Number(tmp[no_files+1+i].value)>(Number(memory)- Number(count)))
+                    	{
+                    		flag = 1;
+                    		break;
+                    	}
+
                         $item = document.createElement('button');
                         $item.style.margin = '10px';
                         $item.style.backgroundColor = colors[i-1];
@@ -228,9 +243,17 @@
 
 
 						}
-						count += Number(tmp[no_files+1 + i].value); 
+						if(flag)
+						{
+							color_head.cells[i].innerHTML = 'Not Allocated'
+							color_head.cells[i].style.backgroundColor = "white"
+							continue;
+						}
+						count += Number(tmp[no_files+1 + i].value);
+
 
 	                  }
+
 	                  console.log("count"+count);
 	                  for(j= count;j<memory;j++)
 	                  {
@@ -320,6 +343,11 @@
 	                  }
 
 			}
+			function resetFunction() {
+				alert("The alllocation was reset!");
+				window.location.reload(true);
+    			
+			}
 
 		</script>
 
@@ -350,6 +378,12 @@
 		            </div>
 				</form>
 				<br>
+				<form name = "Initial Graph">
+		             <div class = "form-group" style="margin-left:50px;float:left;margin-top:60px;">
+					<div id="FormFields4"></div>
+		            </div>
+				</form>
+				<br>
 				<form name = "Graph">
 		             <div class = "form-group" style="margin-left:50px;float:left;margin-top:60px;">
 					<div id="FormFields3"></div>
@@ -365,9 +399,9 @@
 		        <br> -->
 
 				<table id="tab_need" class="table table-hover">
-
-
-
+					<div class = "form-group" style="margin-left:50px;float:left;margin-top:60px;">
+					<div id="FormFields3"></div>
+		            </div>
 				</table>
 		        <!-- <br>
 		        <br>
@@ -388,6 +422,7 @@
 	        </div>
 			<div class="panel-footer">
 	            <button class="btn btn-primary btn-success" onclick="createFile()">Allocate</button>
+	            <button type = "reset" class="btn btn-primary btn-success" onclick="resetFunction()">Reset</buttpn>
 	        </div>
 		</div>
 
