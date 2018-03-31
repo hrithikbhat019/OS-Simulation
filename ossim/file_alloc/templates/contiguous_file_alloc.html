@@ -132,7 +132,7 @@
 
             	console.log(res)
             	var
-					$container = document.getElementById('FormFields4'),
+					$container = document.getElementById('FormFields2'),
 					$number, $field, $i;
 				no_files = $amount;
 				$container.innerHTML = '';
@@ -186,6 +186,9 @@
                         var color_head = tab_need.insertRow(2 );
                         var cell = color_head.insertCell(0);
                         cell.innerHTML = "<b>Colour Assigned </b>"
+                        var start_block = tab_need.insertRow(3);
+                        cell= start_block.insertCell(0);
+                        cell.innerHTML = "<b>Start Block </b>"
                         var tmp = document.getElementsByClassName('form-control');
                         console.log(tmp);
                         $container = document.getElementById('FormFields4')
@@ -209,6 +212,7 @@
 	                  var count = 0;
 	                  var label_count = 0;
 	                  var flag= 0;
+	                  var start = Number(1);
 	                  for(i=1;i<=no_files;i++)
 	                  {
 	                  	flag = Number(0); 	
@@ -249,7 +253,11 @@
 							color_head.cells[i].style.backgroundColor = "white"
 							continue;
 						}
-						count += Number(tmp[no_files+1 + i].value);
+						
+						cell= start_block.insertCell(start);
+                    	cell.innerHTML = Number(count);
+                    	start = start + Number(1);
+                    	count += Number(tmp[no_files+1 + i].value);
 
 
 	                  }
@@ -292,7 +300,7 @@
 	                  {
 	                  	
 	                  	for (j = 0; j < tmp[2*i+1].value; j++) {
-                    
+                    	
                         $item = document.createElement('button');
                         $item.style.margin = '10px';
                         $item.style.backgroundColor = colors[i];
@@ -398,7 +406,7 @@
 		        <br>
 		        <br> -->
 
-				<table id="tab_need" class="table table-hover">
+				<table id="tab_need" class="table table-dark table-striped">
 					<div class = "form-group" style="margin-left:50px;float:left;margin-top:60px;">
 					<div id="FormFields3"></div>
 		            </div>
