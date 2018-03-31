@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'file_alloc',
     'deadlock',
     'page',
+    'disk_sched',
 ]
 
 MIDDLEWARE = [
