@@ -8,5 +8,6 @@ urlpatterns =[
 
     path('contiguous',views.contiguous.as_view() ),
     path('linked',views.linked.as_view() ),
+    path('indexed',views.indexed.as_view() ),
 
 ]
