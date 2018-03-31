@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'home',
     'file_alloc',
     'deadlock',
+    'page',
 ]
 
 MIDDLEWARE = [
