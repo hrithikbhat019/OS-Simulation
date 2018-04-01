@@ -131,8 +131,8 @@ However, delay the fade out process for 2.5 seconds */
 	<br>
 	<div class="container" style="background-color: white;opacity: 0.8;padding:0px 20px 10px 20px">
 			<div style="padding:10px">
-				<p id="demo"></p>
-				<div id="container" 9style="min-width: 300px;max-width: 800px; height: 380px; margin: 0 auto"></div>
+				<div id="demo" ></div>
+				<div id="container" style="min-width: 300px;max-width: 800px; height: 380px; margin: 0 auto"></div>
 			</div>
 	</div>
 	
@@ -529,277 +529,298 @@ function sstf(arr,cur){
 }
 
 function scan(arr,cur,total,pre){
-	var x1=[];
-	var y1=[];
-	var seek=0;
-	x1.push(cur);
-	arr.sort(function(a, b){return a-b});
-	if(cur<=pre){
-		var store,hold=cur;
-		for(a1=0;a1<arr.length;++a1){if(arr[a1]<=cur){store=a1;}}
-			var count=1;
-		for(a1=store;a1>=0;--a1){
-			x1.push(arr[a1]);
-			y1.push(-1*count);
-			++count;
-			console.log(seek);
-			seek=seek+Math.abs(hold-arr[a1]);
-			hold=arr[a1];
-		}
-		x1.push(0);
-		y1.push(-1*count);
-		console.log(seek);
-		seek=seek+hold;
-		hold=0;
-		++count;
-		for(a1=store+1;a1<arr.length;++a1){
-			x1.push(arr[a1]);
-			y1.push(-1*count);
-			++count; 
-			console.log(seek); 
-			seek=seek+Math.abs(hold-arr[a1]);
-			hold=arr[a1]; 
-		}
-	}
-	else{
-		var store,hold=cur;
-		for(a1=0;a1<arr.length;++a1){if(arr[a1]>=cur){store=a1;break}}
-			var count=1;
-		for(a1=store;a1<arr.length;++a1){
-			x1.push(arr[a1]);
-			y1.push(-1*count);
-			++count; 
-			seek=seek+Math.abs(hold-arr[a1]);
-			hold=arr[a1]; 
-		}
-		x1.push(total);
-		y1.push(-1*count);
-		seek=seek+total-hold;
-		hold=total;
-		++count;
-		for(a1=store-1;a1>=0;--a1){
-			x1.push(arr[a1]);
-			y1.push(-1*count);
-			++count;
-			seek=seek+Math.abs(hold-arr[a1]);
-			hold=arr[a1];
-		}
+ var plot=[];
+ var y1=[];
+ var seek=0;
+ plot.push(cur);
+ arr.sort(function(a, b){return a-b});
+ if(cur<=pre){
+ var store=-1,hold=cur;
+ for(a1=0;a1<arr.length;++a1){if(arr[a1]<=cur){store=a1;}}
+ var count=1;
+ for(a1=store;a1>=0&&store!=-1;--a1){
+ plot.push(arr[a1]);
+ y1.push(-1*count);
+ ++count;
+ console.log(seek);
+ seek=seek+Math.abs(hold-arr[a1]);
+ hold=arr[a1];
+ }
+ plot.push(0);
+ y1.push(-1*count);
+ console.log(seek);
+ seek=seek+hold;
+ hold=0;
+ ++count;
+ for(a1=store+1;a1<arr.length;++a1){
+ plot.push(arr[a1]);
+ y1.push(-1*count);
+ ++count; 
+ console.log(seek); 
+ seek=seek+Math.abs(hold-arr[a1]);
+ hold=arr[a1]; 
+ }
+ }
+ else{
+ var store=-1,hold=cur;
+ for(a1=0;a1<arr.length;++a1){if(arr[a1]>=cur){store=a1;break}}
+ var count=1;
+ for(a1=store;a1<arr.length&&store!=-1;++a1){
+ plot.push(arr[a1]);
+ y1.push(-1*count);
+ ++count; 
+ seek=seek+Math.abs(hold-arr[a1]);
+ hold=arr[a1]; 
+ }
+ plot.push(total);
+ y1.push(-1*count);
+ seek=seek+total-hold;
+ hold=total;
+ ++count;
+ if(store==-1)
+ store=arr.length;
+ for(a1=store-1;a1>=0;--a1){
+ plot.push(arr[a1]);
+ y1.push(-1*count);
+ ++count;
+ seek=seek+Math.abs(hold-arr[a1]);
+ hold=arr[a1];
+ }
+ 
+ }
+ console.log(seek);
+ console.log(plot);
+ console.log(y1);
+ plotthe("SCAN",plot);
+ return seek;
+ }
 
-	}
-	console.log(seek);
-	console.log(x1);
-	plotthe("SCAN",x1);
-	console.log(y1);
-	return seek;
-}
 
+
+
+
+ 
 function cscan(arr,cur,total,pre){
-	var x1=[],x2=[],x3=[];
-	var y1=[],y2=[],y3=[];
-	var seek=0;
-	x1.push(cur);
-	arr.sort(function(a, b){return a-b});
-	if(cur<=pre){
-		var store,hold=cur;
-		for(a1=0;a1<arr.length;++a1){if(arr[a1]<=cur){store=a1;}}
-			var count=1;
-		for(a1=store;a1>=0;--a1){ 
-			x1.push(arr[a1]);
-			y1.push(-1*count);
-			++count;
-			seek=seek+Math.abs(hold-arr[a1]);
-			hold=arr[a1];
-		}
-		x1.push(0);
-		y1.push(-1*count);
-		seek=seek+hold;
-		hold=total;
-		x2.push(0);
-		y2.push(-1*count);
-		x2.push(total);
-		y2.push(-1*count);
+ var plot=[],x2=[],plot2=[];
+ var y1=[],y2=[],y3=[];
+ var seek=0;
+ plot.push(cur);
+ arr.sort(function(a, b){return a-b});
+ if(cur<=pre){
+ var store=-1,hold=cur;
+ for(a1=0;a1<arr.length;++a1){if(arr[a1]<=cur){store=a1;}}
+ var count=1;
+ for(a1=store;a1>=0&&store!=-1;--a1){ 
+ plot.push(arr[a1]);
+ y1.push(-1*count);
+ ++count;
+ seek=seek+Math.abs(hold-arr[a1]);
+ hold=arr[a1];
+ }
+ plot.push(0);
+ y1.push(-1*count);
+ seek=seek+hold;
+ hold=total;
+ x2.push(0);
+ y2.push(-1*count);
+ x2.push(total);
+ y2.push(-1*count);
+ 
+ plot2.push(total);
+ y3.push(-1*count);
+ ++count;
+ 
+ for(a1=arr.length-1;a1>store;--a1){
+ plot2.push(arr[a1]);
+ y3.push(-1*count);
+ ++count; 
+ seek=seek+Math.abs(hold-arr[a1]);
+ hold=arr[a1]; 
+ }
+ }
+ else{
+ var store=-1,hold=cur;
+ for(a1=0;a1<arr.length;++a1){if(arr[a1]>=cur){store=a1;break;}}
+ var count=1;
+ for(a1=store;a1<arr.length&&store!=-1;++a1){
+ plot.push(arr[a1]);
+ y1.push(-1*count);
+ ++count;
+ seek=seek+Math.abs(hold-arr[a1]);
+ hold=arr[a1];
+ }
+ plot.push(total);
+ y1.push(-1*count);
+ seek=seek+total-hold;
+ hold=0;
+ x2.push(total);
+ y2.push(-1*count);
+ x2.push(0);
+ y2.push(-1*count);
+ 
+ plot2.push(0);
+ y3.push(-1*count);
+ ++count;
+ if(store==-1)
+ store=arr.length;
+ for(a1=0;a1<store;++a1){
+ plot2.push(arr[a1]);
+ y3.push(-1*count);
+ ++count; 
+ seek=seek+Math.abs(hold-arr[a1]);
+ hold=arr[a1]; 
+ }
+ 
+ }
 
-		x3.push(total);
-		y3.push(-1*count);
-		++count;
-		for(a1=arr.length-1;a1>store;--a1){
-			x3.push(arr[a1]);
-			y3.push(-1*count);
-			++count; 
-			seek=seek+Math.abs(hold-arr[a1]);
-			hold=arr[a1]; 
-		}
-	}
-	else{
-		var store,hold=cur;
-		for(a1=0;a1<arr.length;++a1){if(arr[a1]>=cur){store=a1;break;}}
-			var count=1;
-		for(a1=store;a1<arr.length;++a1){
-			x1.push(arr[a1]);
-			y1.push(-1*count);
-			++count;
-			seek=seek+Math.abs(hold-arr[a1]);
-			hold=arr[a1];
-		}
-		x1.push(total);
-		y1.push(-1*count);
-		seek=seek+total-hold;
-		hold=0;
-		x2.push(total);
-		y2.push(-1*count);
-		x2.push(0);
-		y2.push(-1*count);
+ 
 
-		x3.push(0);
-		y3.push(-1*count);
-		++count;
-		for(a1=0;a1<store;++a1){
-			x3.push(arr[a1]);
-			y3.push(-1*count);
-			++count; 
-			seek=seek+Math.abs(hold-arr[a1]);
-			hold=arr[a1]; 
-		}
-
-	}
-
-	console.log(seek);
-	console.log(x1);
-	console.log(x2);
-	console.log(x3);
-	plotthe("Circular SCAN",x1,x3);
+ console.log(seek);
+ console.log(plot);
+ console.log(x2);
+ console.log(plot2);
+ plotthe("Circular SCAN",plot,plot2);
  //console.log(y1);
  return seek;
-}
+ }
 
 function look(arr,cur,total,pre){
-	var x1=[];
-	var y1=[];
-	var seek=0;
-	x1.push(cur);
-	arr.sort(function(a, b){return a-b});
-	if(cur<=pre){
-		var store,hold=cur;
-		for(a1=0;a1<arr.length;++a1){if(arr[a1]<=cur){store=a1;}}
-			var count=1;
-		for(a1=store;a1>=0;--a1){
-			x1.push(arr[a1]);
-			y1.push(-1*count);
-			++count;
-			seek=seek+Math.abs(hold-arr[a1]);
-			hold=arr[a1];
-		}
-
-		for(a1=store+1;a1<arr.length;++a1){
-			x1.push(arr[a1]);
-			y1.push(-1*count);
-			++count; 
-			seek=seek+Math.abs(hold-arr[a1]);
-			hold=arr[a1]; 
-		}
-	}
-	else{
-		var store,hold=cur;
-		for(a1=0;a1<arr.length;++a1){if(arr[a1]>=cur){store=a1;break}}
-			var count=1;
-		for(a1=store;a1<arr.length;++a1){
-			x1.push(arr[a1]);
-			y1.push(-1*count);
-			++count; 
-			seek=seek+Math.abs(hold-arr[a1]);
-			hold=arr[a1]; 
-		}
-
-		for(a1=store-1;a1>=0;--a1){
-			x1.push(arr[a1]);
-			y1.push(-1*count);
-			++count;
-			seek=seek+Math.abs(hold-arr[a1]);
-			hold=arr[a1];
-		}
-
-	}
-	console.log(x1);
-	plotthe("LOOK",x1);
+ var plot=[];
+ var y1=[];
+ var seek=0;
+ plot.push(cur);
+ arr.sort(function(a, b){return a-b});
+ if(cur<=pre){
+ var store=-1,hold=cur;
+ for(a1=0;a1<arr.length;++a1){if(arr[a1]<=cur){store=a1;}}
+ var count=1;
+ for(a1=store;a1>=0&&store!=-1;--a1){
+ plot.push(arr[a1]);
+ y1.push(-1*count);
+ ++count;
+ seek=seek+Math.abs(hold-arr[a1]);
+ hold=arr[a1];
+ }
+ 
+ for(a1=store+1;a1<arr.length;++a1){
+ plot.push(arr[a1]);
+ y1.push(-1*count);
+ ++count; 
+ seek=seek+Math.abs(hold-arr[a1]);
+ hold=arr[a1]; 
+ }
+ }
+ else{
+ var store=-1,hold=cur;
+ for(a1=0;a1<arr.length;++a1){if(arr[a1]>=cur){store=a1;break}}
+ var count=1;
+ for(a1=store;a1<arr.length&&store!=-1;++a1){
+ plot.push(arr[a1]);
+ y1.push(-1*count);
+ ++count; 
+ seek=seek+Math.abs(hold-arr[a1]);
+ hold=arr[a1]; 
+ }
+ if(store==-1)
+ store=arr.length-1;
+ for(a1=store-1;a1>=0;--a1){
+ plot.push(arr[a1]);
+ y1.push(-1*count);
+ ++count;
+ seek=seek+Math.abs(hold-arr[a1]);
+ hold=arr[a1];
+ }
+ 
+ }
+ console.log(plot);
+ plotthe("LOOK",plot);
  //console.log(y1);
  return seek;
-}
+ }
 
+
+
+ 
 function clook(arr,cur,total,pre){
-	var x1=[],x2=[],x3=[];
-	var y1=[],y2=[],y3=[];
-	var seek=0;
-	x1.push(cur);
-	arr.sort(function(a, b){return a-b});
-	if(cur<=pre){
-		var store,hold=cur;
-		for(a1=0;a1<arr.length;++a1){if(arr[a1]<=cur){store=a1;}}
-			var count=1;
-		for(a1=store;a1>=0;--a1){
-			x1.push(arr[a1]);
-			y1.push(-1*count);
-			++count;
-			seek=seek+Math.abs(hold-arr[a1]);
-			hold=arr[a1];
-		}
+ var plot=[],x2=[],plot2=[];
+ var y1=[],y2=[],y3=[];
+ var seek=0;
+ plot.push(cur);
+ arr.sort(function(a, b){return a-b});
+ if(cur<=pre){
+ var store=-1,hold=cur;
+ for(a1=0;a1<arr.length;++a1){if(arr[a1]<=cur){store=a1;}}
+ var count=1;
+ for(a1=store;a1>=0&&store!=-1;--a1){
+ plot.push(arr[a1]);
+ y1.push(-1*count);
+ ++count;
+ seek=seek+Math.abs(hold-arr[a1]);
+ hold=arr[a1];
+ }
+ 
+ x2.push(hold);
+ y2.push(-1*(count-1));
+ x2.push(arr[arr.length-1]);
+ y2.push(-1*(count-1));
+ plot2.push(arr[arr.length-1]);
+ y3.push(-1*(count-1));
+ 
+ hold=arr[arr.length-1];
+ for(a1=arr.length-2;a1>store;--a1){
+ plot2.push(arr[a1]);
+ y3.push(-1*count);
+ ++count; 
+ seek=seek+Math.abs(hold-arr[a1]);
+ hold=arr[a1]; 
+ }
+ }
+ else{
+ var store=-1,hold=cur;
+ for(a1=0;a1<arr.length;++a1){if(arr[a1]>=cur){store=a1;break;}}
+ var count=1;
+ for(a1=store;a1<arr.length&&store!=-1;++a1){
+ plot.push(arr[a1]);
+ y1.push(-1*count);
+ ++count;
+ seek=seek+Math.abs(hold-arr[a1]);
+ hold=arr[a1];
+ }
+ 
+ x2.push(hold);
+ y2.push(-1*(count-1));
+ x2.push(arr[0]);
+ y2.push(-1*(count-1));
+ 
+ plot2.push(arr[0]);
+ y3.push(-1*(count-1));
+ 
+ hold=arr[0];
+ if(store==-1)
+ store=arr.length;
+ for(a1=1;a1<store;++a1){
+ plot2.push(arr[a1]);
+ y3.push(-1*count);
+ ++count; 
+ seek=seek+Math.abs(hold-arr[a1]);
+ hold=arr[a1]; 
+ }
+ 
+ }
 
-		x2.push(hold);
-		y2.push(-1*(count-1));
-		x2.push(arr[arr.length-1]);
-		y2.push(-1*(count-1));
-		x3.push(arr[arr.length-1]);
-		y3.push(-1*(count-1));
-
-		hold=arr[arr.length-1];
-		for(a1=arr.length-2;a1>store;--a1){
-			x3.push(arr[a1]);
-			y3.push(-1*count);
-			++count; 
-			seek=seek+Math.abs(hold-arr[a1]);
-			hold=arr[a1]; 
-		}
-	}
-	else{
-		var store,hold=cur;
-		for(a1=0;a1<arr.length;++a1){if(arr[a1]>=cur){store=a1;break;}}
-			var count=1;
-		for(a1=store;a1<arr.length;++a1){
-			x1.push(arr[a1]);
-			y1.push(-1*count);
-			++count;
-			seek=seek+Math.abs(hold-arr[a1]);
-			hold=arr[a1];
-		}
-
-		x2.push(hold);
-		y2.push(-1*(count-1));
-		x2.push(arr[0]);
-		y2.push(-1*(count-1));
-
-		x3.push(arr[0]);
-		y3.push(-1*(count-1));
-
-		hold=arr[0];
-		for(a1=1;a1<store;++a1){
-			x3.push(arr[a1]);
-			y3.push(-1*count);
-			++count; 
-			seek=seek+Math.abs(hold-arr[a1]);
-			hold=arr[a1]; 
-		}
-
-	}
 
 
-
-	console.log(seek);
-	console.log(x1);
-	console.log(x2);
-	console.log(x3);
-	plotthe("Circular LOOK",x1,x3);
+ console.log(seek);
+ console.log(plot);
+ console.log(x2);
+ console.log(plot2);
+ plotthe("Circular LOOK",plot,plot2);
  //console.log(y1);
  return seek;
-}
+ }
+
+
+
 
 
 </script>
