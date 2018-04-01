@@ -1,9 +1,9 @@
 from django.urls import path
 from django.conf.urls import include,url
 from . import views
-
+app_name='page'
 urlpatterns=[
 
-    path('',views.demo),
+    path('',views.demo,name='demo'),
     path('algo/',views.algo),
 ]

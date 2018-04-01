@@ -11,18 +11,71 @@
     <link rel="stylesheet" type="text/css" href="{% static 'home/assets/css/fonts.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'home/assets/css/style.css' %}" />
 
+      <style>
+
+    #icon1
+    {
+      position:  absolute;
+      left: 80px;
+
+      top: 150px; /* set these so Chrome doesn't return 'auto' from getComputedStyle */
+        width: 40px;
+        height: 40px;
+      background: rgba(255,255,255,0.66);
+      border: 2px  solid rgba(0,0,0,0.5);
+      border-radius: 4px; padding: 8px;
+    }
+    </style>
+    <script>
+
+        $('#icon1').draggable({
+
+            containment: "parent"
+        });
+
+
+
+$( ".selector" ).draggable({
+  containment: "parent"
+});
+
+    function drag_start(event)
+    {
+    var style = window.getComputedStyle(event.target, null);
+    var str = (parseInt(style.getPropertyValue("left")) - event.clientX) + ',' + (parseInt(style.getPropertyValue("top")) - event.clientY)+ ',' + event.target.id;
+    event.dataTransfer.setData("Text",str);
+    }
+
+    function drop(event)
+    {
+
+    var offset = event.dataTransfer.getData("Text").split(',');
+    var dm = document.getElementById(offset[2]);
+    dm.style.left = (event.clientX + parseInt(offset[0],10)) + 'px';
+    dm.style.top = (event.clientY + parseInt(offset[1],10)) + 'px';
+    event.preventDefault();
+    return false;
+    }
+
+    function drag_over(event)
+    {
+    event.preventDefault();
+    return false;
+    }
+    </script>
+
 <title>Desktop</title>
 
 </head>
-<body >
+<body  ondragover="drag_over(event)" ondrop="drop(event)">
 	<div id="allContent"> 
 
 		<!-- All Contents in Desktop , File System  -->
 
 		<div id='desktopContent'>
-			<div class="nav">
+			<div class="nav"  >
 				<div class="left">
-					SkynetOS Desktop
+					Desktop
 				</div>
 
 				<div class="right">
@@ -36,7 +89,7 @@
 			<!-- Launching File Explorer , Synchronization Example , Calculator -->
 
 
-			<div class="luncher">
+			<div class="luncher" >
 				<span data-toggle="tooltip" title="Files" style="cursor:pointer;">
 		   		 <i class="fa fa-folder" id="folder"></i>
 			  	</span>
@@ -50,8 +103,17 @@
 				<button id='createFile' type='button' data-toggle='modal' data-target='.calculator' style="background-color:transparent; border:0;"><i class="fa fa-calculator" aria-hidden="true" onclick="clearCalc()"></i></button>
 				</span>
 
-			</div>
+                <span data-toggle='tooltip' >
+				<a href="{% url 'page:demo'%}">
 
+                    <img border="0" id="icon1" alt="page" src="https://vignette.wikia.nocookie.net/epicrapbattlesofhistory/images/f/ff/Final_hint_also_P.png/revision/latest?cb=20160216042129" height="60px" width="60px" draggable="true" ondragstart="drag_start(event)" >
+
+                </a>
+				</span>
+
+			</div>
+          <!--  <div ondragover="drag_over(event)" ondrop="drop(event)" style="border: 1px solid ;background: transparent;height:100vh;width:100%"></div>
+-->
 			<!-- Calculator -->
 
 			<div class='modal fade calculator' tabindex='-1' role='dialog' aria-labelledby='mySmallModalLabel'>
