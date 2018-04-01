@@ -8,7 +8,7 @@ def home(request):
 
 
 def rag(request):
-    return render(request, 'deadlock/rag.html')
+    return render(request, 'deadlock/rag.html', { 'd': 7})
 
 
 def bankers(request):

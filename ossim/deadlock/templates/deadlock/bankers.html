@@ -8,6 +8,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 			<style>
+
                 h1, h2{
                     text-align: center;
                 }
@@ -40,6 +41,7 @@
         margin-left: 150px;
 
     }
+
 
 	</style>
 
@@ -378,30 +380,40 @@
 
 	</head>
 	<body>
-		<div class = "panel panel-primary"
-	        style="margin : 0.25cm 0.25cm 0.25cm 0.25cm;">
-	        <div class="panel-heading">
+		<div class = "panel panel-primary" style="margin : 0.25cm 0.25cm 0.25cm 0.25cm;">
+
+	        <div class="panel-heading" style="background-color: #8b0033">
 	            <h2>Banker's Algorithm</h2>
 	        </div>
+
 			<div class="panel-body">
+
+
 				<form name = "resource">
-		            <div class = "form-group" style="margin-left:50px; float:left;">
-					<label>Number of Resource types:</label><input class="form-control" type="Number" onkeyup="BuildFormFields(parseInt(this.value, 10));" />
-					<div id="FormFields" style=""></div>
+		            <div class = "form-group" style="margin-left:90px; margin-top: 30px; float:left; width: 600px">
+					<input class="form-control" type="Number" onkeyup="BuildFormFields(parseInt(this.value, 10));" placeholder="Number of Resource types" />
+					<div id="FormFields" style="width: 400px; margin-left: 400px"></div>
 		            </div>
 				</form>
+
+
 		        <form name = "Need">
-		            <div class = "form-group" style="margin-left:50px;float:left;">
-					<label>Number of Processes:</label> <input class="form-control" type="Number" onkeyup="BuildFormFields2(y = parseInt(this.value, 10));" />
-					<div id="FormFields1"></div>
+		            <div class = "form-group" style="margin-left:50px; margin-top: 30px; float:left;width: 600px">
+						<input class="form-control" type="Number" onkeyup="BuildFormFields2(y = parseInt(this.value, 10));" placeholder="Number of Processes"/>
 		            </div>
 					<!-- <button type="button" onclick="banker()">Try it</button> -->
 				</form>
+
+				<div id="FormFields1" style="width: 200px; margin-left: 80px;">
+
+				</div>
+
 				 <form name = "Alloc">
-		             <div class = "form-group" style="margin-left:50px;float:left;margin-top:60px;">
+		             <div class = "form-group" style=" width: 200px">
 					<div id="FormFields2"></div>
 		            </div>
 				</form>
+
 				<!-- <button type="button" onclick="banker()">Try it</button> -->
 		        <!-- <br>
 		        <br>
