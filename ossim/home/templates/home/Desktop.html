@@ -28,16 +28,6 @@
     </style>
     <script>
 
-        $('#icon1').draggable({
-
-            containment: "parent"
-        });
-
-
-
-$( ".selector" ).draggable({
-  containment: "parent"
-});
 
     function drag_start(event)
     {
@@ -62,18 +52,20 @@ $( ".selector" ).draggable({
     event.preventDefault();
     return false;
     }
+
+
     </script>
 
 <title>Desktop</title>
 
 </head>
-<body  ondragover="drag_over(event)" ondrop="drop(event)">
+<body  >
 	<div id="allContent"> 
 
 		<!-- All Contents in Desktop , File System  -->
 
 		<div id='desktopContent'>
-			<div class="nav"  >
+			<div class="nav"   >
 				<div class="left">
 					Desktop
 				</div>
@@ -103,15 +95,12 @@ $( ".selector" ).draggable({
 				<button id='createFile' type='button' data-toggle='modal' data-target='.calculator' style="background-color:transparent; border:0;"><i class="fa fa-calculator" aria-hidden="true" onclick="clearCalc()"></i></button>
 				</span>
 
-                <span data-toggle='tooltip' >
-				<a href="{% url 'page:demo'%}">
 
-                    <img border="0" id="icon1" alt="page" src="https://vignette.wikia.nocookie.net/epicrapbattlesofhistory/images/f/ff/Final_hint_also_P.png/revision/latest?cb=20160216042129" height="60px" width="60px" draggable="true" ondragstart="drag_start(event)" >
 
-                </a>
-				</span>
+
 
 			</div>
+
           <!--  <div ondragover="drag_over(event)" ondrop="drop(event)" style="border: 1px solid ;background: transparent;height:100vh;width:100%"></div>
 -->
 			<!-- Calculator -->
@@ -164,8 +153,12 @@ $( ".selector" ).draggable({
 				</div>
 
 
-			<div class="desktop">
-				
+			<div class="desktop" ondragover="drag_over(event)" ondrop="drop(event)">
+				<a href="{% url 'page:demo'%}">
+
+                    <img border="0" id="icon1" alt="page" src="https://vignette.wikia.nocookie.net/epicrapbattlesofhistory/images/f/ff/Final_hint_also_P.png/revision/latest?cb=20160216042129" height="60px" width="60px" draggable="true" ondragstart="drag_start(event)" >
+
+                </a>
 			</div>
 		</div>
 
