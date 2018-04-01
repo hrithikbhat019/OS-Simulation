@@ -5,9 +5,9 @@ from . import views
 
 app_name = 'file_alloc'
 urlpatterns =[
-
-    path('contiguous',views.contiguous.as_view() ),
-    path('linked',views.linked.as_view() ),
-    path('indexed',views.indexed.as_view() ),
+    path('',views.home.as_view(), name = 'home'),
+    path('contiguous',views.contiguous.as_view(), name = 'contiguous' ),
+    path('linked',views.linked.as_view() ,name = 'linked'),
+    path('indexed',views.indexed.as_view(), name = 'indexed' ),
 
 ]
