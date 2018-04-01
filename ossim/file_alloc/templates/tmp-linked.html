@@ -1,50 +1,36 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Linked File Allocation</title>
+<html lang="en">
+<head>
+	<title>Linked File Allocation</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="/static/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
+<!--===============================================================================================-->
+
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-			<style>
-                h1, h2{
-                    text-align: center;
-                }
-	table, td {
-		border: 1px solid black;
-
-
-	}
-    th, td {
-    padding: 25px;
-    text-align: center;
-    }
-
-
-				ul {
-			font-family: 'Times New Roman', Times, serif;
-			font-size: 30px;
-		}
-
-    .form-control {
-        width: 100%;
-    }
-
-
-    thead{
-        text-align: center;
-    }
-    .table{
-        width:80%;
-
-    }
-
-	</style>
-
 		<script type="text/javascript">
 
-        var res,pro;
+		var res,pro;
         var no_files;
         var memory;
         var resource;
@@ -325,6 +311,7 @@
 	                  }
 
 	                  console.log("count"+count);
+	                  document.getElementById("allocate-button").remove();
 	                  
 
 
@@ -390,22 +377,43 @@
 	                  }
 
 			}
+
 			function resetFunction() {
 				alert("The alllocation was reset!");
 				window.location.reload(true);
     			
 			}
+			Element.prototype.remove = function() {
+    this.parentElement.removeChild(this);
+			}	
+// 			$(document).ready(function(){
+//     // to fade in on page load
+//     //$("body").css("display", "none");
+//     $("body").fadeIn(100); 
+//     // to fade out before redirect
+//     $('a').click(function(e){
+//         redirect = $(this).attr('href');
+//         e.preventDefault();
+//         $('body').fadeOut(100, function(){
+//             document.location.href = redirect
+//         });
+//     });
+// })
 
 		</script>
+</head>
+<body>
 
-	</head>
-	<body>
-		<div class = "panel panel-primary"
-	        style="margin : 0.25cm 0.25cm 0.25cm 0.25cm;">
-	        <div class="panel-heading">
-	            <h2>Linked File Allocation</h2>
-	        </div>
-			<div class="panel-body">
+
+	<div class="container-contact100" style="background-image: url('/static/images/bg-01.jpg');">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Linked File Allocation
+				</span>
+
+	        
+			
 				<form name = "resource">
 		            <div class = "form-group" style="margin-left:50px; float:left;">
 					<label>Total size of memory:</label><input class="form-control" type="Number" onkeyup=" create_graph(y=parseInt(this.value,10)) " />
@@ -466,13 +474,71 @@
 		        <ul id = "printing">
 
 		        </ul>
-	        </div>
-			<div class="panel-footer">
-	            <button class="btn btn-primary btn-success" onclick="createFile()">Allocate</button>
-	            <button type = "reset" class="btn btn-primary btn-success" onclick="resetFunction()">Reset</button>
-	        </div>
+		        <div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button  id = "allocate-button" class="contact100-form-btn" onclick="createFile()" >
+							Allocate
+						</button>
+
+						
+					</div>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn" onclick="resetFunction()" >
+							Reset
+						</button>
+	        	</div>
+
+
+
+
+						<div class="container-contact100-form-btn" style="width:800px; margin:0 auto;">
+						<a href = "/file_allocation">
+							Back to File Allocation Home</a>
+						
+				</div>
+					</div>
+
+				</div>
+
+				
+	        
+		</div>
+			</form>
 		</div>
 
+		<span class="contact100-more">
+				Made with love
+		</span>
+	</div>
 
-	</body>
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="/static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/vendor/bootstrap/js/popper.js"></script>
+	<script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/js/main.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
 </html>
