@@ -99,7 +99,7 @@
 
 
 
-        <button type="button" class="btn btn-primary center-block" onclick="startNetwork()" style="text-align: center;" >Save2</button>
+
 
         </div>
 
@@ -124,6 +124,7 @@
 
 	        </div>
 			<div class="panel-footer">
+                <button type="button" class="btn btn-primary center-block" onclick="startNetwork()" style="text-align: center; width: 200px" >Check Deadlock</button>
 
 	        </div>
 		</div>
@@ -165,6 +166,7 @@
 					$field = document.createElement('input');
 					$field.name = 'Design[' + $i + ']';
 					$field.type = 'text';
+					$field.placeholder = 'Enter process';
                     $field.setAttribute("class","form-control");
 					$item.appendChild($field);
 
@@ -189,9 +191,11 @@
                     $field.innerHTML = 'Resource '+$i;
 					$item.appendChild($field);
 
+
 					$field = document.createElement('input');
 					$field.name = 'Design[' + $i + ']';
 					$field.type = 'text';
+					$field.placeholder = 'Processes with spaces';
                     $field.setAttribute("class","form-control");
 					$item.appendChild($field);
 
