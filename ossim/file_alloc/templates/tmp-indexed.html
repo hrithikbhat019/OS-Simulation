@@ -250,6 +250,14 @@
                     	
                     	index_block = graph[Number(rand_val)];
                     	graph.splice(Number(rand_val),1);
+                    	console.log("file "+Number(tmp[no_files+1+i].value+1)+ " memory "+ Number(memory))
+                    	if (Number(Number(tmp[no_files+1+i].value)+Number(1))>(Number(memory)- Number(count)))
+                    	{
+                    		color_head.cells[i].innerHTML = 'Not Allocated'
+							color_head.cells[i].style.backgroundColor = "white"
+							continue;
+                    		
+                    	}
                     	graph_container[index_block].style.backgroundColor = colors[i-1];
                     	graph_container[index_block].children[0].innerHTML = "INDEX_"+Number(i-1)+"-> ";
                     	cell = ind_block.insertCell(i);
