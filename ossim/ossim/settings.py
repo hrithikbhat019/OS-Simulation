@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'deadlock',
     'page',
     'disk_sched',
+    'process',
 ]
 
 MIDDLEWARE = [
