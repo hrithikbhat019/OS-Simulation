@@ -3,7 +3,7 @@
 <html>
 
 <head>
- <meta http-equiv="X-UA-Compatible" content="IE=9"/> 
+ <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 
     {% load static %}
                 <link rel="stylesheet" type="text/css" href="{% static 'home/assets/css/bootstrap.min.css' %}" />
@@ -60,7 +60,7 @@
 
 </head>
 <body  >
-	<div id="allContent"> 
+	<div id="allContent">
 
 		<!-- All Contents in Desktop , File System  -->
 
@@ -71,10 +71,10 @@
 				</div>
 
 				<div class="right">
-			
+
 					<span class="time"></span>
 					<span class="am-pm"></span>
-					<i class="fa fa-power-off fa-fw" onclick="logOut()"></i>
+			<a	href = "/">	<i class="fa fa-power-off fa-fw" onclick="logOut()"></i></a>
 				</div>
 			</div>
 
@@ -91,7 +91,7 @@
 				</span>
 
 				<span data-toggle='tooltip' title="Calculator" style="cursor:pointer;">
-				
+
 				<button id='createFile' type='button' data-toggle='modal' data-target='.calculator' style="background-color:transparent; border:0;"><i class="fa fa-calculator" aria-hidden="true" onclick="clearCalc()"></i></button>
 				</span>
 
@@ -162,7 +162,7 @@
 			</div>
 		</div>
 
-		<div id ='exploringContent' hidden> 
+		<div id ='exploringContent' hidden>
 
 			<!-- Creating New File -->
 
@@ -181,11 +181,11 @@
 		                    <label class='form-label'>File Type </label>
 		                    <select class='form-control' id='file-type' onchange='showHideLink()' >
 		                      <option value='txt' >Text</option>
-		                      <option value='audio'>Audio</option>                 
+		                      <option value='audio'>Audio</option>
 		                      <option value='video'>Video</option>
 		                    </select>
 		                </div>
-		                <div id='showHideLink' class='form-group' hidden> 
+		                <div id='showHideLink' class='form-group' hidden>
 		                    <label class='form-label'>Link </label>
 		                  	<input class='form-control create-file' id='file-link' type='text' value='' >
 		                </div>
@@ -212,9 +212,9 @@
                     <div class='form-group'>
                         <label class='form-label'>Folder Name </label>
                         <input class='form-control create-folder' id='folder-name' type='text' autofocus >
-                        
+
                     </div>
-                    
+
                     <div class='modal-footer'>
                       <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
                       <button type='button' class='btn btn-primary' class='close' data-dismiss='modal' aria-label='Close' onclick='creatingFolder()'>Save changes</button>
@@ -238,10 +238,10 @@
                   </div>
                   <div class='modal-body' id="textEditor">
                     <div class='form-group' id="modalBody">
-                        
-                        
+
+
                     </div>
-                    
+
                     <div class='modal-footer' >
                       <button type='button' class='btn btn-default' data-dismiss='modal' onclick="closeApps()">Close</button>
                       <button type='button' id="modalSave" onclick="saveChanges()" class='btn btn-primary' class='close' data-dismiss='modal' aria-label='Close'>Save changes</button>
@@ -268,7 +268,7 @@
 	                <div class='modal-body' >
 		                <div class='form-group'>
 		                    <label class='form-label'>File Name </label>
-		                    <input class='form-control' id='file-rename' type='text' autofocus>	
+		                    <input class='form-control' id='file-rename' type='text' autofocus>
 		                </div>
 		                <div class='modal-footer'>
 		                  <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
@@ -299,17 +299,17 @@
                     <div id='directory' class='top'></div>
                   </div>
                   <div id='view' class='noselect middle'>
-                          
+
                   <i class='material-icons' title='Paste' onclick="onPaste()" style="display: none;" id="paste">&#xE14F;</i>
               	 <button id='rename' type='button' class='btn btn-primary' data-toggle='modal' data-target='.rename'> <i class='material-icons' title='Rename' >text_format</i> </button>
-                  <i class='material-icons' title='Copy' onclick="onCopy()" id="copy">&#xE14D;</i> 
+                  <i class='material-icons' title='Copy' onclick="onCopy()" id="copy">&#xE14D;</i>
                   <i class='material-icons' title='Cut'  onclick="onCut()" id="cut">&#xE14E;</i>
                   <i class='material-icons' title='Delete' onclick="deleteAny()" id="delete">&#xE16C;</i>
-	                 
+
                   <button id='createFile' type='button' class='btn btn-primary' data-toggle='modal' data-target='.newFile'><i class='material-icons' title='Create File'>add</i></button>
 
-                  <button id='createFolder' type='button' class='btn btn-primary' data-toggle='modal' data-target='.newFolder'> <i class='material-icons' title='Create Folder'>add_box</i></button> 
-                       
+                  <button id='createFolder' type='button' class='btn btn-primary' data-toggle='modal' data-target='.newFolder'> <i class='material-icons' title='Create Folder'>add_box</i></button>
+
 
                   <span class='taille'></span>
                   </div>
@@ -321,7 +321,7 @@
               </div>
               <span class='taille'></span>
             </div>
-		</div> 
+		</div>
 
 	</div>
 
