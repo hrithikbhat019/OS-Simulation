@@ -11,19 +11,19 @@ $(function() {
 
 		if (hours >= 12) {
 			hours = hours - 12;
-			$('.nav .right .am-pm').text('PM');
+			$('#am-pm').text('PM');
 		}
 
 		else {
-			$('.nav .right .am-pm').text('AM');
+			$('#am-pm').text('AM');
 		}
 
 
-		$('.nav .right .time').text(hours + ':' + minutes);
+		$('#time').text(hours + ':' + minutes);
 
 	},1000);
 
-	var height = $(window).height() - $('.nav').height();
+	var height = $(window).height() - $('.navigationbar').height();
 	$('.luncher').height(1000);
 	$('.desktop').height(1000);
 

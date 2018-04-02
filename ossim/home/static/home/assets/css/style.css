@@ -116,7 +116,7 @@ a {
 	transform: rotate(270deg);
 }
 
-.nav .right .time {
+#time {
 	margin-top: 250px;
 }
 
@@ -147,12 +147,22 @@ a {
 
 
 .desktop {
-	background-image: url('../images/desktop.jpg');
-	background-size: auto;
+	background-image: url('../images/windows_xp_bliss-wide.jpg');
+	background-size: cover;
+
 	background-attachment: fixed;
 	background-position: center;
 }
+.start{
 
+	background-image: url("../images/st.png");
+	border: none;
+    background-color: #0062EA;
+    background-size: cover;
+	background-repeat: no-repeat;
+
+     background-position: center;
+          }
 
 
 @media(max-width: 768px) {
