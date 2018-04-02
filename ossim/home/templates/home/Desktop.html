@@ -82,6 +82,8 @@
     event.preventDefault();
     return false;
     }
+    document.getElementById('demo').innerHTML = Date();
+
 
 
     </script>
@@ -131,30 +133,35 @@
 
 
 			</div>   -->
-            <div class="navigationbar nav" style="margin: 0;padding: 0">
 
-               <a href="#">    <button class="start"  style="height: 36px; width:110px;margin: 0">
+            <div class="navigationbar nav" style="margin: 0px;padding: 0px">
+
+               <a href="#">    <button class="start"  style="height: 36px; width:110px;margin: 2px">
                </button></a>
 
-                <div class="right" style="border: 1px solid white;right:0;width: 110px;font-size:14px;padding:2px;background-color: #5DB3FF  ;border:none;height: 36px">
-
-					<span id="time"></span>
-					<span id="am-pm"></span>
+                <div align=center class="right" style="border: 1px solid white;right:0;width: 110px;font-size:14px;padding:2px;margin:2px;background-color: #5DB3FF  ;border:none;height: 36px">
+                	<div>
+						<b><span id="time" style="vertical-align: middle;"></span>
+						<span id="am-pm" style="vertical-align: middle;"></span></b>
+					</div>
+					<div>
+						<span id="demo"></span>
+					</div>
                 </div>
                 <a>
                     <div>
 
                         <span data-toggle="tooltip" title="Files" style="cursor:pointer;">
-		   		 <i class="fa fa-folder" id="folder" style=" width:150px; height: 30px;background-color:  #14A5F4 ;border:1px solid darkblue">My Documents</i>
+		   		 <i class="fa fa-folder" id="folder" style=" width:200px; height: 32px;background-color:  #14A5F4 ;border:1px solid darkblue;padding: 4px;margin:4px"><b style="margin: 10px;font-family: Arial, Helvetica, sans-serif;">My Documents</b></i>
 			  	</span>
 
 				<span data-toggle="tooltip" title="Synchronization Example" style="cursor:pointer;">
-				<i class="fa fa-cog" style=" width:150px;background-color:  #14A5F4;border: 1px solid darkblue;height: 30px" onclick="navigateTo()"></i>
+				<i class="fa fa-cog" style=" width:50px;background-color:  #14A5F4;border: 1px solid darkblue;height: 32px;padding: 4px;margin:4px" onclick="navigateTo()"></i>
 				</span>
 
 				<span data-toggle='tooltip' title="Calculator" style="cursor:pointer;" >
 
-				<i id='createFile' class="fa fa-calculator" aria-hidden="true" data-toggle='modal' data-target='.calculator' onclick="clearCalc()" style="border: 1px solid darkblue;width:150px;height: 30px;background-color:  #14A5F4;"></i>
+				<i id='createFile' class="fa fa-calculator" aria-hidden="true" data-toggle='modal' data-target='.calculator' onclick="clearCalc()" style="border: 1px solid darkblue;width:50px;height: 32px;background-color:  #14A5F4;padding: 4px;margin:4px"></i>
 				</span>
                     </div>
                 </a>
