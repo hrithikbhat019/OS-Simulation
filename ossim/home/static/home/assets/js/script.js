@@ -23,6 +23,7 @@ $(function() {
 
 	},1000);
 
+	
 	var height = $(window).height() - $('.navigationbar').height();
 	$('.luncher').height(1000);
 	$('.desktop').height(1000);
