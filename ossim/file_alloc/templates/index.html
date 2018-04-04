@@ -148,6 +148,8 @@
 				}
 
             }
+            
+            
 
 
 			function createFile()
@@ -175,6 +177,9 @@
                         var start_block = tab_need.insertRow(3);
                         cell= start_block.insertCell(0);
                         cell.innerHTML = "<b>Start Block </b>"
+                        var delete_block = tab_need.insertRow(4)
+                        cell  = delete_block.insertCell(0)
+                        cell.innerHTML = "<b> Delete file </b>"
                         var tmp = document.getElementsByClassName('form-control');
                         console.log(tmp);
                         $container = document.getElementById('FormFields4')
@@ -191,10 +196,31 @@
 	                  }
 	                  for(i=1;i<=no_files;i++)
 	                  {
+
 	                      cell = color_head.insertCell(i);
 	                      cell.style.backgroundColor = colors[i-1];
 	                  }
-	               
+	                  for(i=1;i<=no_files;i++)
+	                  {
+	                  	//var removeRow=document.createElement("BUTTON");
+	                  	cell = delete_block.insertCell(i)
+	                  	//removeRow.innerHTML = "Delete this file"
+	                  	//removeRow.id = "suraj1"+i;
+	                  	var x = $('<button/>', {
+	                  		text: "Delete the file",
+	                  		id: "suraj_"+i,
+	                  		click: function(){delete_file(1);}
+	                  	})
+	                  	console.log(x[0]);
+	                  	//removeRow.addEventListener("click", delete_file(i), false);
+	                  	
+	                  	// removeRow.type = "button"
+	                  	// removeRow.class = "btn-default"
+	                  	cell.appendChild(x[0]);
+	                  }
+	               		
+	                 
+	               		
 	                  var count = 0;
 	                  var label_count = 0;
 	                  var flag= 0;
@@ -235,8 +261,8 @@
 						}
 						if(flag)
 						{
-							color_head.cells[i].innerHTML = 'Not Allocated'
-							color_head.cells[i].style.backgroundColor = "white"
+							color_head.cells[i].innerHTML = 'Not Allocated';
+							color_head.cells[i].style.backgroundColor = "white";
 							continue;
 						}
 						
@@ -272,7 +298,7 @@
                         $container.appendChild($item);
                         label_count+=1;
 
-                        document.getElementById("allocate-button").remove()
+//                        document.getElementById("allocate-button").remove()
 
 	                  }
 
@@ -280,65 +306,30 @@
 
 
 			}
-			function show_graph()
-			{
-				var count = 0;
-				var tmp = document.getElementsByClassName('form-control');
-	                  for(i=1;i<=no_files;i++)
-	                  {
-	                  	
-	                  	for (j = 0; j < tmp[2*i+1].value; j++) {
-                    	
-                        $item = document.createElement('button');
-                        $item.style.margin = '10px';
-                        $item.style.backgroundColor = colors[i];
 
-                        $field = document.createElement('label');
-                        $field.innerHTML =count+j ;
-                        $field.style.marginRight = '10px';
-                        $item.appendChild($field);
-
-                       
-
-                        $field.name = j;
-                        $field.id = j;
-         
-                        $field.setAttribute("class","form-control");
-                        $item.appendChild($field);
-
-                     //   console.log($item);
-                        $container.appendChild($item);
-                    
-
-
-						}
-						count += tmp[2*i+1].value; 
-
-	                  }
-	                  for(;j<memory;j++)
-	                  {
-	                  	 $item = document.createElement('button');
-                        $item.style.margin = '10px';
-
-                        $field = document.createElement('label');
-                        $field.innerHTML =j ;
-                        $field.style.marginRight = '10px';
-                        $item.appendChild($field);
-
-                       
-
-                        $field.name = j;
-                        $field.id = j;
-         
-                        $field.setAttribute("class","form-control");
-                        $item.appendChild($field);
-
-                     //   console.log($item);
-                        $container.appendChild($item);
-
-	                  }
-
-			}
+			function delete_file(file)
+            {
+            	var graph_container = document.getElementById('FormFields4');
+            	var tab_need = document.getElementById("tab_need");
+            	console.log(tab_need.rows[2].cells[file].style.backgroundColor);
+            	var color = tab_need.rows[2].cells[file].style.backgroundColor;
+            	
+            	var i;
+            	//console.log(graph_container.children[0]);
+            	for(i=0;i<memory;i++)
+            	{
+            		if (graph_container.children[i].style.backgroundColor==color)
+            		{
+            			graph_container.children[i].style.backgroundColor = "white";
+            			graph_container.children[i].children[0].innerHTML = i;
+            		}
+            	}
+            	for(i=0;i<5;i++)
+            	{
+            		tab_need.rows[i].cells[file].remove();
+            	}
+            }
+	
 			function resetFunction() {
 				alert("The alllocation was reset!");
 				window.location.reload(true);
@@ -460,18 +451,34 @@
 	        
 		</div>
 
-
+		<!-- <button id="suraj1">Test this</button> -->
 		<span class="contact100-more">
-				Made with love
+				
 		</span>
 	</div>
 
 
 
 	<div id="dropDownSelect1"></div>
-
-<!--===============================================================================================-->
 	<script src="/static/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			 	$("#suraj1").click(function () {
+	                  		alert("HII");
+
+	                  		console.log("Hi");
+	                  		delete_file(1);
+	                  	});
+			 	/*$("#suraj_1").click(function () {
+	                  		alert("HII");
+
+	                  		console.log("Hi");
+	                  		delete_file(1);
+	                  	});*/
+			});
+	</script>
+<!--===============================================================================================-->
+	
 <!--===============================================================================================-->
 	<script src="/static/vendor/bootstrap/js/popper.js"></script>
 	<script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -481,7 +488,7 @@
 	<script src="/static/js/main.js"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script> -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
