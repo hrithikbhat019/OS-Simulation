@@ -209,7 +209,9 @@
 	                  	var x = $('<button/>', {
 	                  		text: "Delete the file",
 	                  		id: "suraj_"+i,
-	                  		click: function(){delete_file(1);}
+	                  		click: function(i){
+	                  			//console.log(i);
+	                  			delete_file(i);}
 	                  	})
 	                  	console.log(x[0]);
 	                  	//removeRow.addEventListener("click", delete_file(i), false);
@@ -311,8 +313,10 @@
             {
             	var graph_container = document.getElementById('FormFields4');
             	var tab_need = document.getElementById("tab_need");
-            	console.log(tab_need.rows[2].cells[file].style.backgroundColor);
-            	var color = tab_need.rows[2].cells[file].style.backgroundColor;
+            	//console.log(tab_need.rows[2].cells[file].style.backgroundColor);
+            	console.log(file.target.id.split("_")[1]);
+            	var needy = file.target.id.split("_")[1];
+            	var color = tab_need.rows[2].cells[needy].style.backgroundColor;
             	
             	var i;
             	//console.log(graph_container.children[0]);
@@ -326,7 +330,7 @@
             	}
             	for(i=0;i<5;i++)
             	{
-            		tab_need.rows[i].cells[file].remove();
+            		tab_need.rows[i].cells[needy].remove();
             	}
             }
 	
@@ -453,7 +457,7 @@
 
 		<!-- <button id="suraj1">Test this</button> -->
 		<span class="contact100-more">
-				
+				Made with love
 		</span>
 	</div>
 
