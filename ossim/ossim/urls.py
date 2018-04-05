@@ -13,7 +13,7 @@ urlpatterns = [
     url(r'^deadlock/',include('deadlock.urls')),
     path('page/',include('page.urls')),
     url(r'^matdemo/', include('mat.urls')),
-    url(r'^mat/', views.matindex),
+    #url(r'^mat/', views.matindex),
     path('disk/',include('disk_sched.urls')),
     path('process/',include('process.urls'))
 ]
