@@ -17,17 +17,17 @@
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/mft/main.js' %}"></script>
 </head>
-<body>
+<body background = "http://avante.biz/wp-content/uploads/Technology-Images-Wallpapers/Technology-Images-Wallpapers-001.jpg">
 <div class="container-fluid">
-    <div id="page-heading">
+    <div id="page-heading" Style = "font-family : Cursive; color : #ffff66;">
         <h1>
             Multiprogramming With Fixed Number of Tasks
         </h1>
     </div>
-    <div id="input-data-form">
+    <div id="input-data-form" >
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
-        <div id="input-data-heading">
+        <div id="input-data-heading" Style = "font-family : Cursive; color : #ffff66 ; ">
             <h3>Please Enter the following data</h3>
         </div>
         {% if invalid_data == True %}
@@ -36,13 +36,13 @@
         <form class="form-horizontal" id="data-form" action="{% url 'mat:mat-get-data' %}" method="post">
             {% csrf_token %}
             <div class="form-group">
-                <label class="control-label col-sm-4" for="total_memory_input">Total Memory: </label>
+                <label class="control-label col-sm-4" for="total_memory_input" Style = "font-family : Cursive; color : #ffff66 ; ">Total Memory: </label>
                 <div class="col-sm-8">
                     <input type="number" class="form-control" name="total_memory" id="total_memory_input" placeholder="Enter Total Memory" required min="1" step="1">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-4" for="no_of_blocks">No. of Blocks: </label>
+                <label class="control-label col-sm-4" for="no_of_blocks" Style = "font-family : Cursive; color : #ffff66 ;">No. of Blocks: </label>
                 <div class="col-sm-8">
                     <input type="number" class="form-control" name="no_of_blocks" id="no_of_blocks_input" placeholder="Enter No. of Blocks" required min="1" style="1/">
                 </div>
