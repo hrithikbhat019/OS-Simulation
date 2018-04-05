@@ -14,7 +14,7 @@
   </head>
   <body>
     <div id="terminal">
-      <header>>>>Welcome in terminal, type "help" to get commands</header>
+      <header>>>>Welcome to terminal, type "help" to get commands</header>
       <div id="terminal_lines">
       </div>
     </div>
@@ -338,35 +338,89 @@
 
 </script>
 <script>
-    var PROGAMS = {
+      var PROGAMS = {
 
     help: function(...a) {
       this.printa({
         "headers": ["command", "description"],
         "help": ["get commands list"],
-        "text": ["view text template"],
+        "readme": ["view readme"],
+        "deadlock": ["Deadlock Representation"],
+        "disk": ["Disk Scheduling"],
+        "sockets": ["Sockets TCP and UDP"],
+        "semaphores": ["Semaphores Scheduling Problems"],
+        "bankalgo": ["Bankers Algorithm"],
+        "filealloc": ["File Allocation"],
+        "page": ["Page Allocation"],
+        "matdemo": ["Memory Management Techniques"],
+        "process": ["Process scheduling"],
         "sayhello [name]": ["say hello to [name]"],
+        "back": [" Back to desktop "],
         "clear": ["clear terminal"]
       });
     },
 
-    text : function(...a){
-        self.printa("<h1>Title 1</h1>");
-        self.printa("<h2>Title 2</h2>");
-        self.printa(`<p> OS SIMULATOR </p>`);
+    readme : function(...a){
+        self.printa("<h1>OS SIMULATOR</h1>");
+        self.printa("<h2></h2>");
+        self.printa(`<p>  </p>`);
     },
 
     sayhello: function(...a) {
       this.printa("Hello "+a[0]);
     },
 
-    aboutme: function(...a) {
-      this.printa("aboutme");
+    deadlock: function(...a) {
+      window.location.href = '/deadlock';
     },
+
+    disk: function(...a) {
+      window.location.href = '/disk';
+    },
+
+    sockets: function(...a) {
+      window.location.href = '/sockets';
+    },
+
+    semaphores: function(...a) {
+      window.location.href = '/synchro/semaphores';
+    },
+
+    bankalgo: function(...a) {
+      window.location.href = '/synchro/bankalgo';
+    },
+
+    filealloc: function(...a) {
+      window.location.href = '/file_allocation';
+    },
+
+    page: function(...a) {
+      window.location.href = '/page';
+    },
+
+    matdemo: function(...a) {
+      window.location.href = '/matdemo';
+    },
+
+    process: function(...a) {
+      window.location.href = '/process';
+    },
+
+
+    back: function(...a) {
+      window.location.href = '/desktop';
+    },
+
 
     clear: function(...a) {
       this.clear_terminal();
+    },
+
+
+    aboutme: function(...a) {
+      this.printa("This terminal was added by SK");
     }
+
   };
 
 </script>
