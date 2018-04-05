@@ -5,7 +5,7 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     {% load staticfiles %}
- <link rel="stylesheet"  type="text/css" href="{% static 'page/css/style.css' %}">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -30,6 +30,9 @@
 
 </style>
 <body  >
+<div class="tite" style="background-color:#00b894;opacity:0.8;color:black;width: 0;height: 0">
+ <div class="tite1" style="opacity: 0"><h1 style="margin:0px"> PAGE &nbsp; REPLACEMENT &nbsp; ALGORITHMS</h1></div>
+</div>
   <div class="panel panel-secondary"  style="background-color: #00b894 ;margin-top:50px;color: white;opacity:0.7">
       <div class="panel-heading"><h1 style="text-alig
         var text = JSON.strn:center;">
@@ -124,6 +127,16 @@ var hits = [output["hits"],output["hits"],output["hits"]];
 var misses = [output["miss"],output["miss"],output["miss"]];
 var hitratio = [output["hit-ratio"],output["hit-ratio"],output["hit-ratio"]];
 
+$(document).ready(function(){
+
+
+    $(".tite").animate({width: '100%', height  :'60px',innerhtml : 'PAGE REPLACEMENT ALGORITHMS'}, 1200,function () {
+          $(".tite1").animate({opacity :'1'});
+    });
+
+
+
+});
 
 $("#submit").click(function(){
     data = $(".requests").val().trim().split(" ");
@@ -175,6 +188,9 @@ card.appendChild(div0);
 
 $(card).hide().appendTo("#"+idname).fadeIn(1000);
 
+
+
+
 }
   i = count;
   var card = document.createElement("div");
@@ -204,8 +220,11 @@ $(card).hide().appendTo("#"+idname).fadeIn(1000);
   }
   card.appendChild(div0);
 
-  $(card).hide().appendTo("#"+idname).fadeIn(600);
+  $(card).hide().appendTo("#"+idname).fadeIn(1);
   //result.appendChild(card);
+    $(card).animate({width : '+=60px'},300,function () {
+
+});
 }
 
 function cleanup(no){
@@ -274,7 +293,7 @@ $("#proceed3").click(function(){
   border: 1px dotted black;
   float: left;
   text-align: center;
-  width:60px;
+  width:0px;
   margin-left: 10px;
   margin-bottom: 20px;
   background-color: #ECECEC;
