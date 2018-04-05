@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'file_alloc',
     'deadlock',
     'page',
+    'mat',  
     'disk_sched',
     'process',
 ]

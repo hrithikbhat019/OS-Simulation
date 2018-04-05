@@ -17,9 +17,9 @@
 
 
 <body style="padding:10px;">
-  <div class="panel panel-primary">
+  <div class="panel panel-info">
       <div class="panel-heading"><h1 style="text-alig
-        var text = JSON.strn:center;">
+        var text = JSON.strn:center;color: #43D52C;text-align: center;text-shadow: 2px 1px black;">
         Priority Process Scheduling
       </h1></div>
   <div class="panel-body">
@@ -28,26 +28,26 @@
     </div>
 
     <div class="card" style="height:70px;">
-        <div style="width:250px;float:left;text-align:left;">
+        <div style="width:250px;float:left;text-align:left;color:grey;position: absolute;margin-left:300px;top:110px">
           Enter arrival time:
           <input style="width:200px;"id="newarrivaltime" class="form-control" type="text" value=""></input>
         </div>
-        <div style="width:300px;float:left;text-align:left;">
+        <div style="width:300px;float:left;text-align:left;color:grey;position:absolute;margin-left:650px;top:110px">
           Enter burst time:
           <input style="width:200px;float:left;" id="newbursttime" class="form-control" type="text" value=""></input>
         </div>
-        <div style="width:300px;float:left;text-align:left;">
+        <div style="width:300px;float:left;text-align:left;color:grey;position: absolute;margin-left: 1000px;top:110px">
           Enter Priority:
           <br>
           <input style="width:200px;float:left;" id="newPriority" class="form-control" type="text" value=""></input>
-          <button class="btn btn-success" onclick="addToList()" style="float:left;margin-left:10px;">Add</button>
+          <button class="btn btn-success" onclick="addToList()" style="float:left;margin-left:10px;color:white;background-color: grey">Add</button>
         </div>
     </div>
 
-    <div style="float:left;">
+    <div style="float:left;color:grey;position: relative;bottom:10px;left:550px">
   <label for="sel1" style="float:left;">Select Algorithm to be used :</label>
   <br>
-      <select class="form-control" id="sel1" style="width:400px;">
+      <select class="form-control" id="sel1" style="width:400px;background-color: grey;color:white">
         <option>Preemptive Priority(PP)</option>
         <option>Non-preemptive Priority(NPP)</option>
       </select>
@@ -55,10 +55,10 @@
   </div>
 
     <div class="panel-footer" style="height:50px;">
-    	<button style="float:right;" id="sender" class="btn btn-primary">Send the entire data</button>
+    	<button style="float:right;position: absolute;left:700px;background-color: #33CC00;color: white" id="sender" class="btn btn-primary">Send the entire data</button>
     </div>
   </div>
-  <div class="panel panel-success">
+  <div class="panel panel-warning">
     <div class="panel-heading">
       <h3>
       Gantt chart
@@ -70,14 +70,14 @@
   </div>
     <br><br>
 </div>
-  <div class="panel panel-warning" style="width:50%;float:left;">
+  <div class="panel panel-success" style="width:50%;float:left;">
   <div class="panel-heading">
   	<h3>Operations Taking Place</h3>
   </div>
   <div id="comments" class="panel-content">
   </div>
 </div>
-  <div class="panel panel-warning" style="width:50%;float:left;">
+  <div class="panel panel-danger" style="width:50%;float:left;">
   <div class="panel-heading">
   	<h3>Table</h3>
   </div>

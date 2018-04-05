@@ -17,10 +17,10 @@
 </head>
 
 
-<body style="padding:10px;">
-  <div class="panel panel-primary">
+<body style="padding:15px;color: #153EE2">
+  <div class="panel panel-success">
       <div class="panel-heading"><h1 style="text-alig
-        var text = JSON.strn:center;">
+        var text = JSON.strn:center;color: #33C71C;text-align: center;text-shadow: 1px 1px black;">
         <b>Process Scheduling</b>
       </h1></div>
   <div class="panel-body">
@@ -30,11 +30,11 @@
 
 <div class="container-fluid">
       <div class="card" style="height:70px;">
-        <div style="width:250px;float:right;text-align:left;font-size: 40px">
+        <div style="width:250px;float:left;text-align:left;color:green; ">
           Enter arrival time:
           <input style="width:200px;"id="newarrivaltime" class="form-control" type="text" value=""></input>
         </div>
-        <div style="width:300px;float:left;text-align:left;">
+        <div style="width:300px;float:left;text-align:left;color:green;position:absolute;margin-left: 0px;margin-top:70px">
           Enter burst time:
           <input style="width:200px;float:left;" id="newbursttime" class="form-control" type="text" value=""></input>
           <button class="btn btn-success" onclick="addToList()" style="float:left;margin-left:10px;">Add</button>
@@ -42,10 +42,10 @@
     </div>
 </div>
     <div id="tq" style="text-align:left;"></div>
-    <div style="float:left;">
-  <label for="sel1" style="float:left;">Select Algorithm to be used :</label>
+    <div style="float:right;">
+  <label for="sel1" style="float:center;color:#38A6DE;position: relative;">Select Algorithm to be used :</label>
   <br>
-      <select class="form-control" id="sel1" style="width:400px;">
+      <select class="form-control" id="sel1" style="width:400px;color:white;background-color: #6CC3EF">
         <option>First come first serve(FCFS)</option>
         <option>Shortest job first(SJF)</option>
         <option>Round-Robin(RR)</option>
@@ -56,10 +56,10 @@
   </div>
 
     <div class="panel-footer" style="height:50px;">
-    	<button style="float:right;" id="sender" class="btn btn-primary">Send the entire data</button>
+    	<button style="float:right;position: absolute;right:70px;color: white;background-color: #6CC3EF;border-color:black;" id="sender" class="btn btn-primary">Send the entire data</button>
     </div>
   </div>
-  <div class="panel panel-success">
+  <div class="panel panel-danger">
     <div class="panel-heading">
       <h3 >
       Gantt chart
@@ -71,7 +71,7 @@
   </div>
     <br><br>
 </div>
-  <div class="panel panel-warning" style="width:50%;float:left;">
+  <div class="panel panel-info" style="width:50%;float:left;">
   <div class="panel-heading">
   	<h3>Operations Taking Place</h3>
   </div>
@@ -83,7 +83,7 @@
   	<h3>Table</h3>
   </div>
   	<div class="panel-content">
-	<table id="ptab" class="table table-bordered">
+	<table id="ptab" class="table table-bordered" style="color: #161614">
  	<thead>
  	<tr id="thead">
  	<th>PNO.</th>
