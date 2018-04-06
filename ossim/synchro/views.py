@@ -27,7 +27,7 @@ def sem_demo(request,pk):
     if(pk=='3'):
         return render(request, 'synchro/diningphils.html')
     if(pk=='4'):
-        return render(request, 'synchro/sleepingbarber.html')
+        return render(request, 'synchro/cigsmoker.html')
 
 def socket_demo(request,pk):
     if(pk=='1'):
