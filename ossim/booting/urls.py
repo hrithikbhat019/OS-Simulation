@@ -5,7 +5,7 @@ from . import views
 
 app_name = 'booting'
 urlpatterns =[
-    path('booting',views.boot.as_view(), name = 'boot'),
+    path('',views.boot.as_view(), name = 'boot'),
     path('powerdown/',views.powerdown.as_view(), name = 'powerdown'),
 
 ]
