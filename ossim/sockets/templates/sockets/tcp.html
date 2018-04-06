@@ -6,41 +6,46 @@ button {
   color: white;
   font-size: 15px;
   font-weight: bold;
-  border-radius: 12px;
   border: 2px solid #ff9999;
 
 }
-
+g{
+  color:white;
 }
 
+
+
+body{
+  background-color:#C594C5;
+}
 </style>
 
 
-<title>TCP</title>
-<body>
+<title >TCP</title>
+<body style="background-color:#C594C5;">
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>
   <div class="container-fluid">
-    <center><h1>TCP socket programming</h1></center>
-    <button id = "socket" class="btn btn-primary" type ="button", onclick ="socket()", style ="height:25px;width:125px;line-height:1; background-color:#f44336;border:#f44336;">Socket()</button> This  function shall create an unbound socket in a communications domain, and return a file descriptor that can operate on sockets.
+    <center ><h1  style= "color:white;">TCP socket programming</h1>
+      <br/><br/>
+    <button id = "socket" class="btn btn-primary" type ="button", onclick ="socket()", style ="height:25px;width:125px;line-height:1; background-color:#f44336;border:#f44336;">Socket()</button>
     <br/><br/>
-    <button id  = "bind" class="btn btn-primary" type ="button", onclick ="bind()", style ="height:25px;width:125px;line-height:1" disabled>Bind()</button> This function shall assign a local socket address address to a socket identified by descriptor socket that has no local socket address assigned.
+    <button id  = "bind" class="btn btn-primary" type ="button", onclick ="bind()", style ="height:25px;width:125px;line-height:1" disabled>Bind()</button>
     <br/><br/>
-    <button id ="listen" class="btn btn-primary" type ="button", onclick ="listen()", style ="height:25px;width:125px;line-height:1" disabled>Listen()</button> This function shall mark a connection-mode socket, specified by the socket argument, as accepting connections.
+    <button id ="listen" class="btn btn-primary" type ="button", onclick ="listen()", style ="height:25px;width:125px;line-height:1" disabled>Listen()</button>
     <br/><br/>
-    <button id ="connect" class="btn btn-primary" type ="button", onclick ="connect()", style ="height:25px;width:125px;line-height:1" disabled>Connect()</button> This function shall attempt to make a connection on a socket
+    <button id ="connect" class="btn btn-primary" type ="button", onclick ="connect()", style ="height:25px;width:125px;line-height:1" disabled>Connect()</button>
     <br/><br/>
-    <button id  ="accept"  class="btn btn-primary" type ="button", onclick ="accept()", style ="height:25px;width:125px;line-height:1" disabled>Accept()</button> This function shall extract the first connection on the queue of pending connections and allocate a new file descriptor for that socket.
-
-    <br/><br/>
-    <button id ="close" class="btn btn-primary" type ="button", onclick ="closee()", style ="height:25px;width:125px;line-height:1"disabled >Close()</button> This function closes the connection.
-
-
+    <button id  ="accept"  class="btn btn-primary" type ="button", onclick ="accept()", style ="height:25px;width:125px;line-height:1" disabled>Accept()</button>
+      <br/><br/>
+    <button id ="close" class="btn btn-primary" type ="button", onclick ="closee()", style ="height:25px;width:125px;line-height:1"disabled >Close()</button>
+</center>
 
 
-<br/><br/><br/><br/>
+
+<br/><br/>
     <div class = "TERM">
     <center>
 
