@@ -15,12 +15,13 @@ g{
 
 
 
+
 body{
   background-color:#C594C5;
 }
 </style>
 
-
+<link href='https://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
 <title >TCP</title>
 <body style="background-color:#C594C5;">
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -28,7 +29,7 @@ body{
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>
   <div class="container-fluid">
-    <center ><h1  style= "color:white;">TCP socket programming</h1>
+    <center ><h1  style= "color:white;font-family: 'Montserrat', Helvetica, sans-serif;">TCP socket programming</h1>
       <br/><br/>
     <button id = "socket" class="btn btn-primary" type ="button", onclick ="socket()", style ="height:25px;width:125px;line-height:1; background-color:#f44336;border:#f44336;">Socket()</button>
     <br/><br/>
@@ -49,10 +50,10 @@ body{
     <div class = "TERM">
     <center>
 
-    <textarea rows="10" cols="50" disabled = "True" id = "servertext">
+    <textarea rows="10" cols="50" disabled = "True" id = "servertext" style="border-radius:15px;">
       Waiting for Socket call
     </textarea>
-    <textarea rows="10" cols="50" disabled = "True" id = "clienttext">
+    <textarea rows="10" cols="50" disabled = "True" id = "clienttext" style="border-radius:15px;">
       Waiting for Socket call
     </textarea>
 
