@@ -127,8 +127,7 @@ h4{
 
 #top-box{
     overflow-y: auto;
-    max-height: 50%;
-    height: 50%;
+  
     text-align: center;
     border-bottom: 1px solid black;
 }

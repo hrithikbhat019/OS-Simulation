@@ -11,6 +11,7 @@ urlpatterns =[
     path('desktop/',views.Desktop ,name='desktop'),
 
     path('desktop/Task.html/', views.Task,name='task'),
+    path('desktop/terminal/',views.Terminal,name = 'terminal')
 
 
 ]

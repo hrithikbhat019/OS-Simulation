@@ -13,3 +13,6 @@ def Desktop(request):
 
 def Task(request):
     return render(request,'home/Task.html')
+
+def Terminal(request):
+    return render(request,'home/terminal.html')
