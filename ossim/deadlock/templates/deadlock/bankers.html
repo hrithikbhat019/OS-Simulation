@@ -494,22 +494,32 @@ div.search-form{width: 300px}
             <label style="color: white">Number of Resource types:</label>
         <input class="form-control" type="Number" onkeyup="BuildFormFields(parseInt(this.value, 10));" />
 
-              <div id="FormFields" style=""></div>
+
+                       <div id="FormFields" style="margin-left: 0px"></div>
+
+
+
           </form>
+                <br><br><br>
 
+<div class="row " >
 
-                <form name="Need" style="width: 50%;background-color:; margin-left: 0px">
+    <div  style="float: left;">
+                <form name="Need" style=" margin-left: 0px;">
              <label>Number of Processes:</label>
             <input class="form-control" type="Number" onkeyup="BuildFormFields2(y = parseInt(this.value, 10));" />
-                <div id="FormFields1"></div>
+<br>
+                    <div id="FormFields1"></div>
             </form>
 
-
-
-            <form name = "Alloc">
+  </div>
+    <div  style="width: 500px;float: left;margin-top: 20px;">
+<form name = "Alloc">
           <div id="FormFields2"></div>
             </form>
 
+</div>
+</div>
             <table id="tab_need" class="table table-hover" style="width: 100%;outline: white"></table>
 
             <table id="tab_alloc" class="table table-hover" style="width: 100%"></table>

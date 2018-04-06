@@ -30,10 +30,12 @@
 
 
                     $field = document.createElement('label');
+                    $field.setAttribute("class","custom1");
                     $field.innerHTML = 'Resource '+$i;
 					$item.appendChild($field);
 
 					$field = document.createElement('input');
+					$field.setAttribute("class","custom3");
 					$field.name = 'Design[' + $i + ']';
 					$field.type = 'text';
 					$field.placeholder = 'Enter process';
@@ -59,10 +61,12 @@
 
                     $field = document.createElement('label');
                     $field.innerHTML = 'Resource '+$i;
+                    $field.setAttribute("class","custom1");
 					$item.appendChild($field);
 
 
 					$field = document.createElement('input');
+					$field.setAttribute("class","custom3");
 					$field.name = 'Design[' + $i + ']';
 					$field.type = 'text';
 					$field.placeholder = 'Processes with spaces';
@@ -293,6 +297,16 @@ div.search-form{height:38px; margin:0 auto;width: 325px; background: #161d27 ; b
 .custom-msg {
     text-align: center;background-color: #fff;
 }
+.custom{
+    color: white;
+    font-size: 12px;
+}
+.custom1{
+    color: white;
+}
+.custom3{
+    width: 280px;
+}
 
 div#optOutLink{ padding-top: 30px}
 .no-results{text-align: center; padding: 10px 10px 0; color: #ffffff;font-size: 15px }
@@ -364,6 +378,7 @@ div.search-form{width: 300px}
     div.search-form{margin-right:0px}
     .footer-related li{display: inline; word-wrap: break-word;}
     a{word-wrap: break-word;}
+
     </style>
 <![endif]-->
 
@@ -411,7 +426,7 @@ div.search-form{width: 300px}
     </div>
 
     <div class="col-md-5">
-        <label style="color: white;">Enter the no of Resources</label><input id="process_no" type="text" placeholder="" class="form-control">
+        <label style="color: white;">Enter the no of Processes</label><input id="process_no" type="text" placeholder="" class="form-control">
     </div>
 
     <div class="col-md-2">
@@ -427,8 +442,8 @@ div.search-form{width: 300px}
 
 
 
-    <div class="row">
-      <div class="column" style=" float: left; width: 50%;">
+    <div class="row " id="custom6" >
+      <div  style=" float: left; width: 50%;">
 
           <form name="Hold">
 
@@ -439,23 +454,17 @@ div.search-form{width: 300px}
          </form>
 
       </div>
-      <div class="column" style="float: left; width: 50%">
+      <div  style="float: left; width: 50%">
 
           <form name="Request">
 
-            <div id="FormFields2" >
+            <div id="FormFields2" style="width: 200px;">
             </div>
 
           </form>
 
       </div>
-        <div class="container col-md-4">
 
-
-
-
-
-        </div>
 
 
     </div>
@@ -463,10 +472,15 @@ div.search-form{width: 300px}
 
     </div>
 
-    <div class="col-md-7" >
+
+		</div>
 
 
-<div id="mynetwork" style=" height:550px; border: 2px solid darkred"></div>
+
+    <div>
+
+
+<div id="mynetwork" style=" height:550px; border: 2px solid darkblue"></div>
            <div id="demo" style="background-color: darkred; text-align: center; color: white"></div>
 
            </div>
@@ -477,8 +491,6 @@ div.search-form{width: 300px}
 
 
 	        </div>
-
-		</div>
 
           </div>
 
