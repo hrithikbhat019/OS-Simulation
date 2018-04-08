@@ -219,7 +219,7 @@ function drawCard(idname,count){
   }
 
   var div0 = document.createElement("div");
-   div0.setAttribute("class", " hitmiss cachefield");
+   div0.setAttribute("class", " hitmiss ");
 
   if(output[idname]["states"][i]["status"] == 'H'){
     div0.innerHTML = "HIT";
@@ -231,9 +231,9 @@ function drawCard(idname,count){
   }
   card.appendChild(div0);
 
-  $(card).hide().appendTo("#"+idname).fadeIn(1);
+    $(card).hide().appendTo("#"+idname).fadeIn(1);
   //result.appendChild(card);
-    $(card).animate({height : '+=40px'},300,function () {
+    $(card).animate({height : '+=40px'},700,function () {
 
 });
 }
@@ -300,12 +300,14 @@ $("#proceed3").click(function(){
 }
 
 .card1{
+    font-size: 13px;
   position: relative;
   border: 1px dotted black;
 
   text-align: center;
   height: 0px;
 
+  width:90%;
 
   margin-left: 10px;
   margin-bottom: 20px;
@@ -313,26 +315,30 @@ $("#proceed3").click(function(){
 
 }
 .request{
-  border-right:  1px dashed black;
+  border-right:  3px dashed black;
   margin-right: 20px;
-    margin-left: 20px;
+    margin-left: 10px;
+    width:40px;
 }
 
 .hitmiss{
-  margin-top: 10px;
-  border-top: 1px solid black;
+
+  height: 100%;
+float: right;
+    text-align: center;
   color: white;
 }
 .hit{
   background-color: green;
-    border: green;
+    border: 2px solid black;
+
 
 
 }
 .miss{
   background-color: red;
     border:red;
-  
+
 }
 
 .status{
