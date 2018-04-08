@@ -19,13 +19,114 @@
       left: 80px;
 
       top: 150px; /* set these so Chrome doesn't return 'auto' from getComputedStyle */
-        width: 40px;
-        height: 40px;
+        width: 60px;
+        height:80px;
       background: rgba(255,255,255,0.66);
       border: 2px  solid rgba(0,0,0,0.5);
       border-radius: 4px; padding: 8px;
     }
 
+
+     #icon2
+    {
+      position:  absolute;
+      left: 150px;
+
+      top: 150px; /* set these so Chrome doesn't return 'auto' from getComputedStyle */
+        width: 60px;
+        height:80px;
+      background: rgba(255,255,255,0.66);
+      border: 2px  solid rgba(0,0,0,0.5);
+      border-radius: 4px; padding: 8px;
+    }
+
+
+         #icon3
+    {
+      position:  absolute;
+      left: 220px;
+
+      top: 150px; /* set these so Chrome doesn't return 'auto' from getComputedStyle */
+        width: 60px;
+        height:80px;
+      background: rgba(255,255,255,0.66);
+      border: 2px  solid rgba(0,0,0,0.5);
+      border-radius: 4px; padding: 8px;
+    }
+
+
+         #icon4
+    {
+      position:  absolute;
+      left: 290px;
+
+      top: 150px; /* set these so Chrome doesn't return 'auto' from getComputedStyle */
+        width: 60px;
+        height:80px;
+      background: rgba(255,255,255,0.66);
+      border: 2px  solid rgba(0,0,0,0.5);
+      border-radius: 4px; padding: 8px;
+    }
+
+              #icon5
+    {
+      position:  absolute;
+      left: 360px;
+
+      top: 150px; /* set these so Chrome doesn't return 'auto' from getComputedStyle */
+        width: 60px;
+        height:80px;
+      background: rgba(255,255,255,0.66);
+      border: 2px  solid rgba(0,0,0,0.5);
+      border-radius: 4px; padding: 8px;
+    }
+
+           #icon6
+    {
+      position:  absolute;
+      left: 80px;
+
+      top: 280px; /* set these so Chrome doesn't return 'auto' from getComputedStyle */
+        width: 60px;
+        height:80px;
+      background: rgba(255,255,255,0.66);
+      border: 2px  solid rgba(0,0,0,0.5);
+      border-radius: 4px; padding: 8px;
+    }
+
+
+     #icon7
+    {
+      position:  absolute;
+      left: 150px;
+
+      top: 280px; /* set these so Chrome doesn't return 'auto' from getComputedStyle */
+        width: 60px;
+        height:80px;
+      background: rgba(255,255,255,0.66);
+      border: 2px  solid rgba(0,0,0,0.5);
+      border-radius: 4px; padding: 8px;
+    }
+
+
+         #icon8
+    {
+      position:  absolute;
+      left: 220px;
+
+      top: 280px; /* set these so Chrome doesn't return 'auto' from getComputedStyle */
+        width: 60px;
+        height:80px;
+      background: rgba(255,255,255,0.66);
+      border: 2px  solid rgba(0,0,0,0.5);
+      border-radius: 4px; padding: 8px;
+    }
+
+
+	.icon_names{
+
+		font-size: 7px;
+	}
 
 .navigationbar {
   overflow: hidden;
@@ -151,7 +252,7 @@
                 </div>
 
   <div align=center class="right" style="border: 1px solid white;right:0;width: 110px;font-size:14px;padding:2px;margin:2px;background-color: #5DB3FF  ;border:none;height: 36px">
-    <a class="link1" href="{% url 'booting:powerdown' %}">
+    <a class="link1"  href="{% url 'booting:powerdown' %}">
     Power Off
       </a> 
   </div>
@@ -267,13 +368,91 @@
 				</div>
 
 
-			<div class="desktop" ondragover="drag_over(event)" ondrop="drop(event)">
+			<div class="desktop"  ondragover="drag_over(event)" ondrop="drop(event)">
 				<a href="{% url 'page:demo'%}">
-
-                    <img border="0" id="icon1" alt="page" src="https://vignette.wikia.nocookie.net/epicrapbattlesofhistory/images/f/ff/Final_hint_also_P.png/revision/latest?cb=20160216042129" height="60px" width="60px" draggable="true" ondragstart="drag_start(event)" >
-
+					<div id="icon1" draggable="true" ondragstart="drag_start(event)">
+                    <img border="0" alt="page" src="https://www.tldp.org/LDP/tlk/mm/free-area.gif" height="30px" width="40px"  >
+					<b class="icon_names">Page <br> Replacement</b>
+					</div>
                 </a>
+
 			</div>
+
+			<div class="desktop"  ondragover="drag_over(event)" ondrop="drop(event)">
+				<a href="{% url 'disk:home'%}">
+					<div id="icon2" draggable="true" ondragstart="drag_start(event)">
+                    <img border="0" alt="page" src="http://www.dreieichschule.de/informatik/2011/__Hardware%20Guide__/__Hardware%20Guide__/seiten/festplatte/bilder/rolf-van-melis_pixelio_de_gr.jpg" height="30px" width="40px"  >
+					<b class="icon_names">disk <br> scheduling</b>
+					</div>
+                </a>
+
+			</div>
+
+
+            <div class="desktop"  ondragover="drag_over(event)" ondrop="drop(event)">
+				<a href="{% url 'deadlock:home'%}">
+					<div id="icon3" draggable="true" ondragstart="drag_start(event)">
+                    <img border="0" alt="page" src="http://fc04.deviantart.net/fs45/f/2009/073/7/0/Deadlock_T_Shirt_Logo_by_Scarzzurs.png" height="30px" width="40px"  >
+					<b class="icon_names">deadlock</b>
+					</div>
+                </a>
+
+			</div>
+
+
+            <div class="desktop"  ondragover="drag_over(event)" ondrop="drop(event)">
+				<a href="{% url 'file_alloc:home'%}">
+					<div id="icon4" draggable="true" ondragstart="drag_start(event)">
+                    <img border="0" alt="page" src="http://www.beginningtoseethelight.org/fat16/overview.gif" height="30px" width="40px"  >
+					<b class="icon_names">file<br>allocztion</b>
+					</div>
+                </a>
+
+			</div>
+
+
+            <div class="desktop"  ondragover="drag_over(event)" ondrop="drop(event)">
+				<a href="{% url 'mat:home'%}">
+					<div id="icon5" draggable="true" ondragstart="drag_start(event)">
+                    <img border="0" alt="page" src="https://cs.nyu.edu/courses/spring05/G22.2250-001/lectures/figs/MVT.png" height="30px" width="40px"  >
+					<b class="icon_names">memory<br>allocation</b>
+					</div>
+                </a>
+
+			</div>
+
+            <div class="desktop"  ondragover="drag_over(event)" ondrop="drop(event)">
+				<a href="{% url 'process:index'%}">
+					<div id="icon6" draggable="true" ondragstart="drag_start(event)">
+                    <img border="0" alt="page" src="https://www.tutorialspoint.com/operating_system/images/queuing_diagram.jpg" height="30px" width="40px"  >
+					<b class="icon_names">process<br>scheduling</b>
+					</div>
+                </a>
+
+			</div>
+              <div class="desktop"  ondragover="drag_over(event)" ondrop="drop(event)">
+				<a href="{% url 'sockets:home'%}">
+					<div id="icon7" draggable="true" ondragstart="drag_start(event)">
+                    <img border="0" alt="page" src="https://i.pinimg.com/originals/a0/ec/65/a0ec6522138dadd458ef0c4104017176.jpg" height="30px" width="40px"  >
+					<b class="icon_names">sockets</b>
+					</div>
+                </a>
+
+			</div>
+
+
+            <div class="desktop"  ondragover="drag_over(event)" ondrop="drop(event)">
+				<a href="{% url 'synchro:semaphores'%}">
+					<div id="icon8" draggable="true" ondragstart="drag_start(event)">
+                    <img border="0" alt="page" src="http://3.bp.blogspot.com/-EH1GDM8yYTA/UBVw2YeKeRI/AAAAAAAABpc/TA0kw1MeeFw/s1600/Mutex.jpg" height="30px" width="40px"  >
+					<b class="icon_names">synchronization</b>
+					</div>
+                </a>
+
+			</div>
+
+
+
 		</div>
 
 		<div id ='exploringContent' hidden>
