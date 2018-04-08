@@ -19,8 +19,8 @@
       left: 80px;
 
       top: 150px; /* set these so Chrome doesn't return 'auto' from getComputedStyle */
-        width: 60px;
-        height:80px;
+       width: 100px;
+        height:100px;
       background: rgba(255,255,255,0.66);
       border: 2px  solid rgba(0,0,0,0.5);
       border-radius: 4px; padding: 8px;
@@ -30,11 +30,11 @@
      #icon2
     {
       position:  absolute;
-      left: 150px;
+      left: 190px;
 
       top: 150px; /* set these so Chrome doesn't return 'auto' from getComputedStyle */
-        width: 60px;
-        height:80px;
+  width: 100px;
+        height:100px;
       background: rgba(255,255,255,0.66);
       border: 2px  solid rgba(0,0,0,0.5);
       border-radius: 4px; padding: 8px;
@@ -44,11 +44,11 @@
          #icon3
     {
       position:  absolute;
-      left: 220px;
+      left: 300px;
 
       top: 150px; /* set these so Chrome doesn't return 'auto' from getComputedStyle */
-        width: 60px;
-        height:80px;
+        width: 100px;
+        height:100px;
       background: rgba(255,255,255,0.66);
       border: 2px  solid rgba(0,0,0,0.5);
       border-radius: 4px; padding: 8px;
@@ -58,11 +58,11 @@
          #icon4
     {
       position:  absolute;
-      left: 290px;
+      left: 410px;
 
       top: 150px; /* set these so Chrome doesn't return 'auto' from getComputedStyle */
-        width: 60px;
-        height:80px;
+     width: 100px;
+        height:100px;
       background: rgba(255,255,255,0.66);
       border: 2px  solid rgba(0,0,0,0.5);
       border-radius: 4px; padding: 8px;
@@ -71,11 +71,11 @@
               #icon5
     {
       position:  absolute;
-      left: 360px;
+      left: 520px;
 
       top: 150px; /* set these so Chrome doesn't return 'auto' from getComputedStyle */
-        width: 60px;
-        height:80px;
+        width: 100px;
+        height:100px;
       background: rgba(255,255,255,0.66);
       border: 2px  solid rgba(0,0,0,0.5);
       border-radius: 4px; padding: 8px;
@@ -87,8 +87,8 @@
       left: 80px;
 
       top: 280px; /* set these so Chrome doesn't return 'auto' from getComputedStyle */
-        width: 60px;
-        height:80px;
+         width: 100px;
+        height:100px;
       background: rgba(255,255,255,0.66);
       border: 2px  solid rgba(0,0,0,0.5);
       border-radius: 4px; padding: 8px;
@@ -98,11 +98,11 @@
      #icon7
     {
       position:  absolute;
-      left: 150px;
+      left: 190px;
 
       top: 280px; /* set these so Chrome doesn't return 'auto' from getComputedStyle */
-        width: 60px;
-        height:80px;
+        width: 100px;
+        height:100px;
       background: rgba(255,255,255,0.66);
       border: 2px  solid rgba(0,0,0,0.5);
       border-radius: 4px; padding: 8px;
@@ -112,11 +112,11 @@
          #icon8
     {
       position:  absolute;
-      left: 220px;
+      left: 300px;
 
       top: 280px; /* set these so Chrome doesn't return 'auto' from getComputedStyle */
-        width: 60px;
-        height:80px;
+     width: 100px;
+        height:100px;
       background: rgba(255,255,255,0.66);
       border: 2px  solid rgba(0,0,0,0.5);
       border-radius: 4px; padding: 8px;
@@ -125,7 +125,10 @@
 
 	.icon_names{
 
-		font-size: 7px;
+		font-size: 13px;
+        color: black;
+        text-align: center;
+
 	}
 
 .navigationbar {
@@ -254,7 +257,7 @@
   <div align=center class="right" style="border: 1px solid white;right:0;width: 110px;font-size:14px;padding:2px;margin:2px;background-color: #5DB3FF  ;border:none;height: 36px">
     <a class="link1"  href="{% url 'booting:powerdown' %}">
     Power Off
-      </a> 
+      </a>
   </div>
                 <a>
                     <div>
@@ -277,7 +280,7 @@
 				<i class="fa fa-terminal" style=" width:50px;background-color:  #14A5F4;border: 1px solid darkblue;height: 32px;padding: 4px;margin:4px" onclick=""></i></a>
 				</span>
 
-<!-- 
+<!--
         <span data-toggle='' title="" style="cursor:pointer;" >
 
           <i id='' class="fa fa-calculator" aria-hidden="true" data-toggle='modal' data-target='#term_demo' onclick="" style="border: 1px solid darkblue;width:50px;height: 32px;background-color:  #14A5F4;padding: 4px;margin:4px"></i>
@@ -289,13 +292,13 @@
 <!-- <div id="myModal" class="modal fade" role="dialog" style="width:1100px">
   <div class="modal-dialog" >
 
-   
+
     <div class="modal-content" style="width:800px">
       <div class="modal-header">
-        
+
         <h4 class="modal-title" align="center">TERMINAL</h4>
       </div>
-      <div style="font-size:20px;color:white"> <span id="demo"></span></div> 
+      <div style="font-size:20px;color:white"> <span id="demo"></span></div>
 
       <div class="modal-body" id="term_demo" style="" >
         <p>Some text in the modal.</p>
@@ -371,8 +374,8 @@
 			<div class="desktop"  ondragover="drag_over(event)" ondrop="drop(event)">
 				<a href="{% url 'page:demo'%}">
 					<div id="icon1" draggable="true" ondragstart="drag_start(event)">
-                    <img border="0" alt="page" src="https://www.tldp.org/LDP/tlk/mm/free-area.gif" height="30px" width="40px"  >
-					<b class="icon_names">Page <br> Replacement</b>
+                    <img border="0" alt="page" src="https://www.tldp.org/LDP/tlk/mm/free-area.gif" height="50px" width="80px" >
+					<p class="icon_names">Page Replacement</p>
 					</div>
                 </a>
 
@@ -381,8 +384,8 @@
 			<div class="desktop"  ondragover="drag_over(event)" ondrop="drop(event)">
 				<a href="{% url 'disk:home'%}">
 					<div id="icon2" draggable="true" ondragstart="drag_start(event)">
-                    <img border="0" alt="page" src="http://www.dreieichschule.de/informatik/2011/__Hardware%20Guide__/__Hardware%20Guide__/seiten/festplatte/bilder/rolf-van-melis_pixelio_de_gr.jpg" height="30px" width="40px"  >
-					<b class="icon_names">disk <br> scheduling</b>
+                    <img border="0" alt="page" src="http://www.dreieichschule.de/informatik/2011/__Hardware%20Guide__/__Hardware%20Guide__/seiten/festplatte/bilder/rolf-van-melis_pixelio_de_gr.jpg" height="50px" width="80px"  >
+					<p class="icon_names">Disk  Scheduling</p>
 					</div>
                 </a>
 
@@ -392,8 +395,8 @@
             <div class="desktop"  ondragover="drag_over(event)" ondrop="drop(event)">
 				<a href="{% url 'deadlock:home'%}">
 					<div id="icon3" draggable="true" ondragstart="drag_start(event)">
-                    <img border="0" alt="page" src="http://fc04.deviantart.net/fs45/f/2009/073/7/0/Deadlock_T_Shirt_Logo_by_Scarzzurs.png" height="30px" width="40px"  >
-					<b class="icon_names">deadlock</b>
+                    <img border="0" alt="page" src="http://fc04.deviantart.net/fs45/f/2009/073/7/0/Deadlock_T_Shirt_Logo_by_Scarzzurs.png" height="50px" width="80px" >
+					<p class="icon_names">Deadlock</p>
 					</div>
                 </a>
 
@@ -403,8 +406,8 @@
             <div class="desktop"  ondragover="drag_over(event)" ondrop="drop(event)">
 				<a href="{% url 'file_alloc:home'%}">
 					<div id="icon4" draggable="true" ondragstart="drag_start(event)">
-                    <img border="0" alt="page" src="http://www.beginningtoseethelight.org/fat16/overview.gif" height="30px" width="40px"  >
-					<b class="icon_names">file<br>allocztion</b>
+                    <img border="0" alt="page" src="http://www.beginningtoseethelight.org/fat16/overview.gif" height="50px" width="80px" >
+					<p class="icon_names">File Allocztion</p>
 					</div>
                 </a>
 
@@ -414,8 +417,8 @@
             <div class="desktop"  ondragover="drag_over(event)" ondrop="drop(event)">
 				<a href="{% url 'mat:home'%}">
 					<div id="icon5" draggable="true" ondragstart="drag_start(event)">
-                    <img border="0" alt="page" src="https://cs.nyu.edu/courses/spring05/G22.2250-001/lectures/figs/MVT.png" height="30px" width="40px"  >
-					<b class="icon_names">memory<br>allocation</b>
+                    <img border="0" alt="page" src="https://cs.nyu.edu/courses/spring05/G22.2250-001/lectures/figs/MVT.png" height="50px" width="80px"  >
+					<p  >Memory Allocation</p>
 					</div>
                 </a>
 
@@ -424,8 +427,8 @@
             <div class="desktop"  ondragover="drag_over(event)" ondrop="drop(event)">
 				<a href="{% url 'process:index'%}">
 					<div id="icon6" draggable="true" ondragstart="drag_start(event)">
-                    <img border="0" alt="page" src="https://www.tutorialspoint.com/operating_system/images/queuing_diagram.jpg" height="30px" width="40px"  >
-					<b class="icon_names">process<br>scheduling</b>
+                    <img border="0" alt="page" src="https://www.tutorialspoint.com/operating_system/images/queuing_diagram.jpg" height="50px" width="80px" >
+					<p class="icon_names">Process Scheduling</p>
 					</div>
                 </a>
 
@@ -433,8 +436,8 @@
               <div class="desktop"  ondragover="drag_over(event)" ondrop="drop(event)">
 				<a href="{% url 'sockets:home'%}">
 					<div id="icon7" draggable="true" ondragstart="drag_start(event)">
-                    <img border="0" alt="page" src="https://i.pinimg.com/originals/a0/ec/65/a0ec6522138dadd458ef0c4104017176.jpg" height="30px" width="40px"  >
-					<b class="icon_names">sockets</b>
+                    <img border="0" alt="page" src="https://i.pinimg.com/originals/a0/ec/65/a0ec6522138dadd458ef0c4104017176.jpg" height="50px" width="80px"  >
+					<p class="icon_names">sockets</p>
 					</div>
                 </a>
 
@@ -444,8 +447,8 @@
             <div class="desktop"  ondragover="drag_over(event)" ondrop="drop(event)">
 				<a href="{% url 'synchro:semaphores'%}">
 					<div id="icon8" draggable="true" ondragstart="drag_start(event)">
-                    <img border="0" alt="page" src="http://3.bp.blogspot.com/-EH1GDM8yYTA/UBVw2YeKeRI/AAAAAAAABpc/TA0kw1MeeFw/s1600/Mutex.jpg" height="30px" width="40px"  >
-					<b class="icon_names">synchronization</b>
+                    <img border="0" alt="page" src="http://3.bp.blogspot.com/-EH1GDM8yYTA/UBVw2YeKeRI/AAAAAAAABpc/TA0kw1MeeFw/s1600/Mutex.jpg" height="50px" width="80px" >
+					<p class="icon_names">synchronization</p>
 					</div>
                 </a>
 
