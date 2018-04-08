@@ -4,6 +4,7 @@ from django.urls import path
 from django.conf.urls import include,url
 from . import views
 
+app_name='ossim'
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^login/',include('home.urls')),
@@ -15,6 +16,6 @@ urlpatterns = [
     path('page/',include('page.urls')),
     url(r'^matdemo/', include('mat.urls')),
     #url(r'^mat/', views.matindex),
-    path('disk/',include('disk_sched.urls')),
+    path('disk/',include('disk_sched.urls'),name='disk'),
     path('process/',include('process.urls'))
 ]
