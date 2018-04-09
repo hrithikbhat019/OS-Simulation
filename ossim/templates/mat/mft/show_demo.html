@@ -24,15 +24,17 @@
     var blockSize = {{ block_size|safe }};
     console.log(blockSize[1]);
 </script>
-<body>
+<body style="background-image: url('https://www.hdwallpapers.in/walls/3d_cubes-HD.jpg');background-size:cover">
 <div class="container-fluid">
-    <div id="page-heading">
-        <h1>Choose your Memory Allocation Techniques</h1>
+    <div id="page-heading" style = "font-family : Cursive; color : #FCE4EC;padding-top: 20px;">
+        
+            <b style="font-size: 50px;">Choose the Memory Allocation Technique</b>
+        
     </div>
-    <div id="selection-form">
-        <button type="button" id="first-fit-select" class="btn btn-default">First-Fit</button>
-        <button type="button" id="best-fit-select" class="btn btn-default">Best-Fit</button>
-        <button type="button" id="worst-fit-select" class="btn btn-default">Worst-Fit</button>
+    <div id="selection-form" style="padding:20px">
+        <button type="button" id="first-fit-select" class="btn btn-primary" style="margin-right: 50px;height: 50px;width:100px"><b style="font-size: 20px;">First-Fit</b></button>
+        <button type="button" id="best-fit-select" class="btn btn-primary" style="height: 50px">Best-Fit</button>
+        <button type="button" id="worst-fit-select" class="btn btn-primary" style="margin-left: 50px;height: 50px;width:100px">Worst-Fit</button>
     </div>
     <div id="demo-box">
     <div class="col-sm-6" id="right-box">
