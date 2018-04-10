@@ -417,40 +417,57 @@
     	if(a[0]=='deadlock'){
 
     		self.printa("<h1>DEADLOCK</h1>");
+    		self.printa("<h2></h2>");
+    		self.printa("<p></p>");
 
     	}
     	else if(a[0]=='disk'){
 
     		self.printa("<h1>DISK SCHEDULING</h1>");
+    		self.printa("<h2>Implemented FCFS, SSTF, SCAN, CSCAN, LOOK, CLOOK algorithms</h2>");
+    		self.printa("<p>In the simulation, user should enter the Request cylinder locations, the current location of W/R head, previous position of R/W head, total cylinders and select the algorithm to implement. A graph is plotted which shows the R/W head movements and Total Seek  Time is displayed for the selected algorithm.</p>");
     	}
 	    else if(a[0]=='sockets'){
 
     		self.printa("<h1>SOCKETS</h1>");
+    		self.printa("<h2>Implemented TCP and UDP</h2>");
+    		self.printa("<p></p>");
     	}
 	    else if(a[0]=='semaphores'){
 
     		self.printa("<h1>SEMAPHORES</h1>");
+    	    self.printa("<h2></h2>");
+    		self.printa("<p></p>");
     	}
 	    else if(a[0]=='bankalgo'){
 
     		self.printa("<h1>BANKERS ALGORITHM</h1>");
+    		self.printa("<h2></h2>");
+    		self.printa("<p></p>");
     	}
 	    else if(a[0]=='filealloc'){
 
     		self.printa("<h1>FILE ALLOCATION</h1>");
     		self.printa("<h2>Simulate contiguous, linked and indexed file allocation algorithms.</h2>");
+    		self.printa("<p>In the simulation, the user can choose the size of the memory, the number of files and the name of each file. A colour is assigned to each file for easy representation and the corresponding algorithm is simulated.</p>");
     	}
 	    else if(a[0]=='page'){
 
     		self.printa("<h1>PAGE TABLE</h1>");
+    		self.printa("<h2></h2>");
+    		self.printa("<p></p>");
     	}
 	    else if(a[0]=='matdemo'){
 
     		self.printa("<h1>MEMORY MANAGEMENT</h1>");
+    		self.printa("<h2></h2>");
+    		self.printa("<p></p>");
     	}
 	    else if(a[0]=='process'){
 
     		self.printa("<h1>PROCESS SCHEDULING</h1>");
+    		self.printa("<h2></h2>");
+    		self.printa("<p></p>");
     	}
     	else self.printa("Please enter a valid man command");
 
