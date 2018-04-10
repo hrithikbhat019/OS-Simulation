@@ -124,7 +124,7 @@
       </div>
      </div>
       <div class="row">
-      <div class="answer" id="answers4"></div>
+      <div class="answer" id="answers4"> </div>
         </div>
   </div>
 </div>
@@ -136,17 +136,6 @@
 
 <script>
 
-
-var count1= 0;
-var count2= 0;
-var count3= 0;
-var cacheSize = 3;
-var data = [1,3,2,1,2,4,5,2]
-var output = {'states': [{'status': 'M', 'cache': '1 -1 -1'}, {'status': 'M', 'cache': '1 3 -1'},{'status': 'M', 'cache': '1 3 2'}, {'status': 'H', 'cache': '1 3 2'},{'status': 'H', 'cache': '1 3 2'}, {'status': 'M', 'cache': '4 3 2'}, {'status': 'M', 'cache': '4 5 2'}, {'status': 'H', 'cache': '4 5 2'}],  'hit-ratio': 0.375, 'hits': 3, 'miss': 5};
-var states = output["states"];
-var hits = [output["hits"],output["hits"],output["hits"]];
-var misses = [output["miss"],output["miss"],output["miss"]];
-var hitratio = [output["hit-ratio"],output["hit-ratio"],output["hit-ratio"]];
 
 $(document).ready(function(){
 
@@ -285,14 +274,6 @@ $("#proceed1").click(function(){
 
 });
 
-$("#proceed2").click(function(){
-
-
-});
-
-$("#proceed3").click(function(){
-
-});
 
 </script>
 <style>
