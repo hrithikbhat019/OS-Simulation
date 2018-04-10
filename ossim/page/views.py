@@ -11,7 +11,7 @@ from django.http import JsonResponse
 # Create your views here.
 from . models import MemSchedAlg
 from . utils import fifo as ff
-from . utils import lru,opt,lfu
+from . utils import lru,opt,lfu,sc
 
 
 
@@ -35,6 +35,6 @@ def algo(request):
         result_lru = lru(data)
         result_opt = opt(data)
         result_lfu=lfu(data)
-
-        result = {'fifo': result_ff, 'lru':result_lru, 'opt':result_opt,'lfu':result_lfu}
+        result_sc=sc(data)
+        result = {'fifo': result_ff, 'lru':result_lru, 'opt':result_opt,'lfu':result_lfu,'sc':result_sc}
     return JsonResponse(result)
