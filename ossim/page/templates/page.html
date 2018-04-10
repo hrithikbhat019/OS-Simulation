@@ -115,6 +115,18 @@
       <div class="answer" id="answers3"></div>
         </div>
   </div>
+
+      <div class="col-md-4" style="background-color: #F78888;">
+
+         <h1 style="border-bottom: 2px solid black">LFU</h1>
+<div class="row">
+         <div id="lfu">
+      </div>
+     </div>
+      <div class="row">
+      <div class="answer" id="answers4"></div>
+        </div>
+  </div>
 </div>
   </div>
 
@@ -150,20 +162,20 @@ $(document).ready(function(){
 $("#submit").click(function(){
     data = $(".requests").val().trim().split(" ");
     cacheSize = parseInt($(".size").val().trim());
-    count1 = count2 = count3 = 0;
-    $("#fifo,#lru,#opt,.answer").empty();
+    count1 = count2 = count3 = count4=0;
+    $("#fifo,#lru,#opt,#lfu,.answer").empty();
     // $("#lru").empty();
     // $("#opt").empty();
-    $('#fifo,#lru,#opt').css('height',(data.length/8)*180+'px');
+    $('#fifo,#lru,#opt,#lfu').css('height',(data.length/8)*180+'px');
     var reqs = JSON.stringify(data.map(Number));
     var csize = JSON.stringify(cacheSize);
     $.post('/page/algo/',{requests: reqs, size: csize}, function(result){
 
       output = result;
 
-      hits = [output['fifo']["hits"],output['lru']["hits"],output['opt']["hits"]];
-      misses = [output['fifo']["miss"],output['lru']["miss"],output['opt']["miss"]];
-      hitratio = [output['fifo']["hit-ratio"],output['lru']["hit-ratio"],output['opt']["hit-ratio"]];
+      hits = [output['fifo']["hits"],output['lru']["hits"],output['opt']["hits"],output['lfu']["hits"]];
+      misses = [output['fifo']["miss"],output['lru']["miss"],output['opt']["miss"],output['lfu']["miss"]];
+      hitratio = [output['fifo']["hit-ratio"],output['lru']["hit-ratio"],output['opt']["hit-ratio"],output['lfu']["hit-ratio"]];
       $(".proceed").removeClass("hidden");
     });
 
@@ -264,6 +276,12 @@ $("#proceed1").click(function(){
   if(count3 == data.length){
     cleanup(3);
   }
+  drawCard("lfu",count4);
+  count4++;
+  if(count4 == data.length){
+    cleanup(4);
+  }
+
 
 });
 
