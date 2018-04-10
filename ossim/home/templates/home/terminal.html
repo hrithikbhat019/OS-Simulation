@@ -350,7 +350,7 @@
         "disk": ["Disk Scheduling"],
         "sockets": ["Sockets TCP and UDP"],
         "semaphores": ["Semaphores Scheduling Problems"],
-        "bankalgo": ["Bankers Algorithm"],
+        // "bankalgo": ["Bankers Algorithm"],
         "filealloc": ["File Allocation"],
         "page": ["Page Allocation"],
         "matdemo": ["Memory Management Techniques"],
@@ -436,15 +436,15 @@
 	    else if(a[0]=='semaphores'){
 
     		self.printa("<h1>SEMAPHORES</h1>");
-    	    self.printa("<h2></h2>");
-    		self.printa("<p></p>");
+    	    self.printa("<h2>Implemented Reader-Writers, Producer-Consumer, Dining-Philosophers and Ciggerate Smoker Problem </h2>");
+    		self.printa("<p>Simulated all the above problems with option to change the inputs and Pictorially represented all the steps in the respective cases. </p>");
     	}
-	    else if(a[0]=='bankalgo'){
+	    // else if(a[0]=='bankalgo'){
 
-    		self.printa("<h1>BANKERS ALGORITHM</h1>");
-    		self.printa("<h2></h2>");
-    		self.printa("<p>The deadlock detection techniques for single instance resources(Resource Allocation Graph) and multiple instances resources(Banker's Algorithm) are implemented.</p>");
-    	}
+    	// 	self.printa("<h1>BANKERS ALGORITHM</h1>");
+    	// 	self.printa("<h2></h2>");
+    	// 	self.printa("<p>The deadlock detection techniques for single instance resources(Resource Allocation Graph) and multiple instances resources(Banker's Algorithm) are implemented.</p>");
+    	// }
 	    else if(a[0]=='filealloc'){
 
     		self.printa("<h1>FILE ALLOCATION</h1>");
@@ -453,9 +453,9 @@
     	}
 	    else if(a[0]=='page'){
 
-    		self.printa("<h1>PAGE TABLE</h1>");
-    		self.printa("<h2></h2>");
-    		self.printa("<p></p>");
+    		self.printa("<h1>PAGE REPLACEMENT</h1>");
+    		self.printa("<h2>Implemented FIFO, LRU, LFU and Optimum </h2>");
+    		self.printa("<p>In the simulation, user enters the requests and the cache size. Detailed steps are displayed for each of the four type parallely.</p>");
     	}
 	    else if(a[0]=='matdemo'){
 
@@ -466,8 +466,8 @@
 	    else if(a[0]=='process'){
 
     		self.printa("<h1>PROCESS SCHEDULING</h1>");
-    		self.printa("<h2></h2>");
-    		self.printa("<p></p>");
+    		self.printa("<h2>Implemented SJF, FCFS, RR, SRTF, Priority, Multi Level Queue Scheduling</h2>");
+    		self.printa("<p>In the simulation, user enters the arrival time and burst time for each process, the Gantt Chart is displayed with a table showing the details of the operations</p>");
     	}
     	else self.printa("Please enter a valid man command");
 
