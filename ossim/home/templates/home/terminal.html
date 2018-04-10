@@ -345,6 +345,7 @@
         "headers": ["command", "description"],
         "help": ["get commands list"],
         "readme": ["view readme"],
+        "man": ["man program name to get details of that program"],
         "deadlock": ["Deadlock Representation"],
         "disk": ["Disk Scheduling"],
         "sockets": ["Sockets TCP and UDP"],
@@ -387,7 +388,7 @@
     },
 
     bankalgo: function(...a) {
-      window.location.href = '/deadlock';
+      window.location.href = '/deadlock/bankers';
     },
 
     filealloc: function(...a) {
@@ -411,6 +412,49 @@
       window.location.href = '/login/desktop';
     },
 
+    man: function(...a) {
+    	console.log(a[0]);
+    	if(a[0]=='deadlock'){
+
+    		self.printa("<h1>DEADLOCK</h1>");
+
+    	}
+    	else if(a[0]=='disk'){
+
+    		self.printa("<h1>DISK SCHEDULING</h1>");
+    	}
+	    else if(a[0]=='sockets'){
+
+    		self.printa("<h1>SOCKETS</h1>");
+    	}
+	    else if(a[0]=='semaphores'){
+
+    		self.printa("<h1>SEMAPHORES</h1>");
+    	}
+	    else if(a[0]=='bankalgo'){
+
+    		self.printa("<h1>BANKERS ALGORITHM</h1>");
+    	}
+	    else if(a[0]=='filealloc'){
+
+    		self.printa("<h1>FILE ALLOCATION</h1>");
+    		self.printa("<h2>Simulate contiguous, linked and indexed file allocation algorithms.</h2>");
+    	}
+	    else if(a[0]=='page'){
+
+    		self.printa("<h1>PAGE TABLE</h1>");
+    	}
+	    else if(a[0]=='matdemo'){
+
+    		self.printa("<h1>MEMORY MANAGEMENT</h1>");
+    	}
+	    else if(a[0]=='process'){
+
+    		self.printa("<h1>PROCESS SCHEDULING</h1>");
+    	}
+    	else self.printa("Please enter a valid man command");
+
+    },
 
     clear: function(...a) {
       this.clear_terminal();
