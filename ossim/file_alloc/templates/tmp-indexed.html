@@ -35,6 +35,7 @@
         var memory;
         var resource;
         var check = Number(0);
+        var block_size;
 
 			function BuildFormFields($amount) // For Resorce allocation
 			{
@@ -109,6 +110,23 @@
 
 
 				}
+				$item = document.createElement('div');
+                        $item.style.margin = '10px';
+
+                        $field = document.createElement('label');
+                        $field.innerHTML = "Size of each block" ;
+                        //$field.style.marginRight = '10px';
+                        $item.appendChild($field);
+
+                        $field = document.createElement('input');
+
+                        $field.name = $i;
+                        $field.type = 'text';
+                        $field.setAttribute("class","form-control");
+                        $item.appendChild($field);
+
+                     //   console.log($item);
+                        $container.appendChild($item);
 				
             }
             var del_files;
@@ -184,6 +202,7 @@
                         console.log(tmp);
                         $container = document.getElementById('FormFields4')
 						$container.innerHTML = '';
+						block_size = Number(tmp[2*no_files +2].value)
 	                  for(i=2;i<=no_files+1;i++)
 	                  {
 	                      cell = row.insertCell(i-1);
@@ -282,9 +301,9 @@
 	                  	label_count = Number(0);	
 	                  	
                     	console.log("file "+Number(tmp[no_files+1+i].value+1)+ " memory "+ Number(memory))
-                    	if(Number(tmp[no_files+1 + i].value)>3)
+                    	if(Number(tmp[no_files+1 + i].value)>block_size)
                     	{
-                    		num_indexb = Number(tmp[no_files+1 + i].value)/3;//+ Number(1);
+                    		num_indexb = Number(tmp[no_files+1 + i].value)/block_size;//+ Number(1);
                     	}
                     	if (Number(Number(tmp[no_files+1+i].value)+Number(num_indexb))>(Number(memory)- Number(count)))
                     	{
@@ -312,13 +331,13 @@
 	                    }
 	                    count = Number(0);
 
-	                  	for (j = 0; j < tmp[no_files+1 + i].value; j++) {
+	                  	for (j = 0; j < tmp[no_files+1 + i].value/block_size; j++) {
                     	if (Number(tmp[no_files+1+i].value)>(Number(memory)- Number(count)))
                     	{
                     		flag = 1;
                     		break;
                     	}
-                    	if(j%3==0 && j!=0)
+                    	if(j%block_size==0 && j!=0)
                     	{
                     		graph_container[Number(index_arr[please_work])].children[0].innerHTML+= "\n" +Number(index_arr[please_work+ Number(1)]);
                     		please_work = Number(please_work) + Number(1);
