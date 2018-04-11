@@ -115,6 +115,8 @@ However, delay the fade out process for 2.5 seconds */
 							<option value="cscan">CSCAN</option>
 							<option value="look">LOOK</option>
 							<option value="clook">CLOOK</option>
+							<option value="pickup">PICKUP</option>
+							<option value="lifo">LIFO</option>
 						</select>
 					</span>
 					<span style="padding-right: 5px;">
@@ -480,6 +482,13 @@ else
 		else if(types_sched=="clook"){
 			document.getElementById("demo").innerHTML = "TOTAL SEEK TIME : " +  clook(points,head_cur,cylinders,prev_head);
 		}
+		else if(types_sched=="pickup"){
+			document.getElementById("demo").innerHTML = "TOTAL SEEK TIME : " +  pickup(points,head_cur,cylinders,prev_head);
+		}
+		else if(types_sched=="lifo"){
+			document.getElementById("demo").innerHTML = "TOTAL SEEK TIME : " +  lifo(points,head_cur,cylinders,prev_head);
+		}
+
 
 }
 		 // document.getElementById("demo").innerHTML = cscan(a,53,199,63);
@@ -503,6 +512,85 @@ function fcfs(arr,cur){
 	plotthe("First Come First Serve",ploty);
 	return result;
 }
+
+function pickup(arr,cur){
+	console.log(arr);
+	var i;
+	var result=0;
+	var ploty=[];
+	var first = arr[0];
+	arr.sort(function(a, b){return a-b});
+	console.log(arr);
+	ploty.push(cur);
+	var z;
+	if(cur<=first){
+		for(i=0;i<arr.length;i++){
+			if(arr[i]>=cur)
+				{z=i;break;console.log(i);}
+		}
+		for(i=z ; i<arr.length; i++){
+			var k = Math.abs(cur - arr[i]);
+			console.log(result);
+			result = result + k;
+			cur = arr[i];
+			ploty.push(cur);
+		}
+		for(i=z-1 ; i>=0; i--){
+			var k = cur -arr[i];
+			k=Math.abs(k);
+			console.log(result);
+			console.log(k);
+			result = result + k;
+			cur=arr[i];
+			ploty.push(cur);
+		}
+	}
+	else {
+		for(i=arr.length;i>=0;i--){
+			if(arr[i]<=cur)
+				{z=i;break;console.log(i);}
+		}
+		for(i=z ; i>=0; i--){
+			var k = Math.abs(cur - arr[i]);
+			console.log(result);
+			result = result + k;
+			cur = arr[i];
+			ploty.push(cur);
+		}
+		for(i=z+1 ; i<arr.length; i++){
+			var k = cur -arr[i];
+			k=Math.abs(k);
+			console.log(result);
+			console.log(k);
+			result = result + k;
+			cur=arr[i];
+			ploty.push(cur);
+		}	
+	}
+	// result = result + Math.abs(first-cur);
+	plotthe("Pickup ",ploty);
+	return result;
+}
+
+function lifo(arr,cur){
+	arr.reverse();
+	console.log(arr);
+	var i;
+	var result=0;
+	var ploty=[];
+	ploty.push(cur);
+	for(i=0 ; i<arr.length; i++){
+		var k = cur -arr[i];
+		k=Math.abs(k);
+		console.log(k);
+		result = result + k;
+		cur=arr[i];
+		ploty.push(cur);
+	}
+	plotthe("Last in Serve First",ploty);
+	return result;
+}
+
 
 function sstf(arr,cur){
 	console.log(arr);
