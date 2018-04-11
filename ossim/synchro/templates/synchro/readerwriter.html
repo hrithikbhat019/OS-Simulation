@@ -16,21 +16,20 @@
     <form onsubmit="return false">
       <p><br /><br><br></p>
       <span> User 1:  </span>
-    <k style="color:white;">  Read:</k> <input type = "checkbox", name = "first">
-    <k style="color:white;">  Write:</k> <input type = "checkbox" name = "first"><br><br><br>
+    <k style="color:white;">  Read:</k> <button name="firstR" onClick="update(this)"> Click </button>
+    <k style="color:white;">  Write:</k> <button type = "button" name = "firstW" onClick="update(this)">Click </button><br><br><br>
 
       <span>User 2: </span>
-    <k style="color:white;">  Read:</k> <input type = "checkbox" name = "second">
-    <k style="color:white;">  Write:</k> <input type = "checkbox" name = "second"><br><br><br>
+    <k style="color:white;">  Read:</k> <button type = "button", name = "secondR", onClick="update(this)">Click </button>
+    <k style="color:white;">  Write:</k> <button type = "button" name = "secondW" onClick="update(this)"> Click </button><br><br><br>
 
       <span>User 3: </span>
-    <k style="color:white;">  Read:</k> <input type = "checkbox", name = "third">
-    <k style="color:white;">  Write:</k>  <input type = "checkbox" name = "third"><br><br><br>
+    <k style="color:white;">  Read:</k> <button type = "button", name = "thirdR" onClick="update(this)"> Click</button>
+    <k style="color:white;">  Write:</k> <button type = "button" name = "thirdW" onClick="update(this)"> Click</button><br><br><br>
 
 
-
+    <button type="button" name="stop()" onClick = "stop()" id="st">Stop Writer</button>
       <br /><br />
-      <input type = "submit", name ="Go!", onclick="update()", class="click btn btn-primary" value='Submit'>
     </form>
 
     <button type = "button", id ="one", name = "one"> </button>
@@ -47,82 +46,88 @@
     </div>
     <script type = "text/javascript">
       var mutex =-1;
-      function update()
+      function update(obj)
       {
+        alert(mutex);
+        text = (obj.getAttribute('name').toString())
         var checkW =0;
         for(var i=0;i<7;i++)
         {
-          if(i%2 != 0 && document.forms[0].elements[i].checked==true)
-          {
+
+            if(text=='firstW' || text=='secondW' || text=='thirdW'){
             checkW=1;
           }
+
         }
         if(checkW==0)
         {
-          mutex=-1;
+          if(mutex==-1){
+            mutex = -1;
+          }
           var change = document.getElementById("lock");
           change.innerHTML ="Writing Lock:"
         }
 
-        for(var i=0;i<7;i++)
-        {
-          if(i%2 !=0 && document.forms[0].elements[i].checked == true && (mutex==(i-1)/2 || mutex==-1))
-          {
-            for(var j=0;j<7;j++)
-            {
-              if(j!=i)
-              {
-                document.forms[0].elements[j].checked = false
-              }
-            }
-          }
-        }
 
-        for(var i=0;i<7;i++)
-        {
-          document.getElementById("one").style.backgroundColor = '#FFFFFF';
-          document.getElementById("two").style.backgroundColor = '#FFFFFF';
-          document.getElementById("three").style.backgroundColor = '#FFFFFF';
 
-        }
-
-            if(document.forms[0].elements[0].checked == true)
+            if(text==='firstR' && mutex==-1)
             {
               document.getElementById("one").style.backgroundColor = '#8e44ad';
               mutex =-1;
             }
-            if(document.forms[0].elements[2].checked == true)
+            if(text==='secondR' && mutex==-1)
             {
               document.getElementById("two").style.backgroundColor = '#8e44ad';
               mutex =-1;
             }
-            if(document.forms[0].elements[4].checked == true)
+            if(text==='thirdR' && mutex==-1)
             {
               document.getElementById("three").style.backgroundColor = '#8e44ad';
               mutex =-1;
             }
 
 
-            if(document.forms[0].elements[1].checked == true)
+            if(text === 'firstW')
             {
-              document.getElementById("one").style.backgroundColor = '#f1c40f';
-              var change = document.getElementById("lock");
-              change.innerHTML ="Writer : 1"
-              mutex =0;
+
+
+                if(mutex==0 || mutex==-1){
+                mutex =0;
+                document.getElementById("one").style.backgroundColor = '#FC140F';
+
+                document.getElementById("two").style.backgroundColor = '#FFFFFF';
+
+                document.getElementById("three").style.backgroundColor = '#FFFFFF';
+
+              }
+
             }
-            if(document.forms[0].elements[3].checked == true)
+            if(text === 'secondW')
             {
-              document.getElementById("two").style.backgroundColor = '#f1c40f';
-              var change = document.getElementById("lock");
-              change.innerHTML ="Writer - : 2"
+
+              if(mutex==1 || mutex==-1){
+
               mutex =1;
+              document.getElementById("one").style.backgroundColor = '#FFFFFF';
+              document.getElementById("two").style.backgroundColor = '#fc140f';
+              document.getElementById("three").style.backgroundColor = '#FFFFFF';
+
+
+;
+
             }
-            if(document.forms[0].elements[5].checked == true)
+            }
+            if(text==='thirdW')
             {
-              document.getElementById("three").style.backgroundColor = '#f1c40f';
-              var change = document.getElementById("lock");
-              change.innerHTML ="Writer - : 3"
+
+
+              if(mutex==2 || mutex==-1){
               mutex =2;
+              document.getElementById("one").style.backgroundColor = '#FFFFFF';
+              document.getElementById("two").style.backgroundColor = '#FFFFFF';
+              document.getElementById("three").style.backgroundColor = '#fc140f';
+
+            }
             }
 
             console.log(mutex);
@@ -137,6 +142,30 @@
 
                 document.getElementById("doc").disabled= false
             }
+
+            var k = mutex+1;
+
+            if(mutex!=-1){
+            var change = document.getElementById("lock");
+            change.innerHTML ="Writer - : " + k;
+          }
+      }
+
+      function stop(){
+
+        if(mutex==0 || mutex==1 || mutex==2){
+        document.getElementById("one").style.backgroundColor = '#FFFFFF';
+
+        document.getElementById("two").style.backgroundColor = '#FFFFFF';
+
+        document.getElementById("three").style.backgroundColor = '#FFFFFF';
+
+           document.getElementById("doc").style.display = 'none'
+
+        mutex = -1;
+        var change = document.getElementById("lock");
+        change.innerHTML ="Writing Lock:"
+      }
       }
     </script>
 

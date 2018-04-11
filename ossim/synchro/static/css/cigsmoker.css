@@ -14,7 +14,10 @@ h1{
 }
 
 
-
+#agent{
+  width:200px;
+  height:200px;
+}
 
 #one ,  #three , #five{
 
@@ -22,7 +25,7 @@ h1{
   top:12%;left:50%;
   height:125px;
   width:125px;
-  border-radius:125px;
+  border-radius:80px;
   border:1px solid #000;
 }
 
@@ -90,17 +93,17 @@ top:55%;left:67%;
 
 .s1{
   position: absolute;
-  top:12%;left:50%;
+  top:12%;left:45%;
 }
 
 .s2{
   position: absolute;
-top:55%;left:67%;
+top:55%;left:72%;
 }
 
 .s3{
   top:55%;
-  left:41%;
+  left:46%;
 
 }
 
@@ -117,20 +120,20 @@ top:55%;left:67%;
 
 #cig1{
   position: absolute;
-  top:27%;
+  top:17%;
   left:55%;
 }
 
 #cig3{
   position: absolute;
-  top:70%;
+  top:60%;
   left:42%;
 }
 
 #cig2{
   position: absolute;
-  top:72%;
-  left:42%;
+  top:62%;
+  left:72%;
 }
 #num{
   height:70px;
@@ -159,6 +162,10 @@ top:55%;left:67%;
   background-color:#DCDCDC;
 }
 
+span{
+  font-size: 30px;
+  font-weight: bold;
+}
 #btn1txt{
   position:absolute;
   top:20%;
