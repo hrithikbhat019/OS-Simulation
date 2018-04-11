@@ -11,6 +11,20 @@ h1{
   background-color: white;
   width:70%;
   color:red;
+
+}
+
+h2{
+  position: absolute;
+  bottom:10px;
+  text-align: center;
+  margin-left: 37%;
+}
+
+span{
+  font-size: 25px;
+  font-weight: bold;
+
 }
 
 #first , #second , #third , #fourth , #fifth{
@@ -84,9 +98,8 @@ top:68%;left:42%;
    position:absolute;
    top:23%;
    left:40%;
-   border-radius:435px;
    border:1px solid #000;
-   background-color:#00b894;
+   background-color: #d35400;
 }
 
 #num{

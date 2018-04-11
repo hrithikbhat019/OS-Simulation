@@ -11,6 +11,7 @@ h1{
   background-color: white;
   width:70%;
   color:red;
+  margin-bottom: 100px;
 }
 
 
@@ -33,7 +34,8 @@ h1{
 
 #three{
   position: absolute;
-top:55%;left:67%;
+top:55%;
+left:67%;
 }
 
 
@@ -93,12 +95,12 @@ top:55%;left:67%;
 
 .s1{
   position: absolute;
-  top:12%;left:45%;
+  top:27%;left:55%;
 }
 
 .s2{
   position: absolute;
-top:55%;left:72%;
+top:55%;left:65%;
 }
 
 .s3{
