@@ -11,12 +11,16 @@ h1{
 
 }
 
+form input[type=button]{
+  width:100px;
+}
+
 .click{
   position: absolute;
-  left:30%;
+  left:40%;
   top:30%;
-  width:150px;
-  height:100px;
+  width:100px;
+  height:60px;
   font-size: 20px;
 }
 #one{
@@ -130,12 +134,25 @@ span{
   margin-right:35px;
 }
 
-input[type="checkbox"]{
-
-  height: 30px;
-  width:40px;
+#first{
+  width:100px;
 }
 
-.btn{
+#second{
+  width:100px;
+}
 
+#third{
+  width:100px;
+}
+
+
+form button{
+
+  height: 30px;
+  width:60px;
+}
+
+#st{
+  width:300px;
 }
