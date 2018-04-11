@@ -30,7 +30,7 @@
 
 
       <br /><br />
-      <input type = "submit", name ="Go!", onclick="update()", class="btn btn-primary" value='Click'>
+      <input type = "submit", name ="Go!", onclick="update()", class="click btn btn-primary" value='Submit'>
     </form>
 
     <button type = "button", id ="one", name = "one"> </button>
@@ -70,7 +70,7 @@
           {
             for(var j=0;j<7;j++)
             {
-              if(j!=i/* && j%2 ==0*/)// important change made here
+              if(j!=i)
               {
                 document.forms[0].elements[j].checked = false
               }

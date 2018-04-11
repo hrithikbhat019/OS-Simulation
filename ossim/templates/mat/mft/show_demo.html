@@ -24,28 +24,30 @@
     var blockSize = {{ block_size|safe }};
     console.log(blockSize[1]);
 </script>
-<body>
+<body style="background-image: url('https://www.hdwallpapers.in/walls/3d_cubes-HD.jpg');background-size:cover">
 <div class="container-fluid">
-    <div id="page-heading">
-        <h1>Memory Allocation Techniques</h1>
+    <div id="page-heading" style = "font-family : Cursive; color : #FCE4EC;padding-top: 20px;">
+        
+            <b style="font-size: 50px;">Choose the Memory Allocation Technique</b>
+        
     </div>
-    <div id="selection-form">
-        <button type="button" id="first-fit-select" class="btn btn-default">First-Fit</button>
-        <button type="button" id="best-fit-select" class="btn btn-default">Best-Fit</button>
-        <button type="button" id="worst-fit-select" class="btn btn-default">Worst-Fit</button>
+    <div id="selection-form" style="padding:20px">
+        <button type="button" id="first-fit-select" class="btn btn-primary" style="margin-right: 50px;height: 50px;width:100px"><b style="font-size: 20px;">First-Fit</b></button>
+        <button type="button" id="best-fit-select" class="btn btn-primary" style="height: 50px"><b style="font-size: 20px;">Best-Fit</b></button>
+        <button type="button" id="worst-fit-select" class="btn btn-primary" style="margin-left: 50px;height: 50px;width:120px"><b style="font-size: 20px;">Worst-Fit</b></button>
     </div>
-    <div id="demo-box">
-    <div class="col-sm-6" id="right-box">
+    <div id="demo-box" class="container" style="background-color: white;opacity: 0.8;padding-left: 100px">
+        <div class="col-sm-4" id="right-box" style="background-color: #76FF03;opacity: 1;margin:10px">
             <div class="row" id="top-box">
-                <h3>Output Table</h3>
+                <h3 style="color: white">Output Table</h3>
                 <table class="table table-striped" id="output-table">
                     <thead>
                     <tr>
-                        <th>Process No.</th>
-                        <th>Process Size</th>
-                        <th>Allocation Status</th>
-                        <th>Block No.</th>
-                        <th>Internal Fragmentation</th>
+                        <th  style="color: white">Process No.</th>
+                        <th  style="color: white">Process Size</th>
+                        <th  style="color: white">Allocation Status</th>
+                        <th  style="color: white">Block No.</th>
+                        <th  style="color: white">Internal Fragmentation</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -54,19 +56,19 @@
             </div>
         </div>
        
-        <div class="col-sm-6" id="left-box">
+        <div class="col-sm-4" id="left-box" style="background-color: #26A69A;opacity: 1;margin:10px 0px 20px 100px;" >
             <div class="col-sm-6">
-                <h4>Main Memory</h4>
+                <h4 style="color: white">Main Memory</h4>
                 <div id="memory-box">
 
                 </div>
             </div>
             <div class="col-sm-6">
-                <h4>Input Queue</h4>
+                <h4 style="color: white">Input Queue</h4>
                 <div id="input-q-box">
 
                 </div>
-                <button class="btn btn-info" id="add-process-button">Add Process</button>
+                <button class="btn btn-danger" id="add-process-button"  style="color: white">Add Process</button>
             </div>
         </div>
         

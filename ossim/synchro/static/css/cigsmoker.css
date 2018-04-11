@@ -13,36 +13,10 @@ h1{
   color:red;
 }
 
-#first , #second , #third , #fourth , #fifth{
-   height:20px;
-   width:80px;
-   position:absolute;
-   top:30%;
-   left:46%;
-   border:1px solid #000;
-}
 
-#second{
-  top:30%;
-  left:60%;
-}
 
-#third{
-  top:57%;
-  left:64%;
-}
 
-#fifth{
-  top:57%;
-  left:41%;
-}
-
-#fourth{
-  top:72%;
-  left:53%;
-}
-
-#one , #two , #three , #four , #five{
+#one ,  #three , #five{
 
   position:absolute;
   top:12%;left:50%;
@@ -52,20 +26,16 @@ h1{
   border:1px solid #000;
 }
 
-#two{
-top:35%;left:65%;
-}
+
 
 #three{
-top:68%;left:61%;
+  position: absolute;
+top:55%;left:67%;
 }
 
-#four{
-top:68%;left:42%;
-}
 
 #five{
-  top:35%;left:35%;
+  top:55%;left:37%;
 }
 
 #next{
@@ -89,6 +59,79 @@ top:68%;left:42%;
    background-color:#00b894;
 }
 
+
+
+#tob,.tob{
+  background-color: brown;
+  height:50px;
+  width:60px;
+  position: absolute;
+  top:40%;
+  left:50%;
+}
+
+#ocb,.ocb{
+  background-color: white;
+  height:50px;
+  width:60px;
+  position: absolute;
+  top:40%;
+  left:60%;
+}
+
+#match,.match{
+  background-color: orange;
+  height:50px;
+  width:60px;
+  position: absolute;
+  top:50%;
+  left:55%;
+}
+
+.s1{
+  position: absolute;
+  top:12%;left:50%;
+}
+
+.s2{
+  position: absolute;
+top:55%;left:67%;
+}
+
+.s3{
+  top:55%;
+  left:41%;
+
+}
+
+#ocb,#match,#tob{
+  display: none;
+}
+
+#cig1 , #cig2 , #cig3{
+  background-color: black;
+  height:10px;
+  width: 70px;
+  display: none;
+}
+
+#cig1{
+  position: absolute;
+  top:27%;
+  left:55%;
+}
+
+#cig3{
+  position: absolute;
+  top:70%;
+  left:42%;
+}
+
+#cig2{
+  position: absolute;
+  top:72%;
+  left:42%;
+}
 #num{
   height:70px;
   width:300px;

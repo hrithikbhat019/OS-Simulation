@@ -19,8 +19,8 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/static/vendor/select2/select2.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/css/util.css">
-	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/util1.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/main1.css">
 <!--===============================================================================================-->
 
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -35,6 +35,7 @@
         var memory;
         var resource;
         var check = Number(0);
+        var block_size;
 
 			function BuildFormFields($amount) // For Resorce allocation
 			{
@@ -109,6 +110,23 @@
 
 
 				}
+				$item = document.createElement('div');
+                        $item.style.margin = '10px';
+
+                        $field = document.createElement('label');
+                        $field.innerHTML = "Size of each block" ;
+                        //$field.style.marginRight = '10px';
+                        $item.appendChild($field);
+
+                        $field = document.createElement('input');
+
+                        $field.name = $i;
+                        $field.type = 'text';
+                        $field.setAttribute("class","form-control");
+                        $item.appendChild($field);
+
+                     //   console.log($item);
+                        $container.appendChild($item);
             }
 
             function create_graph($amount)
@@ -200,6 +218,8 @@
 	                      cell = color_head.insertCell(i);
 	                      cell.style.backgroundColor = colors[i-1];
 	                  }
+	                  console.log("LALA "+tmp[2*no_files+2].value);
+	                  block_size = Number(tmp[2*no_files+2].value);
 	                  for(i=1;i<=no_files;i++)
 	                  {
 	                  	//var removeRow=document.createElement("BUTTON");
@@ -230,9 +250,9 @@
 	                  for(i=1;i<=no_files;i++)
 	                  {
 	                  	flag = Number(0); 	
-	                  	for (j = 0; j < tmp[no_files+1 + i].value; j++) {
+	                  	for (j = 0; j < tmp[no_files+1 + i].value/block_size; j++) {
                     	console.log(j);
-                    	if (Number(tmp[no_files+1+i].value)>(Number(memory)- Number(count)))
+                    	if (Number(tmp[no_files+1+i].value/block_size)>(Number(memory)- Number(count)))
                     	{
                     		flag = 1;
                     		break;
@@ -271,7 +291,7 @@
 						cell= start_block.insertCell(start);
                     	cell.innerHTML = Number(count);
                     	start = start + Number(1);
-                    	count += Number(tmp[no_files+1 + i].value);
+                    	count += Number(tmp[no_files+1 + i].value/block_size);
 
 
 	                  }
@@ -330,7 +350,7 @@
             	}
             	for(i=0;i<5;i++)
             	{
-            		tab_need.rows[i].cells[needy].remove();
+            		tab_need.rows[i].cells[needy].innerHTML = "";
             	}
             }
 	

@@ -19,8 +19,8 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/static/vendor/select2/select2.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/css/util.css">
-	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/util1.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/main1.css">
 <!--===============================================================================================-->
 
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -35,6 +35,7 @@
         var memory;
         var resource;
         var check = Number(0);
+        var block_size;
 
 			function BuildFormFields($amount) // For Resorce allocation
 			{
@@ -109,9 +110,26 @@
 
 
 				}
+				$item = document.createElement('div');
+                        $item.style.margin = '10px';
+
+                        $field = document.createElement('label');
+                        $field.innerHTML = "Size of each block" ;
+                        //$field.style.marginRight = '10px';
+                        $item.appendChild($field);
+
+                        $field = document.createElement('input');
+
+                        $field.name = $i;
+                        $field.type = 'text';
+                        $field.setAttribute("class","form-control");
+                        $item.appendChild($field);
+
+                     //   console.log($item);
+                        $container.appendChild($item);
 				
             }
-
+            var del_files;
             function create_graph($amount)
             {
             	memory = $amount; 
@@ -120,6 +138,7 @@
             	var
 					$container = document.getElementById('FormFields4'),
 					$number, $field, $i;
+				del_files = Number($amount);
 				no_files = $amount;
 				$container.innerHTML = '';
 				for ($i = 0; $i < $amount; $i++) {
@@ -183,6 +202,7 @@
                         console.log(tmp);
                         $container = document.getElementById('FormFields4')
 						$container.innerHTML = '';
+						block_size = Number(tmp[2*no_files +2].value)
 	                  for(i=2;i<=no_files+1;i++)
 	                  {
 	                      cell = row.insertCell(i-1);
@@ -265,33 +285,62 @@
 	         		  var end = Number(1);
 	         		  var index_block;
 	         		  var index_num;
+	         		  var num_indexb = Number(1);
+	         		  var p;
+	         		  var count = Number(0);
+	         		  var index_arr = [];
+	         		  var please_work = 0;
 	                  for(i=1;i<=no_files;i++)
 	                  {
+	                  	
+	         		  	num_indexb = Number(1);
+	                  	count = Number(0);
+	         		  	index_arr = [];
+	         		  	var please_work = 0;
 	                  	flag = Number(0); 
 	                  	label_count = Number(0);	
-	                  	rand_val= Math.floor(Math.random() *Number(graph.length-1));
-                    	
-                    	index_block = graph[Number(rand_val)];
-                    	graph.splice(Number(rand_val),1);
+	                  	
                     	console.log("file "+Number(tmp[no_files+1+i].value+1)+ " memory "+ Number(memory))
-                    	if (Number(Number(tmp[no_files+1+i].value)+Number(1))>(Number(memory)- Number(count)))
+                    	if(Number(tmp[no_files+1 + i].value)>block_size)
+                    	{
+                    		num_indexb = Number(tmp[no_files+1 + i].value)/block_size;//+ Number(1);
+                    	}
+                    	if (Number(Number(tmp[no_files+1+i].value)+Number(num_indexb))>(Number(memory)- Number(count)))
                     	{
                     		color_head.cells[i].innerHTML = 'Not Allocated'
 							color_head.cells[i].style.backgroundColor = "white"
 							continue;
                     		
                     	}
-                    	graph_container[index_block].style.backgroundColor = colors[i-1];
-                    	graph_container[index_block].children[0].innerHTML = "INDEX_"+Number(i-1)+"-> ";
-                    	cell = ind_block.insertCell(i);
-                    	cell.innerHTML = Number(index_block)
+                    	console.log(num_indexb);
+                    	for(p=0;p<Number(num_indexb);p++)
+                    	{
+                    		rand_val= Math.floor(Math.random() *Number(graph.length-1));
+                    	
+                    		index_block = graph[Number(rand_val)];
+                    		if(p==0)
+                    		{
+                    			cell = ind_block.insertCell(i);
+	                    		cell.innerHTML = Number(index_block);
+                    		}
+                    		graph.splice(Number(rand_val),1);
+                    		index_arr.push(Number(index_block));
+	                    	graph_container[index_block].style.backgroundColor = colors[i-1];
+	                    	graph_container[index_block].children[0].innerHTML = "INDEX_"+Number(i-1)+"-> ";
+	                    	
+	                    }
+	                    count = Number(0);
 
-
-	                  	for (j = 0; j < tmp[no_files+1 + i].value; j++) {
+	                  	for (j = 0; j < tmp[no_files+1 + i].value/block_size; j++) {
                     	if (Number(tmp[no_files+1+i].value)>(Number(memory)- Number(count)))
                     	{
                     		flag = 1;
                     		break;
+                    	}
+                    	if(j%block_size==0 && j!=0)
+                    	{
+                    		graph_container[Number(index_arr[please_work])].children[0].innerHTML+= "\n" +Number(index_arr[please_work+ Number(1)]);
+                    		please_work = Number(please_work) + Number(1);
                     	}
                     	rand_val= Math.floor(Math.random() *Number(graph.length-1));
                     	
@@ -301,33 +350,14 @@
                     	console.log(graph);
                     	console.log(graph_container[rand_val]);
                     	index_num = Number(count)+Number(j);
-                    	graph_container[index_block].children[0].innerHTML+= "\n" +rand_index;
+                    	console.log("look HERE: "+index_arr[please_work]);
+                    	graph_container[Number(index_arr[please_work])].children[0].innerHTML+= "\n" +rand_index;
                     	graph_container[rand_index].style.backgroundColor = colors[i-1];
                     	graph_container[rand_index].children[0].innerHTML = j;
+
                     	len = Number(len) -1;
 
 
-
-
-                     //    $item = document.createElement('button');
-                     //    $item.style.margin = '10px';
-                     //    $item.style.backgroundColor = colors[i-1];
-
-                     //    $field = document.createElement('label');
-                     //    $field.innerHTML =label_count ;
-                     //    $field.style.marginRight = '10px';
-                     //    $item.appendChild($field);
-
-                       
-
-                     //    $field.name = label_count;
-                     //    $field.id = label_count;
-         
-                     //    $field.setAttribute("class","form-control");
-                     //    $item.appendChild($field);
-
-                     // //   console.log($item);
-                     //    $container.appendChild($item);
 
 
 						}
@@ -350,14 +380,21 @@
 
 
 			}
-
+			var del_count = Number(0);
 			function delete_file(file)
             {
+
             	var graph_container = document.getElementsByTagName('button');
             	var tab_need = document.getElementById("tab_need");
             	//console.log(tab_need.rows[2].cells[file].style.backgroundColor);
             	console.log(file.target.id.split("_")[1]);
             	var needy = file.target.id.split("_")[1];
+            	if(needy!= del_files)
+            	{
+            		needy = needy - Number(del_count);
+            		del_count = Number(del_count) + Number(1);
+            	}
+            	console.log("NEEDY:"+needy);
             	var color = tab_need.rows[1].cells[needy].style.backgroundColor;
             	//console.log(color);
             	console.log(graph_container[0])
@@ -372,10 +409,12 @@
             			graph_container[i].children[0].innerHTML = "";
             		}
             	}
+            	console.log( "hahaah" +tab_need.rows[0].cells[needy])
             	for(i=0;i<5;i++)
             	{
             		tab_need.rows[i].cells[needy].remove();
             	}
+            	del_files = Number(del_files) - Number(1);
             }
 			function show_graph()
 			{
