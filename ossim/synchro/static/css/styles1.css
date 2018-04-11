@@ -1,0 +1,22 @@
+/* Animations */
+
+h1{
+  text-align: center;
+}
+
+div{
+  display: inline-block;
+  margin-right:40px;
+  margin-left:50px;
+  margin-top:60px;
+}
+
+body{
+  background-color: #ffa801
+}
+
+div img{
+
+  width:250px;
+  height:250px;
+}
