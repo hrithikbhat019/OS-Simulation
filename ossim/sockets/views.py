@@ -9,3 +9,6 @@ def tcp(request):
 
 def udp(request):
     return render(request,'sockets/udp.html')
+
+def ftp(request):
+    return render(request,'sockets/ftp.html')

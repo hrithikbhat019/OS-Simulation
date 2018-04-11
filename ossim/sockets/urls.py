@@ -8,6 +8,7 @@ urlpatterns =[
     url(r'^$',views.main,name='home' ),
     url(r'^tcp$',views.tcp),
     url(r'^udp$',views.udp),
+    url(r'^ftp$',views.ftp),
 
 
 ]
