@@ -104,8 +104,10 @@ $(document).ready(function(){
 
    $('#add-process-button').click(function(){
        var size = prompt('Enter Process Size: ');
-       if(size)
+       if(size>0)
         addNewProcess(parseInt(size));
+       else
+           alert("INVALID INPUT");
    });
 
 

@@ -85,8 +85,10 @@ $(document).ready(function() {
 
   $('#add-process-button').click(function(){
       var size = prompt('Enter Process Size: ');
-      if(size)
+      if(size>0)
        addNewProcess(parseInt(size));
+      else
+        alert("INVALID INPUT");
   });
 
   function findTotalFree(){
@@ -204,7 +206,7 @@ $(document).ready(function() {
 
   //First fit algorithm. Takes size of process as parameter and creates process object
   function firstFit(s)
-  {
+  { flag=0
     ++num_of_processes; //increment total number of processes
     var newP = {
       from: 0,
@@ -240,7 +242,7 @@ $(document).ready(function() {
         //finally, since block is added, increment block counts
         ++num_of_blocks;
         ++total_blocks;
-
+        flag=1
         //create a new div corresponding to block with new div id
         var afterWhere;
         if(i-1 == 0)
@@ -250,15 +252,20 @@ $(document).ready(function() {
           afterWhere = blocks[i-2].divID;
         addNewDiv(newP.divID, newP.size, afterWhere);
         writeToTable(newP);
-        incompleteAllocationStatus(newP.divID);
+        completionAllocatedStatus(newP.divID);
+
         break;
       }
+    }
+    if(flag==0)
+    {
+      incompleteAllocationStatus(newP.divID);
     }
   }
 
   //Worst fit algorithm. Takes size of process as parameter and creates process object
   function worstFit(s)
-  {
+  {flag=0
     ++num_of_processes; //increment total number of processes
     var max = blocks[0].size;
     var max_index = 0;
@@ -294,6 +301,7 @@ $(document).ready(function() {
     //create new block
     newP.size = s;
     newP.isAlloc = true;
+    flag=1
     newP.processID = total_blocks;
     newP.from = blocks[max_index].from;
     newP.to = newP.from + newP.size - 1;
@@ -321,12 +329,17 @@ $(document).ready(function() {
       afterWhere = blocks[max_index-1].divID;
     addNewDiv(newP.divID, newP.size, afterWhere);
     writeToTable(newP);
-    incompleteAllocationStatus(newP.divID);
+    if(flag==1) {
+        completionAllocatedStatus(newP.divID);
+    }else {
+      incompleteAllocationStatus(newP.divID);
+    }
+
   }
 
   //Best fit algorithm. Takes size of process as parameter and creates process object
   function bestFit(s)
-  {
+  { flag=0
     ++num_of_processes; //increment total number of processes
     var fit = blocks[0].size;
     var fit_index = 0;
@@ -362,6 +375,7 @@ $(document).ready(function() {
     //create new block
     newP.size = s;
     newP.isAlloc = true;
+    flag=1
     newP.processID = total_blocks;
     newP.from = blocks[fit_index].from;
     newP.to = newP.from + newP.size - 1;
@@ -389,7 +403,12 @@ $(document).ready(function() {
       afterWhere = blocks[fit_index-1].divID;
     addNewDiv(newP.divID, newP.size, afterWhere);
     writeToTable(newP);
-    incompleteAllocationStatus(newP.divID);
+
+        if(flag==1) {
+        completionAllocatedStatus(newP.divID);
+    }else {
+      incompleteAllocationStatus(newP.divID);
+    }
     debugprint();
   }
 
@@ -404,7 +423,8 @@ $(document).ready(function() {
       }
     }
     blocks[i-1].isAlloc = false;
-    completionAllocatedStatus(blocks[i-1].divID);
+    incompleteAllocationStatus(blocks[i-1].divID);
+    //completionAllocatedStatus(blocks[i-1].divID);
     blocks[i-1].isAlloc = true;
     collection.push("Process " + blocks[i-1].processID + " is completed.");
 
@@ -605,9 +625,9 @@ function writeToTable(p){
 
  function editAllocationStatus(p){
      if(p.isAlloc == true){
-         $('#op-data-'+ p.divID + ' #status').html('<i class="fa fa-check-circle" aria-hidden="true"></i>');
+         $('#op-data-'+ p.divID + ' #status').html('<i class="fa fa-times-circle" aria-hidden="true"></i>');
      }else if(p.isAlloc == false){
-         $('#op-data-'+ p.divID +' #status').html('<i class="fa fa-times-circle" aria-hidden="true"></i>');
+         $('#op-data-'+ p.divID +' #status').html('<i class="fa fa-check-circle" aria-hidden="true"></i>');
      }
  }
 
