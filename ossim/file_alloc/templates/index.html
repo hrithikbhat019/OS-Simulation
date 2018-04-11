@@ -291,13 +291,15 @@
 						cell= start_block.insertCell(start);
                     	cell.innerHTML = Number(count);
                     	start = start + Number(1);
-                    	count += Number(tmp[no_files+1 + i].value/block_size);
+                    	count += Number(Math.floor(tmp[no_files+1 + i].value/block_size));
 
 
 	                  }
 
 	                  console.log("count"+count);
-	                  for(j= count;j<memory;j++)
+	                  console.log("joker "+Math.floor(memory/block_size));
+
+	                  for(j= Math.floor(count);j<Math.ceil(memory/block_size);j++)
 	                  {
 	                  	console.log(j);
 	                  	 $item = document.createElement('button');

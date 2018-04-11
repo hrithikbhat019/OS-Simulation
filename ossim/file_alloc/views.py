@@ -7,10 +7,10 @@ from django.views.generic import TemplateView
 class home(TemplateView):
 	template_name = "home.html"
 class contiguous(TemplateView):
-	template_name = "index.html"
+	template_name = "index1.html"
 class linked(TemplateView):
-	template_name = "tmp-linked.html"
+	template_name = "linked1.html"
 class indexed(TemplateView):
-	template_name = "tmp-indexed.html"
+	template_name = "indexed1.html"
 
 

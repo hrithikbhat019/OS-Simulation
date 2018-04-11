@@ -36,6 +36,7 @@
         var resource;
         var check = Number(0);
         var block_size;
+        var num_entries;
 
 			function BuildFormFields($amount) // For Resorce allocation
 			{
@@ -100,7 +101,7 @@
                         $field = document.createElement('input');
 
                         $field.name = $i;
-                        $field.type = 'text';
+                        $field.type = 'number';
                         $field.setAttribute("class","form-control");
                         $item.appendChild($field);
 
@@ -121,7 +122,24 @@
                         $field = document.createElement('input');
 
                         $field.name = $i;
-                        $field.type = 'text';
+                        $field.type = 'number';
+                        $field.setAttribute("class","form-control");
+                        $item.appendChild($field);
+
+                     //   console.log($item);
+                        $container.appendChild($item);
+                        $item = document.createElement('div');
+                        $item.style.margin = '10px';
+
+                        $field = document.createElement('label');
+                        $field.innerHTML = "Number of entries per index block" ;
+                        //$field.style.marginRight = '10px';
+                        $item.appendChild($field);
+
+                        $field = document.createElement('input');
+
+                        $field.name = $i;
+                        $field.type = 'number';
                         $field.setAttribute("class","form-control");
                         $item.appendChild($field);
 
@@ -140,31 +158,31 @@
 					$number, $field, $i;
 				del_files = Number($amount);
 				no_files = $amount;
-				$container.innerHTML = '';
-				for ($i = 0; $i < $amount; $i++) {
+				// $container.innerHTML = '';
+				// for ($i = 0; $i < $amount; $i++) {
                     
-                        $item = document.createElement('button');
-                        $item.style.margin = '10px';
+    //                     $item = document.createElement('button');
+    //                     $item.style.margin = '10px';
 
-                        $field = document.createElement('label');
-                        $field.innerHTML =$i ;
-                        $field.style.marginRight = '10px';
-                        $item.appendChild($field);
+    //                     $field = document.createElement('label');
+    //                     $field.innerHTML =$i ;
+    //                     $field.style.marginRight = '10px';
+    //                     $item.appendChild($field);
 
                        
 
-                        $field.name = $i;
-                        $field.id = $i;
+    //                     $field.name = $i;
+    //                     $field.id = $i;
          
-                        $field.setAttribute("class","form-control");
-                        $item.appendChild($field);
+    //                     $field.setAttribute("class","form-control");
+    //                     $item.appendChild($field);
 
-                     //   console.log($item);
-                        $container.appendChild($item);
+    //                  //   console.log($item);
+    //                     $container.appendChild($item);
                     
 
 
-				}
+				// }
 
             }
 
@@ -202,7 +220,8 @@
                         console.log(tmp);
                         $container = document.getElementById('FormFields4')
 						$container.innerHTML = '';
-						block_size = Number(tmp[2*no_files +2].value)
+						block_size = Number(tmp[2*no_files +2].value);
+						num_entries  = Number(tmp[2*no_files +3].value);
 	                  for(i=2;i<=no_files+1;i++)
 	                  {
 	                      cell = row.insertCell(i-1);
@@ -220,7 +239,7 @@
 	                      cell.style.backgroundColor = colors[i-1];
 	                  }
 	                  // Creates a blank graph of size(memory)
-	                  for(j= 0;j<memory;j++)
+	                  for(j= 0;j<memory/block_size;j++)
 	                  {
 	                  	console.log(j);
 	                  	 $item = document.createElement('button');
@@ -271,7 +290,7 @@
 
 
 	               	  var graph = []
-					  for(i=0;i<memory;i++)
+					  for(i=0;i<memory/block_size;i++)
 					  {
 					      graph.push(i);
 					  }
@@ -303,9 +322,9 @@
                     	console.log("file "+Number(tmp[no_files+1+i].value+1)+ " memory "+ Number(memory))
                     	if(Number(tmp[no_files+1 + i].value)>block_size)
                     	{
-                    		num_indexb = Number(tmp[no_files+1 + i].value)/block_size;//+ Number(1);
+                    		num_indexb = Math.floor(Number(tmp[no_files+1 + i].value)/block_size);//+ Number(1);
                     	}
-                    	if (Number(Number(tmp[no_files+1+i].value)+Number(num_indexb))>(Number(memory)- Number(count)))
+                    	if (Number(Number(tmp[no_files+1+i].value/block_size)+Number(num_indexb))>(Number(memory/block_size)- Number(count)))
                     	{
                     		color_head.cells[i].innerHTML = 'Not Allocated'
 							color_head.cells[i].style.backgroundColor = "white"
@@ -313,7 +332,9 @@
                     		
                     	}
                     	console.log(num_indexb);
-                    	for(p=0;p<Number(num_indexb);p++)
+                    	count = Number(0);
+
+                    	for(p=0;p<Math.ceil(Number(num_indexb));p++)
                     	{
                     		rand_val= Math.floor(Math.random() *Number(graph.length-1));
                     	
@@ -327,17 +348,17 @@
                     		index_arr.push(Number(index_block));
 	                    	graph_container[index_block].style.backgroundColor = colors[i-1];
 	                    	graph_container[index_block].children[0].innerHTML = "INDEX_"+Number(i-1)+"-> ";
+	                    	count = count + Number(1);
 	                    	
 	                    }
-	                    count = Number(0);
-
-	                  	for (j = 0; j < tmp[no_files+1 + i].value/block_size; j++) {
-                    	if (Number(tmp[no_files+1+i].value)>(Number(memory)- Number(count)))
+	                    
+	                  	for (j = 0; j < Math.ceil(tmp[no_files+1 + i].value/block_size); j++) {
+                    	if (Number(tmp[no_files+1+i].value/block_size)>(Number(memory/block_size)- Number(count)))
                     	{
                     		flag = 1;
                     		break;
                     	}
-                    	if(j%block_size==0 && j!=0)
+                    	if(j%num_entries==0 && j!=0)
                     	{
                     		graph_container[Number(index_arr[please_work])].children[0].innerHTML+= "\n" +Number(index_arr[please_work+ Number(1)]);
                     		please_work = Number(please_work) + Number(1);
@@ -365,6 +386,7 @@
 						{
 							color_head.cells[i].innerHTML = 'Not Allocated'
 							color_head.cells[i].style.backgroundColor = "white"
+
 							continue;
 						}
 						count += Number(tmp[no_files+1 + i].value);
@@ -401,6 +423,14 @@
             	
             	var i;
             	//console.log(graph_container.children[0]);
+            	
+            	console.log( "hahaah" +tab_need.rows[0].cells[needy])
+            	for(i=0;i<4;i++)
+            	{
+            		tab_need.rows[i].cells[needy].innerHTML = "";
+            		tab_need.rows[i].cells[needy].style.backgroundColor = "white";
+            	}
+
             	for(i=0;i<memory;i++)
             	{
             		if (graph_container[i].style.backgroundColor==color)
@@ -408,11 +438,6 @@
             			graph_container[i].style.backgroundColor = "white";
             			graph_container[i].children[0].innerHTML = "";
             		}
-            	}
-            	console.log( "hahaah" +tab_need.rows[0].cells[needy])
-            	for(i=0;i<5;i++)
-            	{
-            		tab_need.rows[i].cells[needy].remove();
             	}
             	del_files = Number(del_files) - Number(1);
             }
