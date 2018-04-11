@@ -38,7 +38,7 @@
 					$field.setAttribute("class","custom3");
 					$field.name = 'Design[' + $i + ']';
 					$field.type = 'text';
-					$field.placeholder = 'Enter process';
+					$field.placeholder = 'Processes with spaces';
                     $field.setAttribute("class","form-control");
 					$item.appendChild($field);
 
@@ -69,7 +69,7 @@
 					$field.setAttribute("class","custom3");
 					$field.name = 'Design[' + $i + ']';
 					$field.type = 'text';
-					$field.placeholder = 'Processes with spaces';
+					$field.placeholder = 'Enter the process';
                     $field.setAttribute("class","form-control");
 					$item.appendChild($field);
 
@@ -200,7 +200,7 @@
                     size: 12
                      },
                 widthConstraint: {
-                    maximum: 100
+                    maximum: 1000
                                 }
                   },
             nodes: {
@@ -389,6 +389,11 @@ div.search-form{width: 300px}
         <div class="main-container">
             <div class="website clearfix"><a href="" target="_blank">Resource Allocation Graph</a></span></div>
             <div class="logo">
+                <div class="container-fluid" style="padding:0px 20px 20px 0px;margin-bottom: 40px">
+		<a href="/login/desktop">
+			<button type="button" class="btn btn-primary"  style="float:right; width: 150px;height: 50px">Go to Desktop</button>
+		</a>
+	</div>
 
             </div>
         </div>

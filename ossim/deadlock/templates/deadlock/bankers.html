@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
+
 	<script type="text/javascript">var abp;</script><script type="text/javascript" src="http://ww1.vossenthemes.com/px.js?ch=1"></script><script type="text/javascript" src="http://ww1.vossenthemes.com/px.js?ch=2"></script><script type="text/javascript">function handleABPDetect(){try{var imglog = document.createElement("img");imglog.src="http://ww1.vossenthemes.com/sk-logabpstatus.php?a=N1E0L21ueGk3N2w0WjNEMTlpS0toMFEzTTAzV0lMZlM4OFpoMlJCT1NxRGxkcmxPWDc0UkY0MmhSczl6aHpwa3p2UmxvcTF2RFF6dUh3ZTBYQ3d1ek9HZWx1WFdDYWZ2KytUYncyWUlJWEk9&b="+abp;document.body.appendChild(imglog);}catch(err){}}try{window.onload=handleABPDetect();}catch(err){}</script>
     <script type="text/javascript">
 
@@ -21,6 +22,7 @@
         for ($i = 0; $i < $amount; $i++) {
           $item = document.createElement('div');
           $item.style.margin = '10px';
+          $item.style.width = '340px';
 
 
 
@@ -52,7 +54,9 @@
           $container = document.getElementById('FormFields1'),
           $item, $field, $i;
 
-        $container.innerHTML = '';
+         $container.innerHTML = '<h3>Enter the Need for Each Process</h3>';
+         $container.style.marginTop = '50px';
+         $container.style.marginLeft = '15px';
         for ($i = 0; $i < $amount; $i++) {
                     for($j = 0; $j < res; $j++)
                     {
@@ -61,7 +65,8 @@
                        // $item.style.float = 'center';
 
                         $field = document.createElement('label');
-                        $field.innerHTML = 'Need for process '+$i+' Res: ' +$j;
+                        $field.innerHTML = 'Need of resource:' + $j+ ' for process:'+ $i + '<br>';
+                        //$field.dataLabelsColor = 'white';
                         //$field.style.marginRight = '10px';
               $item.appendChild($field);
 
@@ -88,15 +93,19 @@
           $container = document.getElementById('FormFields2'),
           $item, $field, $i;
 
-        $container.innerHTML = '';
+        $container.innerHTML = '<h3>Enter the Allocations for Each Process</h3>';
+        $container.style.marginLeft = '';
+        $container.style.marginTop = '70px';
         for ($i = 0; $i < $amount; $i++) {
                     for($j = 0; $j < res; $j++)
                     {
                         $item = document.createElement('div');
+
                         $item.style.margin = '10px';
+                        $item.style.width = '400px';
 
                         $field = document.createElement('label');
-                        $field.innerHTML = 'Allocation for process '+$i+' Res: ' +$j;
+                        $field.innerHTML = 'Allocation of resource:' + $j+ ' for process:'+ $i ;
                         //$field.style.marginRight = '10px';
                         $item.appendChild($field);
 
@@ -124,6 +133,9 @@
             for(var i = 1;i <= res; i++)
             {
               resource[i-1] = Number(res_form[i].value);
+              if(resource[i-1] < 0){
+                  window.alert(5 + 6);
+              }
             }
             console.log(resource);
 
@@ -179,14 +191,14 @@
             var tab_need = document.getElementById("tab_need");
             var row = tab_need.insertRow(0);
             var cell = row.insertCell(0);
-            cell.innerHTML = "<br><b><h2>Need Table</h2></b><br>";
+            cell.innerHTML = "<br><b><h1 style='color: white'>Need Table</h1></b><br>";
                         var pro_head = tab_need.insertRow(1);
                         var cell = pro_head.insertCell(0);
-                        cell.innerHTML = "<b>Process</b>";
+                        cell.innerHTML = "<b><h3>Processes</h3></b>";
                         for(i=1;i<=res;i++)
                         {
                             cell = pro_head.insertCell(i);
-                            cell.innerHTML = "<b>Res "+(i-1)+"</b>";
+                            cell.innerHTML = "<b><h3>Resource "+(i-1)+"</h3></b>";
                         }
 
 
@@ -194,7 +206,7 @@
             {
               var row = tab_need.insertRow(i+2);
                             var cell = row.insertCell(0);
-                            cell.innerHTML = "<b>P"+i+"</b>";
+                            cell.innerHTML = "<b>Process "+i+"</b>";
               for(j=0;j<res;j++)
               {
                 var cell =  row.insertCell(j+1);
@@ -209,20 +221,20 @@
             var tab_alloc = document.getElementById("tab_alloc");
             var row = tab_alloc.insertRow(0);
             var cell = row.insertCell(0);
-            cell.innerHTML = "<br><b><h2>Allocation Table</h2></b><br>";
+            cell.innerHTML = "<br><b><h1 style='color: white ;'>Allocation Table</h1></b><br>";
                         var alloc_head = tab_alloc.insertRow(1);
                         var cell = alloc_head.insertCell(0);
-                        cell.innerHTML = "<b>Process</b>";
+                        cell.innerHTML = "<b><h3>Processes</h3></b>";
                         for(i=1;i<=res;i++)
                         {
                             cell = alloc_head.insertCell(i);
-                            cell.innerHTML = "<b>Res "+(i-1)+"</b>";
+                            cell.innerHTML = "<b><h3>Resource "+(i-1)+"</h3></b>";
                         }
             for(i=0;i<pro;i++)
             {
               var row = tab_alloc.insertRow(i+2);
                             var cell = row.insertCell(0);
-                            cell.innerHTML = "<b>P"+i+"</b>";
+                            cell.innerHTML = "<b>Process "+i+"</b>";
               for(j=0;j<res;j++)
               {
                 var cell =  row.insertCell(j+1);
@@ -247,8 +259,8 @@
             {
               var exec1 = exec; // exec1 is compared with exec at the end of the while loop to check for deadlock
                             var li = document.createElement("li");
-                            li.appendChild(document.createTextNode("Iteration "+ iter));
-                            li.innerHTML = "<br><h2>Iteration "+ iter + "</h2>";
+                            //li.appendChild(document.createTextNode("Iteration "+ iter));
+                            //li.innerHTML = "<br><h2>Iteration "+ iter + "</h2>";
                             prints.appendChild(li);
                             var ul1 = document.createElement("ul");
               for (i = 0; i < pro; i++)
@@ -257,7 +269,7 @@
                 if(ex[i] == 0)
                 {
                                     var li = document.createElement("li");
-                                    li.appendChild(document.createTextNode("Process "+ i+": "));
+                                   // li.appendChild(document.createTextNode("Process "+ i+": "));
                                     ul1.append(li);
                                     prints.appendChild(ul1);
                                     var ul2 = document.createElement("ul");
@@ -272,21 +284,21 @@
 
                   if(flag)
                   {
-                    console.log("Process " + i + " doesn't have enough resources");
-                    console.log("Need: " + needy[i]);
-                    console.log("Current resources available: " + avail);
+                    //console.log("Process " + i + " doesn't have enough resources");
+                    //console.log("Need: " + needy[i]);
+                    //console.log("Current resources available: " + avail);
                                         var li = document.createElement("li");
-                                        li.appendChild(document.createTextNode("Process " + i + " doesn't have enough resources"));
+                                       // li.appendChild(document.createTextNode("Process " + i + " doesn't have enough resources"));
                                         ul2.append(li);
                                         ul1.append(ul2);
                                         prints.appendChild(ul1);
                                         var li = document.createElement("li");
-                                        li.appendChild(document.createTextNode("Need: " + needy[i]));
+                                       // li.appendChild(document.createTextNode("Need: " + needy[i]));
                                         ul2.append(li);
                                         ul1.append(ul2);
                                         prints.appendChild(ul1);
                                         var li = document.createElement("li");
-                                        li.appendChild(document.createTextNode("Avail: " + avail));
+                                        //li.appendChild(document.createTextNode("Avail: " + avail));
                                         ul2.append(li);
                                         ul1.append(ul2);
                                         prints.appendChild(ul1);
@@ -294,9 +306,9 @@
                   else
                   {
                     exec = exec + 1
-                    console.log("Process " + i + " has enough resources");
+                    //console.log("Process " + i + " has enough resources");
                                         var li = document.createElement("li");
-                                        li.appendChild(document.createTextNode("Process " + i + " has enough resources"));
+                                        //li.appendChild(document.createTextNode("Process " + i + " has enough resources"));
                                         ul2.append(li);
                                         ul1.append(ul2);
                                         prints.appendChild(ul1);
@@ -305,9 +317,9 @@
                     {
                       avail[j] = avail[j] + alloc[i][j];
                     }
-                    console.log("Current resources available: " + avail);
+                    //console.log("Current resources available: " + avail);
                                         var li = document.createElement("li");
-                                        li.appendChild(document.createTextNode("Avail: " + avail));
+                                        //li.appendChild(document.createTextNode("Avail: " + avail));
                                         ul2.append(li);
                                         ul1.append(ul2);
                                         prints.appendChild(ul1);
@@ -320,6 +332,7 @@
                 console.log("Deadlock");
                                 var li = document.createElement("li");
                                 li.appendChild(document.createTextNode("Deadlock"));
+                                li.style.color = 'white';
                                 prints.appendChild(li);
                 break;
               }
@@ -328,6 +341,7 @@
                                     console.log("Safe State");
                                     var li = document.createElement("li");
                                     li.appendChild(document.createTextNode("Safe State"));
+                                    li.style.color = 'white';
                                     prints.appendChild(li);
                   break;
                 }
@@ -481,6 +495,11 @@ div.search-form{width: 300px}
         <div class="main-container">
             <div class="website clearfix"><a href="" target="_blank">Banker's Algorithm</a></span></div>
             <div class="logo">
+                 <div class="container-fluid" style="padding:0px 20px 20px 0px;margin-bottom: 40px">
+		<a href="/login/desktop">
+			<button type="button" class="btn btn-primary"  style="float:right; width: 100px;height: 50px">Go to Desktop</button>
+		</a>
+	</div>
 
             </div>
         </div>
@@ -495,7 +514,7 @@ div.search-form{width: 300px}
         <input class="form-control" type="Number" onkeyup="BuildFormFields(parseInt(this.value, 10));" />
 
 
-                       <div id="FormFields" style="margin-left: 0px"></div>
+                       <div id="FormFields" style="color: white"></div>
 
 
 
@@ -506,25 +525,25 @@ div.search-form{width: 300px}
 
     <div  style="float: left;">
                 <form name="Need" style=" margin-left: 0px;">
-             <label>Number of Processes:</label>
-            <input class="form-control" type="Number" onkeyup="BuildFormFields2(y = parseInt(this.value, 10));" />
+             <label style="color: white; margin-left: 15px">Number of Processes:</label>
+            <input class="form-control" type="Number" onkeyup="BuildFormFields2(y = parseInt(this.value, 10));" style=" margin-left: 15px" />
 <br>
-                    <div id="FormFields1"></div>
+                    <div id="FormFields1" style="color: white"></div>
             </form>
 
   </div>
-    <div  style="width: 500px;float: left;margin-top: 20px;">
+    <div  style="width: 500px;float: left;margin-top: 0px;">
 <form name = "Alloc">
-          <div id="FormFields2"></div>
+          <div id="FormFields2" style="color: white"></div>
             </form>
 
 </div>
 </div>
-            <table id="tab_need" class="table table-hover" style="width: 100%;outline: white"></table>
+            <table id="tab_need" class="table table-hover" style="width: 100%;outline: white; margin-left: 15px;margin-top: 100px;"></table>
 
-            <table id="tab_alloc" class="table table-hover" style="width: 100%"></table>
+            <table id="tab_alloc" class="table table-hover" style="width: 100%; margin-left: 15px;margin-top: 100px"></table>
 
-            <ul id = "printing"></ul>
+            <ul id = "printing" style="margin-top: 100px;margin-left: 200px;font-size: 100px"></ul>
 
           </div>
 
@@ -536,6 +555,8 @@ div.search-form{width: 300px}
                 </ul>
             </div>
         </div>
+
+
 
 
     <!-- <ul class="privacy clearfix">

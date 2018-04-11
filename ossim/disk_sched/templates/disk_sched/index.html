@@ -431,7 +431,17 @@ function plotthe(typo,data1,data2){
 		var head_cur = document.getElementById("head_cur").value;
 		var prev_head = document.getElementById("prev_head").value;
 		var cylinders = document.getElementById("cylinders").value;
+		cylinders = cylinders -1;
 		var types_sched = document.getElementById("types_sched").value;
+		var j;
+		var temp = points.split(' ').map(Number);
+		for(j=0;j<temp.length;j++){
+			if(temp[j]<0 || temp [j]>cylinders)
+			{
+				j = -1;
+				break;
+			}
+		}
 
 		if(points==""){
 		myFunction();
@@ -453,6 +463,11 @@ function plotthe(typo,data1,data2){
 		myFunction();
 		document.getElementById("snackbar").innerHTML ="Select a Disk Scheduling Algorithm ...";
 	}
+	else if(j==-1){
+		myFunction();
+		document.getElementById("snackbar").innerHTML ="Enter a valid cylinder value ...";
+	}
+
 else
 
 {		 
