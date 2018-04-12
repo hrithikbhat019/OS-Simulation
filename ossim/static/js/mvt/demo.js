@@ -67,12 +67,14 @@ $(document).ready(function() {
       $('#worst-fit-select').attr('disabled','');
       type = 1;
       collection.push('First Fit selected.');
+      alert('First Fit selected.');
   });
 
   $('#best-fit-select').click(function(){
       $('#first-fit-select').attr('disabled','');
       $('#worst-fit-select').attr('disabled','');
       collection.push('Best Fit selected.');
+      alert('Best Fit selected.');
       type = 2;
   });
 
@@ -80,6 +82,7 @@ $(document).ready(function() {
       $('#best-fit-select').attr('disabled','');
       $('#first-fit-select').attr('disabled','');
       collection.push('Worst Fit selected.');
+      alert('Worst Fit selected.');
       type = 3;
   });
 
@@ -131,18 +134,22 @@ $(document).ready(function() {
       console.log("Process " + num_of_processes + "cannot be allocated to main memory.");
       if(s > MMfree+IQfree){
         collection.push("Process size exceeds total free space available in both Main Memory and Input Queue.");
+        alert("Process size exceeds total free space available in both Main Memory and Input Queue.");
         collection.push("It cannot be allocated.");
+        alert("It cannot be allocated.");
       }
       else{
         collection.push("Process cannot be allocated to main memory. It is added to the input queue.");
+        alert("Process cannot be allocated to main memory. It is added to the input queue.");
         findTotalFree();
-        if(MMfree > s) collection.push("External fragmentation: " + (MMfree - s));
+        if(MMfree > s) {collection.push("External fragmentation: " + (MMfree - s));alert("External fragmentation: " + (MMfree));}
         addToQueue(s);
         debugprint();
       }
     }
     else{
       collection.push("Process " + num_of_processes + " allocated to main memory.");
+	alert("Process " + num_of_processes + " allocated to main memory.");
     }
   }
 
@@ -427,6 +434,7 @@ $(document).ready(function() {
     //completionAllocatedStatus(blocks[i-1].divID);
     blocks[i-1].isAlloc = true;
     collection.push("Process " + blocks[i-1].processID + " is completed.");
+    alert("Process " + blocks[i-1].processID + " is completed.");
 
     //variables to check if there are free spaces before and after the blocks assigned to the process
     var ptrBefore = 0;
@@ -515,6 +523,7 @@ $(document).ready(function() {
         {
           console.log("Process added from input queue to main memory automatically. ");
           collection.push("Process added from input queue to main memory. ");
+          alert("Process added from input queue to main memory. ");
           num_of_blocks_in_queue--;
           $('#op-data-' + processes_in_queue[i-1].divID).remove();
           switch (type) {
