@@ -14,7 +14,7 @@ function toColor(num) {
         g = (num & 0xFF00) >>> 8,
         r = (num & 0xFF0000) >>> 16,
         a1 = ( (num & 0xFF000000) >>> 24 ) / 255 ;
-    return "rgba(" + [r, g, b, a1].join(",") + ")";
+    return "rgba(" + [r, b, g, a1].join(",") + ")";
 }
 
 function drawTable(i){
@@ -27,6 +27,7 @@ function drawTable(i){
 }
 
 function displayBlock(i){
+  colors = ["white","crimson", "#7FFF00", "#FF7F50", "#00CED1", "#FFD700", "pink", "purple", "green", "grey"]
   if(i == total){
     $('#gantth').append('<h2>AVG WT: '+(avgwt/a.length).toFixed(2)+' AVG TAT: '+(avgtat/a.length).toFixed(2)+'</h2>');
     //drawTable();
@@ -42,7 +43,7 @@ function displayBlock(i){
   $('#outer-div').append('<div class="block" id="process-'+sequence[i].start +'">P-'+ sequence[i].no +'<div class="bottom">'+ sequence[i].stop +'</div></div>');
   $('#process-'+sequence[i].start).css('width',blockWidth);
   if(sequence[i].no != -1)
-  $('#process-'+sequence[i].start).css('background-color',toColor(sequence[i].no - 500000*sequence[i].no*sequence[i].no*sequence[i].no*sequence[i].no));
+  $('#process-'+sequence[i].start).css('background-color',colors[i]);
   $('#process-'+sequence[i].start).fadeIn('slow',function(){
     displayBlock(i+1);
     drawTable(i);
