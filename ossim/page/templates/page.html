@@ -42,7 +42,16 @@
 <div class="tite" style="background-color:#00b894;opacity:0.8;color:black;width: 0;height: 0">
  <div class="tite1" style="opacity: 0"><h1 style="margin:0px"> PAGE &nbsp; REPLACEMENT &nbsp; ALGORITHMS</h1></div>
 </div>
-  <div class="panel panel-secondary"  style="background-color: #00b894 ;margin-top:50px;color: white;opacity:0.7">
+<div class="container-fluid" style="margin-top:2px;margin-bottom: 0px;">
+    <a href="/login/desktop">
+        <button type="button"class="btn btn-primary" style="float:right">Go To Desktop</button>
+    </a>
+     <a href="/page/page2">
+        <button type="button"class="btn btn-primary" style="float:right">Belady's Anomaly</button>
+    </a>
+</div>
+
+  <div class="panel panel-secondary"  style="background-color: #00b894 ;margin-top:0px;color: white;opacity:0.7">
       <div class="panel-heading"><h1 style="text-alig
         var text = JSON.strn:center;">
       </div>
@@ -54,7 +63,7 @@
   </div>
       <div class="col-md-3">
 
-      <input type="text" class="size form-control infield"  style="color: darkred;" id="csize" placeholder="Enter cache size"></input>
+      <input type="text" class="size form-control infield"  style="color: darkred;" id="csize" placeholder="Enter number of frames"></input>
       </div>
 
 
@@ -76,7 +85,7 @@
 
 <div class="row my-4  ">
 
-<button class="proceed hidden btn btn-primary" id="proceed1">Proceed</button><br><br>
+<button class="proceed hidden btn btn-primary" id="proceed1">Start</button><br><br>
 
   <div class="col-md-4" style="background-color: #F3D250;">
     <h1 style="border-bottom: 2px solid black">FIFO</h1>
@@ -115,7 +124,11 @@
       <div class="answer" id="answers3"></div>
         </div>
   </div>
-
+</div>
+<div class="row my-4">
+    --
+</div>
+    <div class="row my-4">
       <div class="col-md-4" style="background-color: #F78888;">
 
          <h1 style="border-bottom: 2px solid black">LFU</h1>
@@ -138,6 +151,7 @@
       <div class="answer" id="answers5"> </div>
         </div>
   </div>
+    </div>
 </div>
   </div>
 
@@ -163,10 +177,10 @@ $("#submit").click(function(){
     data = $(".requests").val().trim().split(" ");
     cacheSize = parseInt($(".size").val().trim());
     count1 = count2 = count3 = count4=count5=0;
-    $("#fifo,#lru,#opt,#lfu,.answer").empty();
+    $("#fifo,#lru,#opt,#lfu,#sc,.answer").empty();
     // $("#lru").empty();
     // $("#opt").empty();
-    $('#fifo,#lru,#opt,#lfu').css('height',(data.length/8)*180+'px');
+    $('#fifo,#lru,#opt,#lfu,#sc').css('height',(data.length/8)*180+'px');
     var reqs = JSON.stringify(data.map(Number));
     var csize = JSON.stringify(cacheSize);
     $.post('/page/algo/',{requests: reqs, size: csize}, function(result){
@@ -178,6 +192,8 @@ $("#submit").click(function(){
       hitratio = [output['fifo']["hit-ratio"],output['lru']["hit-ratio"],output['opt']["hit-ratio"],output['lfu']["hit-ratio"],output['sc']["hit-ratio"]];
       $(".proceed").removeClass("hidden");
     });
+    div0=document.getElementById("proceed1");
+    div0.innerHTML="Start";
 
 
 
@@ -254,13 +270,15 @@ function cleanup(no){
   $("#proceed"+no).addClass("hidden");
 
    div0 = document.getElementById("answers"+no);
-   div0.innerHTML = "<br><h2 style='text-align: center;'>HITS    : "+ hits[no-1] + "<br>  MISSES   : "+misses[no -1] + "<br>  HIT RATIO: "+hitratio[no-1]+"</h2>";
+   div0.innerHTML = "<br><h2 style='text-align: center;'>HITS    : "+ hits[no-1] + "<br> PAGE FAULTS   : "+misses[no -1] + "<br>  HIT RATIO: "+hitratio[no-1]+"</h2>";
    div0.setAttribute("text-align","center");
    br = document.createElement("br");
    $(div0).hide().fadeIn(1000);
 
 }
 $("#proceed1").click(function(){
+    div0=document.getElementById("proceed1");
+    div0.innerHTML="continue";
   drawCard("fifo",count1);
   count1++;
   if(count1 == data.length){

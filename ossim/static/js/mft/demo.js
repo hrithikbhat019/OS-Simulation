@@ -211,12 +211,14 @@ $(document).ready(function(){
            '<p style="color:black;">Process ' + process.id + '</p>' +
            '</div></a>');
        collection.push('Process '+process.id+' has been sent to input queue');
+alert('Process '+process.id+' has been sent to input queue');
        $('#input-p-'+process.id).css('display','none');
        $('#input-p-'+process.id).css('height',inputH).fadeIn('slow')
            .on('click',function () {
                var id = $(this).attr('value');
                inputTaken -= process.size;
                collection.push('Process '+ id + ' has been deleted');
+		alert('Process '+ id + ' has been deleted');
                deleteFromQueue(id,process.id);
            });
 
@@ -228,6 +230,7 @@ $(document).ready(function(){
        //THIS FUNCTION IS TO REMOVE FROM QUEUE AND PUT IT INTO THE MM
        $('#input-p-'+id).fadeOut('slow');
        collection.push('Process '+id+' is now allocated.');
+alert('Process '+id+' is now allocated.');
        setStatus(id,1);
    }
 
@@ -243,6 +246,7 @@ $(document).ready(function(){
        var p = {};
        p.id = inputPNo;
        collection.push('Process '+ inputPNo + ' has entered');
+alert('Process '+ inputPNo + ' has entered');
        p.size = size;
        p.status = 1;
        p.allocatedTo = -1;
@@ -252,6 +256,7 @@ $(document).ready(function(){
        if(allocateBlock(p,type) == false){
            setStatus(p.id,0);
            collection.push('Process '+ p.id + ' could not be allocated');
+	   alert('Process '+ p.id + ' could not be allocated');
            if(inputTaken+p.size > 1000){
                alert('Input queue is full');
                flag = 0;
@@ -288,6 +293,7 @@ $(document).ready(function(){
        setAllocatedTo(process.id,allocateTo);
        setIntFrag(process.id,blockSize[allocateTo]-process.size);
        collection.push('Process '+ process.id + ' has been allocated');
+	alert('Process '+ process.id + ' has been allocated');
        var height = pixel*process.size;
        slideBlock(allocateTo,height,process.id);
 
@@ -299,6 +305,7 @@ $(document).ready(function(){
        console.log(id);
        deleteFromQueue(occupiedB[id]);
        collection.push('Process ' + occupiedB[id] + ' has completed');
+alert('Process ' + occupiedB[id] + ' has completed');
        completionAllocatedStatus(occupiedB[id]);
        occupiedB[id] = 0;
        setTimeout(tryAllocation,500);
