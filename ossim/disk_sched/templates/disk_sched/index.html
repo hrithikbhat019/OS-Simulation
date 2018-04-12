@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Disk Scheduling</title>
 	 <meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -12,13 +13,13 @@
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 	<style>
-		input[type=text],select{
+		input[type=text],input[type=number],select{
     border: none;
     height:40px;
     border-bottom: 2px solid red;
     font-weight: bold;
 }
-input[type=text]:focus,select:focus {
+input[type=text]:focus,input[type=number]:focus,select:focus {
     border: none;
     height:40px;
     border-bottom: 5px solid blue;
@@ -89,7 +90,7 @@ However, delay the fade out process for 2.5 seconds */
 		
 	</header>
 	<div id="snackbar"></div>
-	<div class="container" style="background-color: white;opacity: 0.8;padding:20px 20px 10px 20px">
+	<div class="container" style="background-color: white;opacity: 0.95;padding:20px 20px 10px 20px">
 		<div style="opacity: 1">
 			
 				<!-- <div>Enter the details</div> -->
@@ -98,13 +99,13 @@ However, delay the fade out process for 2.5 seconds */
 						<input id="points" type="text" placeholder=" Request with spaces">
 					</span>
 					<span style="padding-right: 5px">
-						<input id="head_cur" type="text" placeholder=" Current Position">
+						<input id="head_cur"  type="number" min="0"  step="1"  placeholder=" Current Position">
 					</span>
 					<span style="padding-right: 5px">
-						<input id="prev_head" type="text" placeholder=" Previous Position">
+						<input id="prev_head"  type="number" min="0"  step="1"  placeholder=" Previous Position">
 					</span>
 					<span style="padding-right: 5px">
-						<input id="cylinders" type="text" placeholder=" Total Cylinders">
+						<input id="cylinders"  type="number" min="0"  step="1"  placeholder=" Total Cylinders">
 					</span>
 					<span style="padding-right: 15px;">
 						<select id="types_sched">
@@ -466,6 +467,10 @@ function plotthe(typo,data1,data2){
 	else if(j==-1){
 		myFunction();
 		document.getElementById("snackbar").innerHTML ="Enter a valid cylinder value ...";
+	}
+	else if(head_cur<0 || prev_head <0 || cylinders < 0){
+		myFunction();
+		document.getElementById("snackbar").innerHTML ="Enter a non negative value ...";
 	}
 
 else
