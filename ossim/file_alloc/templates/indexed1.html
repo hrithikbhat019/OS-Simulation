@@ -178,7 +178,7 @@
 							return;
 						}
 						var res_form = document.Need;
-						var colors = ["yellow", "red", "green", "blue", "purple"]
+						var colors = ["crimson", "#7FFF00", "#FF7F50", "#00CED1", "#FFD700", "pink", "purple", "green", "grey"];
 						var j =0;
 						
 
@@ -364,7 +364,7 @@
 	                  	for (j = 0; j < tmp[no_files+1 + i].value; j++) {
 	                  		var loly = Number(tmp[no_files+1+i].value) + num_indexb;
 	                  		console.log("Lolly " + loly);
-                    	if (j==0 && Math.ceil(Number(tmp[no_files+1+i].value) + num_indexb)>graph.length)
+                    	if (j==0 && Math.ceil(Number(tmp[no_files+1+i].value))>graph.length)
                     	{
                     		flag = 1;
                     		break;
