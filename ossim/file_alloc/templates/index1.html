@@ -291,6 +291,8 @@
 						{
 							color_head.cells[i].innerHTML = 'Not Allocated';
 							color_head.cells[i].style.backgroundColor = "white";
+							cell= start_block.insertCell(start);
+                    	cell.innerHTML = "";
 							continue;
 						}
 						
@@ -326,7 +328,7 @@
                         $container.appendChild($item);
                         label_count+=1;
 
-//                        document.getElementById("allocate-button").remove()
+                        document.getElementById("allocate-button").remove()
 
 	                  }
 

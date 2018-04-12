@@ -346,6 +346,12 @@
 						{
 							color_head.cells[i].innerHTML = 'Not Allocated'
 							color_head.cells[i].style.backgroundColor = "white"
+							cell = start_block.insertCell(end);
+                    	cell.innerHTML = "";
+							cell = end_block.insertCell(end);
+                    	cell.innerHTML = "";
+                    	cell = extra_block.insertCell(end);
+                    	cell.innerHTML = "";
 							continue;
 						}
 						cell = end_block.insertCell(end);
