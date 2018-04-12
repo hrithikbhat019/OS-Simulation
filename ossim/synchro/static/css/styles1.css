@@ -19,6 +19,10 @@ div{
   margin-top:60px;
 }
 
+.cards2 div{
+  margin-left: 30%;
+}
+
 body{
   background-image: url('/static/images/bg-01.jpg');
 }
