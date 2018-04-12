@@ -333,10 +333,12 @@
                     	{
                     		num_indexb = Number(tmp[no_files+1 + i].value)/num_entries;//+ Number(1);
                     	}
-                    	if (Number(Number(tmp[no_files+1+i].value)+Number(num_indexb))>(Number(memory)- Number(count)))
+                    	if (Number(Number(tmp[no_files+1+i].value)+Number(num_indexb))>graph.length)
                     	{
                     		color_head.cells[i].innerHTML = 'Not Allocated'
 							color_head.cells[i].style.backgroundColor = "white"
+							cell = ind_block.insertCell(i);
+	                    	cell.innerHTML = "";
 							continue;
                     		
                     	}
@@ -357,17 +359,27 @@
 	                    	graph_container[index_block].children[0].innerHTML = "INDEX_"+Number(i-1)+"-> ";
 	                    	
 	                    }
-	                    count = Number(0);
+	                    //count = Number(0);
 
 	                  	for (j = 0; j < tmp[no_files+1 + i].value; j++) {
-                    	if (Number(tmp[no_files+1+i].value)>(Number(memory)- Number(count)))
+	                  		var loly = Number(tmp[no_files+1+i].value) + num_indexb;
+	                  		console.log("Lolly " + loly);
+                    	if (j==0 && Math.ceil(Number(tmp[no_files+1+i].value) + num_indexb)>graph.length)
                     	{
                     		flag = 1;
                     		break;
                     	}
                     	if(j%num_entries==0 && j!=0)
                     	{
-                    		graph_container[Number(index_arr[please_work])].children[0].innerHTML+= "\n" +Number(index_arr[please_work+ Number(1)]);
+                    		if(Number(index_arr[please_work+ Number(1)]))
+                    		{
+                    			graph_container[Number(index_arr[please_work])].children[0].innerHTML+= "\n" +Number(index_arr[please_work+ Number(1)]);
+                    		}
+                    		else
+                    		{
+                    			graph_container[Number(index_arr[please_work])].children[0].innerHTML+= "\n " + "-1 ";
+                    		}
+                    		
                     		please_work = Number(please_work) + Number(1);
                     	}
                     	rand_val= Math.floor(Math.random() *Number(graph.length-1));
@@ -377,7 +389,7 @@
                     	graph.splice(Number(rand_val), 1);
                     	console.log(graph);
                     	console.log(graph_container[rand_val]);
-                    	index_num = Number(count)+Number(j);
+                    	//index_num = Number(count)+Number(j);
                     	console.log("look HERE: "+index_arr[please_work]);
                     	graph_container[Number(index_arr[please_work])].children[0].innerHTML+= "\n" +rand_index;
                     	graph_container[rand_index].style.backgroundColor = colors[i-1];
@@ -392,10 +404,13 @@
 						if(flag)
 						{
 							color_head.cells[i].innerHTML = 'Not Allocated'
-							color_head.cells[i].style.backgroundColor = "white"
+							color_head.cells[i].style.backgroundColor = "white";
+							cell = ind_block.insertCell(i);
+	                    	cell.innerHTML = "";
 							continue;
 						}
-						count += Number(tmp[no_files+1 + i].value);
+						count += Math.ceil(Number(tmp[no_files+1 + i].value) + Number(num_indexb));
+						console.log("COUNT " + count);
 
 
 	                  }
