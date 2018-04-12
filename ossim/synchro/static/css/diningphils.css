@@ -92,6 +92,12 @@ top:68%;left:42%;
   border-radius: 3px;
 }
 
+.legend img{
+
+    width:100px;
+    height:100px;
+}
+
 #table{
    height:435px;
    width:435px;
