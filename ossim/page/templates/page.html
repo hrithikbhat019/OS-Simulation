@@ -42,7 +42,12 @@
 <div class="tite" style="background-color:#00b894;opacity:0.8;color:black;width: 0;height: 0">
  <div class="tite1" style="opacity: 0"><h1 style="margin:0px"> PAGE &nbsp; REPLACEMENT &nbsp; ALGORITHMS</h1></div>
 </div>
-  <div class="panel panel-secondary"  style="background-color: #00b894 ;margin-top:50px;color: white;opacity:0.7">
+<div class="container-fluid" style="margin-top:2px;margin-bottom: 0px;">
+    <a href="/login/desktop">
+        <button type="button"class="btn btn-primary" style="float:right">Go To Desktop</button>
+    </a>
+</div>
+  <div class="panel panel-secondary"  style="background-color: #00b894 ;margin-top:0px;color: white;opacity:0.7">
       <div class="panel-heading"><h1 style="text-alig
         var text = JSON.strn:center;">
       </div>
@@ -254,7 +259,7 @@ function cleanup(no){
   $("#proceed"+no).addClass("hidden");
 
    div0 = document.getElementById("answers"+no);
-   div0.innerHTML = "<br><h2 style='text-align: center;'>HITS    : "+ hits[no-1] + "<br>  MISSES   : "+misses[no -1] + "<br>  HIT RATIO: "+hitratio[no-1]+"</h2>";
+   div0.innerHTML = "<br><h2 style='text-align: center;'>HITS    : "+ hits[no-1] + "<br> PAGE FAULTS   : "+misses[no -1] + "<br>  HIT RATIO: "+hitratio[no-1]+"</h2>";
    div0.setAttribute("text-align","center");
    br = document.createElement("br");
    $(div0).hide().fadeIn(1000);

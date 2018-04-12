@@ -38,11 +38,16 @@
         margin-right: 20px;
     }
 </style>
-<body  >
+<body >
 <div class="tite" style="background-color:#00b894;opacity:0.8;color:black;width: 0;height: 0">
- <div class="tite1" style="opacity: 0"><h1 style="margin:0px"> PAGE &nbsp; REPLACEMENT &nbsp; ALGORITHMS</h1></div>
+ <div class="tite1" style="opacity: 0"><h1 style="margin:0px"> Belady's Anamaly</h1></div>
 </div>
-  <div class="panel panel-secondary"  style="background-color: #00b894 ;margin-top:50px;color: white;opacity:0.7">
+<div class="container-fluid" style="margin-top:2px;">
+    <a href="/login/desktop">
+        <button type="button"class="btn btn-primary" style="float:right">Go To Desktop</button>
+    </a>
+</div>
+  <div class="panel panel-secondary"  style="background-color: #00b894 ;margin-top:0px;color: white;opacity:0.7">
       <div class="panel-heading"><h1 style="text-alig
         var text = JSON.strn:center;">
       </div>
@@ -55,7 +60,12 @@
 
 
 
+
   </div>
+      <div class="row" style="margin-left: 10px;">
+          1 2 3 4 1 2 5 1 2 3 4 5<br>
+          3 2 1 0 3 2 4 3 2 1 0 4<br>
+      </div>
 <div class="row">
     <div class="col-md-5">
 
@@ -68,7 +78,7 @@
 
 </div>
 
-<div class="container" style="opacity: 0.8">
+<div class="container  " style="opacity: 0.8">
 
 
 <div class="row my-4  ">
@@ -76,46 +86,89 @@
 <button class="proceed hidden btn btn-primary" id="proceed1">Proceed</button><br><br>
 
   <div  style="background-color: #F3D250;">
+
     <h1 style="border-bottom: 2px solid black">FIFO</h1>
 
 <div class="row">
+    <div class="col-md-1">
+    </div>
      <div class="col-md-5" >
+         <div class="row">
          <div id="fifo">
 
          </div>
+         </div>
+         <div class="row">
+          <div class="answer" id="answers1"></div>
 
-      </div>
+         </div>
+
+
+
+
+  </div>
+
+
       <div  class="col-md-5" >
+          <div class="row">
 <div id="fifo2">
 
 </div>
-      </div>
-</div>
+          </div>
 
-    <div clas="row">
-      <div class="answer" id="answers1"></div>
-      </div>
+      <div class="answer" id="answers21"></div>
+
 
   </div>
+
+      </div>
+      <div class="row">
+      <div id="conclusion1">
+    </div>
+      </div>
+</div>
+    <div class="row my-4">
+    </div>
+
+
+
   <div  style="background-color: #90CCF4;">
 
      <h1 style="border-bottom: 2px solid black">LRU</h1>
 <div class="row">
+     <div class="col-md-1">
+    </div>
       <div  class="col-md-5" >
+          <div class="row">
           <div id="lru">
 
           </div>
-      </div>
+          </div>
+
+      <div class="answer" id="answers2"></div>
+
+
+  </div>
+
     <div  class="col-md-5" >
+        <div class="row">
         <div id="lru2">
 
         </div>
-      </div>
+        </div>
+
+      <div class="answer" id="answers22"></div>
+
+
+  </div>
 </div>
     <div class="row">
-      <div class="answer" id="answers2"></div>
+      <div id="conclusion2">
+    </div>
       </div>
   </div>
+  </div>
+</div>
 
 
 
@@ -146,7 +199,7 @@ $("#submit").click(function() {
 
     count1 = count2 = count3 = count4 = count5 = 0;
 
-    $("#fifo,#lru,#fifo2,#lru2.answer").empty();
+    $("#fifo,#lru,#fifo2,#lru2,.answer").empty();
     // $("#lru").empty();
     // $("#opt").empty();
     $('#fifo,#lru,#fifo2,#lru2').css('height', (data.length / 8) * 180 + 'px');
@@ -347,12 +400,34 @@ $("#submit").click(function() {
     function cleanup2(no) {
         $("#proceed" + no).addClass("hidden");
 
-        div0 = document.getElementById("answers" + no);
-        div0.innerHTML = "<br><h2 style='text-align: center;'>HITS    : " + hits2[no - 1] + "<br>  MISSES   : " + misses2[no - 1] + "<br>  HIT RATIO: " + hitratio2[no - 1] + "</h2>";
+        div0 = document.getElementById("answers2" + no);
+        div0.innerHTML = "<br><h2 style='text-align: center;'>HITS    : " + hits2[no - 1] + "<br>  PAGE FAULTS  : " + misses2[no - 1] + "<br>  HIT RATIO: " + hitratio2[no - 1] + "</h2>";
         div0.setAttribute("text-align", "center");
         br = document.createElement("br");
         $(div0).hide().fadeIn(1000);
 
+        div0 = document.getElementById("conclusion" + no);
+        if(no == 2)
+        {
+            div3 = document.getElementById("conclusion1" );
+            div4 = document.getElementById("conclusion2" );
+            if(misses[0]>= misses2[0])
+            {
+                div3.innerHTML=" Request Pattern does not suffer from belady's anamaly";
+            }
+            else {
+                div3.innerHTML=" Request Pattern suffers from belady's anamaly";
+            }
+
+             if(misses[1]>= misses2[1])
+            {
+                div4.innerHTML=" Request Pattern does not suffer from belady's anamaly";
+            }
+            else {
+                div4.innerHTML=" Request Pattern suffers from belady's anamaly";
+            }
+
+        }
     }
 
     function proceed2() {
@@ -375,7 +450,7 @@ $("#submit").click(function() {
         $("#proceed" + no).addClass("hidden");
 
         div0 = document.getElementById("answers" + no);
-        div0.innerHTML = "<br><h2 style='text-align: center;'>HITS    : " + hits[no - 1] + "<br>  MISSES   : " + misses[no - 1] + "<br>  HIT RATIO: " + hitratio[no - 1] + "</h2>";
+        div0.innerHTML = "<br><h2 style='text-align: center;'>HITS    : " + hits[no - 1] + "<br>  PAGE FAULTS   : " + misses[no - 1] + "<br>  HIT RATIO: " + hitratio[no - 1] + "</h2>";
         div0.setAttribute("text-align", "center");
         br = document.createElement("br");
         $(div0).hide().fadeIn(1000);
@@ -532,5 +607,17 @@ h1{
 
         background-image: url("http://www.izzness.com/postpic/2015/08/free-professional-web-page-backgrounds_667343.jpg");
     }
+#conclusion1{
+    text-align: center;
+    margin-top: 10px;
+    background-color: #ddffff;
+    margin-bottom: 20px;
 
+}
+    #conclusion2{
+         text-align: center;
+    margin-top: 10px;
+         background-color: #ddffff;
+        margin-bottom: 20px;
+    }
 </style>
