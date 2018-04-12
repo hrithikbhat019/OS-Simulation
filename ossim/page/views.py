@@ -38,3 +38,25 @@ def algo(request):
         result_sc=sc(data)
         result = {'fifo': result_ff, 'lru':result_lru, 'opt':result_opt,'lfu':result_lfu,'sc':result_sc}
     return JsonResponse(result)
+
+
+def demo2(request):
+    return render(request,'page2.html')
+
+
+@csrf_exempt
+def algo2(request):
+
+    if request.method == 'POST':
+        data = request.POST.get('requests')
+        requests = json.loads(data)
+        data = request.POST.get('size')
+        size = json.loads(data)
+
+        data = {'requests': requests, 'size':size}
+
+        result_ff = ff(data)
+        result_lru = lru(data)
+
+        result = {'fifo': result_ff, 'lru':result_lru}
+    return JsonResponse(result)
