@@ -77,38 +77,102 @@ However, delay the fade out process for 2.5 seconds */
     to {bottom: 0; opacity: 0;}
 }
 
+
+
+
+.container2 {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 220px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 115px;
+}
+
+
+
+.container2 a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+
+
+.input--style-4
+{
+ padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 11px;
+  color: #818181;
+  display: block;
+}
+.label
+{
+padding: 2px 8px 2px 16px;
+  text-decoration: none;
+  font-size: 21px;
+  color: #818181;
+  display: block;
+}
+
+
+
 	</style>
 
 
 </head>
-<body  style="background-image: url('https://ak9.picdn.net/shutterstock/videos/6527795/thumb/1.jpg');background-size:cover">
+<body  style="background-image: url('https://specials-images.forbesimg.com/imageserve/985895696/960x0.jpg?fit=scale');background-size:cover">
 	<header class="container-fluid"  style="padding:10px">
 		<!-- background: linear-gradient(to right,#d24dff, #4747d1) -->
 		<div align="center">
-			<b style="font-size:45px;color:black;font-family: Arial, Helvetica, sans-serif;">Disk Scheduling</b>
+			<b style="font-size:45px;color: rgb(83, 7, 7); font-family: Arial, Helvetica, sans-serif;">Disk Scheduling</b>
 		</div>
 		
 	</header>
 	<div id="snackbar"></div>
-	<div class="container" style="background-color: white;opacity: 0.95;padding:20px 20px 10px 20px">
+	<div class="container2" >
 		<div style="opacity: 1">
 			
 				<!-- <div>Enter the details</div> -->
 				<span>
+				<div>
 					<span  style="padding-right:5px;max-width: 20px" >
-						<input id="points" type="text" placeholder=" Request with spaces">
+					<label class="label">Request</label>
+						<input class="input--style-4" id="points" type="text" placeholder=" Enter with spaces">
 					</span>
+				</div>	
+				<div>
 					<span style="padding-right: 5px">
-						<input id="head_cur"  type="number" min="0"  step="1"  placeholder=" Current Position">
+					<label class="label">Current Position</label>
+						<input class="input--style-4" id="head_cur"  type="number" min="0"  step="1"  placeholder=" Enter current Position">
 					</span>
+				</div>	
+				
+				<div>
 					<span style="padding-right: 5px">
-						<input id="prev_head"  type="number" min="0"  step="1"  placeholder=" Previous Position">
+					<label class="label">Previous Position</label>
+						<input class="input--style-4" id="prev_head"  type="number" min="0"  step="1"  placeholder=" Enter previous Position">
 					</span>
+					
+				</div>	
+				
+				<div>
 					<span style="padding-right: 5px">
-						<input id="cylinders"  type="number" min="0"  step="1"  placeholder=" Total Cylinders">
+					<label class="label">Total Cylinders</label>
+						<input class="input--style-4" id="cylinders"  type="number" min="0"  step="1"  placeholder="Enter total Cylinders">
 					</span>
+				</div>	
+				
+
 					<span style="padding-right: 15px;">
-						<select id="types_sched">
+					<label class="label">Algorithm</label>
+						<select class="input--style-4" id="types_sched">
 							<option value="">--SELECT ALGO--</option>
 							<option value="fcfs">FCFS</option>
 							<option value="sstf">SSTF</option>
@@ -121,6 +185,7 @@ However, delay the fade out process for 2.5 seconds */
 						</select>
 					</span>
 					<span style="padding-right: 5px;">
+					<label class="label">Submit</label>
 						<button type="button" class="btn btn-primary" onclick="executeFunc()"><b><i class="fas fa-check"></i></b></button>
 					</span>
 				</span>
@@ -128,8 +193,19 @@ However, delay the fade out process for 2.5 seconds */
 	
 
 		</div>
+		
+		
+		
+			
+
 
 	</div>
+	
+	
+	
+	
+
+	
 
 	<br>
 	<div class="container" style="background-color: white;opacity: 0.9;padding:0px 20px 10px 20px">
@@ -142,7 +218,7 @@ However, delay the fade out process for 2.5 seconds */
 	<br>
 	<div class="container-fluid" style="padding:0px 20px 20px 0px;margin-bottom: 40px">
 		<a href="/login/desktop">
-			<button type="button" class="btn btn-primary"  style="float:right">Go to Desktop</button>
+			<button type="button" class="btn btn-primary"  style="background-color: rgb(83, 7, 7); float:right">Go to Desktop</button>
 		</a>
 	</div>
 
@@ -176,7 +252,7 @@ However, delay the fade out process for 2.5 seconds */
 	         ]
 	      },
 	      style: {
-	         fontFamily: '\'Unica One\', sans-serif'
+	         fontFamily: '\'Times\', sans-serif'
 	      },
 	      plotBorderColor: '#606063'
 	   },
